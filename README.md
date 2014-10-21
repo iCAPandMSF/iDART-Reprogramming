@@ -3,7 +3,7 @@ iDART
 iDART is a software solution designed to support the dispensing of ARV drugs in the public health care sector. It supports pharmacists in their important role of dispensing accurately to an increasing number of patients whilst still being able to engage and assist the patient.
 
 iDART is a product of [Cell-Life](http://www.cell-life.org/).
-This branch is a fork of the code to be able to manage general purpose pharmacies instead of only ARV clinics. This branch is a work-in-progress to be implemented at ICAP MOZAMBIQUE AND MSFB.
+This branch is a fork of the code to be able to manage general purpose pharmacies instead of only ARV clinics. This branch is a work-in-progress to be implemented at ICAP Mozambique AND MSFB.
 
 The main project source is hosted at [iDART-Sourceforge](http://sourceforge.net/projects/idart/) and the Wiki for the same is located at [iDART - Cell-Life](http://wiki.cell-life.org/display/IDART)
 
