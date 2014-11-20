@@ -108,5 +108,92 @@
 		<dropColumn tableName="adherencerecordtmp" columnName="invalid"/>
 		<dropColumn tableName="deleteditem" columnName="invalid"/>
 	</changeSet>
+	<changeSet author="simon@cell-life.org" id="3.8.12">
+		<comment>add linhat table</comment>
+		<createTable tableName="linhat">
+			<column name="linhaid" type="int">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="linhanome" type="varchar(255)">
+				<constraints nullable="false" unique="true" />
+			</column>
+			<column name="active" type="boolean">
+				<constraints nullable="false" unique="true" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="simon@cell-life.org" id="3.8.13">
+		<comment>add regimeterapeutico table</comment>
+		<createTable tableName="regimeterapeutico">
+			<column name="regimeid" type="int">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="regimeesquema" type="varchar(255)">
+				<constraints nullable="false" unique="true" />
+			</column>
+			<column name="active" type="boolean">
+				<constraints nullable="false" unique="true" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="simon@cell-life.org" id="3.8.14">
+		<comment>add motivomudanca table</comment>
+		<createTable tableName="motivomudanca">
+			<column name="idmotivo" type="int">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="motivo" type="varchar(255)">
+				<constraints nullable="false" unique="true" />
+			</column>
+			<column name="active" type="boolean">
+				<constraints nullable="false" unique="true" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="simon@cell-life.org" id="3.8.15">
+		<comment>add datainicionoutroservico,motivoMudanca,regimeid to prescription</comment>
+		<addColumn tableName="prescription">
+			<column name="datainicionoutroservico" type="TIMESTAMP WITH TIME ZONE"/>
+		</addColumn>
+		<addColumn tableName="prescription">
+			<column name="motivomudanca" type="varchar(255)"/>
+		</addColumn>
+		<addColumn tableName="prescription">
+			<column name="regimeid" type="int"/>
+		</addColumn>
+		<addColumn tableName="prescription">
+			<column name="linhaid" type="int"/>
+		</addColumn>
+		<addForeignKeyConstraint constraintName="fk_prescription_regimeterapeutico" 
+			baseTableName="prescription" 
+			baseColumnNames="regimeid" 
+			referencedTableName="regimeterapeutico" 
+			referencedColumnNames="regimeid"/>
+		<addForeignKeyConstraint constraintName="fk_prescription_linhat" 
+			baseTableName="prescription" 
+			baseColumnNames="linhaid" 
+			referencedTableName="linhat" 
+			referencedColumnNames="linhaid"/>
+	</changeSet>
+	<changeSet author="simon@cell-life.org" id="3.8.16">
+		<comment>add drugstockcontrol table</comment>
+		<createTable tableName="drugstockcontrol">
+			<column name="drugid" type="int">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="amc" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="existingstock" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="orderquantity" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="riskstatus" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
 </databaseChangeLog>
 

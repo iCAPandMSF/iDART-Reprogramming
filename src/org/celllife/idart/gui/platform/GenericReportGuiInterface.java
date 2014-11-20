@@ -25,6 +25,7 @@ public interface GenericReportGuiInterface {
 	static String REPORT_PATIENTS_EXPECTED_ON_A_DAY = Messages.getString("reports.patientsExpectedOnADay");  //$NON-NLS-1$
 	static String REPORT_ARV_DRUG_USAGE = Messages.getString("reports.ARVDrugUsage");  //$NON-NLS-1$
 	static String REPORT_DRUGS_DISPENSED = Messages.getString("reports.drugsDispensed");  //$NON-NLS-1$
+	static String REPORT_DRUGS_STOCK_CONTROL = Messages.getString("reports.drugsStockControl");  //$NON-NLS-1$
 	static String REPORT_MONTHLY_RECEIPT_ISSUE = Messages.getString("reports.montlyIssuesAndReceipts");  //$NON-NLS-1$
 	static String REPORT_STOCK_TAKE = Messages.getString("reports.stockTake");  //$NON-NLS-1$
 	static String REPORT_PACKAGES_CREATED = Messages.getString("reports.packagesCreated");  //$NON-NLS-1$

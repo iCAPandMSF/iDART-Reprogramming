@@ -6,12 +6,19 @@
 
 package org.celllife.idart.gui.alert;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Vector;
 
 
 
 
+
+
+
+import model.manager.DrugStockControlManager;
+
 import org.celllife.idart.database.dao.ConexaoJDBC;
+import org.celllife.idart.database.hibernate.DrugStockControl;
 import org.celllife.idart.database.hibernate.util.HibernateUtil;
 import org.celllife.idart.gui.platform.GenericFormGui;
 import org.celllife.idart.gui.utils.ResourceUtils;
@@ -121,7 +128,7 @@ public class Alert extends GenericFormGui  {
 	 */
 	@Override
 	protected void createCompHeader() {
-		String headerTxt = "Alerta de Níveis de Stock";
+		String headerTxt = "Alerta de Nï¿½veis de Stock";
 		iDartImage icoImage = iDartImage.PRESCRIPTIONNEW;
 		buildCompHeaderAlerta(headerTxt, icoImage);
 	}
@@ -209,67 +216,51 @@ public class Alert extends GenericFormGui  {
 		  
 		 Color orange = new Color(display, 255, 127, 0);
 		 
-		try {
-			Vector<RiscoRoptura> riscos =c.selectRiscoDeRopturaStock();
-			int k=0;
-			for(int i =0; i<riscos.size();i++){
+		 Color white = display.getSystemColor(SWT.COLOR_WHITE);
+		 
+		List<DrugStockControl> risks = DrugStockControlManager.getDrugStockControls(getHSession());
+		//Vector<RiscoRoptura> riscos =c.selectRiscoDeRopturaStock();
+		int k=0;
+		for(DrugStockControl risk: risks){
+			
+			System.out.println("\n medicamento: "+risk.getDrug().getName()+" - amc: "+risk.getAmc()+" - saldo: "+risk.getExistingStock());
+			
+			//Pendig Ropture --> stock <= AMC/3
+			if(risk.getRiskStatus().equals("Pending rupture")){
 				
-				System.out.println("\n medicamento: "+riscos.get(i).getNome()+" - amc: "+riscos.get(i).getAmc()+" - saldo: "+riscos.get(i).getSaldo());
-				
-				
- //Pendig Ropture --> stock <= AMC/3
-				
-				if(riscos.get(i).getAmc()/3>=riscos.get(i).getSaldo()){
-					
-					final TableItem item = new TableItem(tblDrugs, SWT.NONE);
-				    item.setText(new String[] {""+(++k), riscos.get(i).getNome(), ""+riscos.get(i).getAmc(),""+riscos.get(i).getSaldo(), ""+riscos.get(i).getQtyOrdem(),"Pending Rupture"});
-				    
-				      item.setBackground(5, red);
-				}
-				
-				else
-				
-				//se tiver risco de roptura de stock --> stock =< AMC
-				
-				if(riscos.get(i).getAmc()>=riscos.get(i).getSaldo()){
-					
-					final TableItem item = new TableItem(tblDrugs, SWT.NONE);
-				    item.setText(new String[] {""+(++k), riscos.get(i).getNome(), ""+riscos.get(i).getAmc(),""+riscos.get(i).getSaldo(), ""+riscos.get(i).getQtyOrdem(), "Risk of Rupture"});
-				    
-				    item.setBackground(5, orange);
-
-
-				   
-				   
+				final TableItem item = new TableItem(tblDrugs, SWT.NONE);
+			    item.setText(new String[] {""+(++k), risk.getDrug().getName(), ""+risk.getAmc(),""+risk.getExistingStock(), ""+risk.getOrderQuantity(),risk.getRiskStatus()});
+			    item.setBackground(5, red);
 			}
-				else
-					// Overstock --> stock>AMC*3
-					if(riscos.get(i).getAmc()*3 < riscos.get(i).getSaldo()){
-						
-						final TableItem item = new TableItem(tblDrugs, SWT.NONE);
-					    item.setText(new String[] {""+(++k), riscos.get(i).getNome(), ""+riscos.get(i).getAmc(),""+riscos.get(i).getSaldo(), " -- ", "OverStock"});
-					    	
-						item.setBackground(5, green);
-					}
+			
+			//se tiver risco de roptura de stock --> stock =< AMC
+			if(risk.getRiskStatus().equals("Risk rupture")){
 				
-				
-			    
-		
+				final TableItem item = new TableItem(tblDrugs, SWT.NONE);
+				item.setText(new String[] {""+(++k), risk.getDrug().getName(), ""+risk.getAmc(),""+risk.getExistingStock(), ""+risk.getOrderQuantity(),risk.getRiskStatus()});
+			    item.setBackground(5, orange);
 			}
+			// Overstock --> stock>AMC*3
+			if(risk.getRiskStatus().equals("OverStock")){
+					
+				final TableItem item = new TableItem(tblDrugs, SWT.NONE);
+				item.setText(new String[] {""+(++k), risk.getDrug().getName(), ""+risk.getAmc(),""+risk.getExistingStock(), ""+risk.getOrderQuantity(),risk.getRiskStatus()});
+			    item.setBackground(5, green);
+			}
+			
+			if(risk.getRiskStatus().equals("Normal Stock")){
+				
+				final TableItem item = new TableItem(tblDrugs, SWT.NONE);
+				item.setText(new String[] {""+(++k), risk.getDrug().getName(), ""+risk.getAmc(),""+risk.getExistingStock(), ""+risk.getOrderQuantity(),risk.getRiskStatus()});
+			    item.setBackground(5, white);
+			}
+		}
 //			for(int i=0;i<10;i++)
 //			{
 //				
 //			final TableItem item = new TableItem(tblDrugs, SWT.NONE);
 //		    item.setText(new String[] {""+(++k), "ARV"+k, "AMC"+k,"SALDO"+k, " -- ", "ALERTA"+k});
 //			}
-			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 	
 		   clmSpace.pack();

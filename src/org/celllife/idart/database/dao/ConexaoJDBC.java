@@ -22,15 +22,15 @@ import org.celllife.idart.gui.alert.RiscoRoptura;
 public class ConexaoJDBC {
 	
 
-Connection conn_db;  // Conexão com o servidor de banco de dados
-Statement st;   // Declaração para executar os comandos
+Connection conn_db;  // Conexï¿½o com o servidor de banco de dados
+Statement st;   // Declaraï¿½ï¿½o para executar os comandos
 	
 	public void conecta(String usr, String pwd) throws SQLException, ClassNotFoundException 
 {
 
 
 
-String url = "jdbc:postgresql://localhost/pharm?charSet=LATIN1";
+String url = "jdbc:postgresql://localhost/idart?charSet=LATIN1";
 
 // Carregar o driver
 Class.forName("org.postgresql.Driver");
@@ -39,7 +39,7 @@ Class.forName("org.postgresql.Driver");
 System.out.println("Conectando ao banco de dados\nURL = " + url);
 conn_db = DriverManager.getConnection(url, usr, pwd);
 
-System.out.println("Conectado...Criando a declaração");
+System.out.println("Conectado...Criando a declaraï¿½ï¿½o");
 st = conn_db.createStatement();
 
 
@@ -59,7 +59,7 @@ Class.forName("org.postgresql.Driver");
 System.out.println("Conectando ao banco de dados\nURL = " + url);
 conn_db = DriverManager.getConnection(url, usr, pwd);
 
-System.out.println("Conectado...Criando a declaração");
+System.out.println("Conectado...Criando a declaraï¿½ï¿½o");
 st = conn_db.createStatement();
 
 return conn_db;
@@ -126,9 +126,9 @@ public List<PrescriptionToPatient> listPtP(String patientid ) throws ClassNotFou
 
            
             }
-            rs.close(); // é necessário fechar o resultado ao terminar
+            rs.close(); // ï¿½ necessï¿½rio fechar o resultado ao terminar
         }
-        System.out.println("Fechando a conexão");
+        System.out.println("Fechando a conexï¿½o");
         st.close();
         conn_db.close();
         return ptp;
@@ -191,11 +191,11 @@ riscos.add(rr);
 System.out.println(" \n");
 
             } 
-            rs.close(); // é necessário fechar o resultado ao terminar
+            rs.close(); // ï¿½ necessï¿½rio fechar o resultado ao terminar
         }
 	
 	
-        System.out.println("Fechando a conexão");
+        System.out.println("Fechando a conexï¿½o");
         st.close();
         conn_db.close();
 return riscos;

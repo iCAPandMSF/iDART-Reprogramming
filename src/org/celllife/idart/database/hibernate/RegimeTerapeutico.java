@@ -12,6 +12,7 @@ public class RegimeTerapeutico {
 	private int regimeid;
 	private String regimeesquema;
 	private boolean active;
+	
 	public int getRegimeid() {
 		return regimeid;
 	}

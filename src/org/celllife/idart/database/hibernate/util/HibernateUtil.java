@@ -35,6 +35,7 @@ import org.celllife.idart.database.hibernate.ChemicalDrugStrength;
 import org.celllife.idart.database.hibernate.Clinic;
 import org.celllife.idart.database.hibernate.Doctor;
 import org.celllife.idart.database.hibernate.Drug;
+import org.celllife.idart.database.hibernate.DrugStockControl;
 import org.celllife.idart.database.hibernate.Episode;
 import org.celllife.idart.database.hibernate.Form;
 import org.celllife.idart.database.hibernate.IdentifierType;
@@ -129,6 +130,7 @@ public class HibernateUtil {
 		ac.addAnnotatedClass(Clinic.class);
 		ac.addAnnotatedClass(Doctor.class);
 		ac.addAnnotatedClass(Drug.class);
+		ac.addAnnotatedClass(DrugStockControl.class);
 		ac.addAnnotatedClass(Episode.class);
 		ac.addAnnotatedClass(Form.class);
 		ac.addAnnotatedClass(Logging.class);

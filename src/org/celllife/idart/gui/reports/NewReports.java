@@ -37,6 +37,7 @@ import org.celllife.idart.gui.reportParameters.ClinicIndicators;
 import org.celllife.idart.gui.reportParameters.CohortDrugCollections;
 import org.celllife.idart.gui.reportParameters.DailyDispensingTotals;
 import org.celllife.idart.gui.reportParameters.DrugCombinations;
+import org.celllife.idart.gui.reportParameters.DrugStockControlReport;
 import org.celllife.idart.gui.reportParameters.DrugsDispensed;
 import org.celllife.idart.gui.reportParameters.EpisodeStats;
 import org.celllife.idart.gui.reportParameters.EpisodesStartedOrEndedReportGUI;
@@ -428,6 +429,8 @@ private void createGrpClinicManagementReports() {
 				new MonthlyReceiptsAndIssues(getShell(), false));
 		reportGUIs.put(GenericReportGuiInterface.REPORT_ARV_DRUG_USAGE,
 				new ARVDrugUsage(getShell(), false));
+		reportGUIs.put(GenericReportGuiInterface.REPORT_DRUGS_STOCK_CONTROL,
+				new DrugStockControlReport(getShell(), false));
 
 		// Clinic Management Reports
 

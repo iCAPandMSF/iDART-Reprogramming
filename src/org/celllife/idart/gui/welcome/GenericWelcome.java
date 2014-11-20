@@ -393,36 +393,11 @@ public abstract class GenericWelcome implements GenericGuiInterface {
 
 		shell.open();
 		
+		
 		ConexaoJDBC c=new ConexaoJDBC();
 		boolean lancar=false;
 		
-		try {
-			Vector<RiscoRoptura> riscos = c.selectRiscoDeRopturaStock();
-			
-			for(int i =0; i<riscos.size();i++){
-				//Se houver alertas
-				if(riscos.get(i).getAmc()*3 < riscos.get(i).getSaldo()||riscos.get(i).getAmc()>=riscos.get(i).getSaldo()||riscos.get(i).getAmc()/3>=riscos.get(i).getSaldo())
-				{
-					lancar=true;
-					break;
-				}
-					
-				
-			
-			}
-			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		if(lancar) lancaAlerta();
-		
-	     
-		
+		lancaAlerta();
 	}
 
 	private void lancaAlerta() {
