@@ -42,6 +42,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
+import org.vafada.swtcalendar.SWTCalendar;
 
 /**
  */
@@ -58,6 +59,16 @@ public class MonthlyStockReceipt extends GenericReportGui {
 	private CCombo cmbMonth;
 
 	private CCombo cmbYear;
+	
+	private Group grpDateRange;
+
+	private Label lblStartDate;
+
+	private Label lblEndDate;
+
+	private SWTCalendar calendarStart;
+
+	private SWTCalendar calendarEnd;
 
 	/**
 	 * Constructor
@@ -84,6 +95,7 @@ public class MonthlyStockReceipt extends GenericReportGui {
 
 	private void createMyGroups() {
 		createGrpPharmacySelection();
+		createGrpDateRange();
 		createGrpDateInfo();
 	}
 
@@ -122,6 +134,38 @@ public class MonthlyStockReceipt extends GenericReportGui {
 		cmbPharmacy.setBackground(ResourceUtils.getColor(iDartColor.WHITE));
 
 		CommonObjects.populateStockCenters(getHSession(), cmbPharmacy);
+
+	}
+	
+	/**
+	 * This method initializes grpDateRange
+	 * 
+	 */
+	private void createGrpDateRange() {
+
+		grpDateRange = new Group(getShell(), SWT.NONE);
+		grpDateRange.setText("Date Range:");
+		grpDateRange.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		grpDateRange.setBounds(new Rectangle(59, 160, 520, 201));
+		grpDateRange.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+
+		lblStartDate = new Label(grpDateRange, SWT.CENTER | SWT.BORDER);
+		lblStartDate.setBounds(new org.eclipse.swt.graphics.Rectangle(40, 30,
+				180, 20));
+		lblStartDate.setText("Select a START date:");
+		lblStartDate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+
+		lblEndDate = new Label(grpDateRange, SWT.CENTER | SWT.BORDER);
+		lblEndDate.setBounds(new org.eclipse.swt.graphics.Rectangle(300, 30,
+				180, 20));
+		lblEndDate.setText("Select an END date:");
+		lblEndDate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+
+		calendarStart = new SWTCalendar(grpDateRange);
+		calendarStart.setBounds(20, 55, 220, 140);
+
+		calendarEnd = new SWTCalendar(grpDateRange);
+		calendarEnd.setBounds(280, 55, 220, 140);
 
 	}
 

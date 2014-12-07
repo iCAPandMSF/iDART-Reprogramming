@@ -15,6 +15,9 @@ import java.util.Vector;
 
 
 
+
+import javax.swing.JOptionPane;
+
 import model.manager.DrugStockControlManager;
 
 import org.celllife.idart.database.dao.ConexaoJDBC;
@@ -278,6 +281,27 @@ public class Alert extends GenericFormGui  {
 	@Override
 	protected void cmdCancelWidgetSelected() {
 		// TODO Auto-generated method stub
+		String riskMessage = "Dear Pharmacist pay attention to the following: ";
+		boolean messageShouldSent = false;
+		
+		List<DrugStockControl> risks = DrugStockControlManager.getDrugStockControls(getHSession());
+		for(DrugStockControl risk: risks)
+		{
+			if(risk.getRiskStatus().equals("Pending rupture") || risk.getRiskStatus().equals("Risk rupture"))
+			{
+				riskMessage = riskMessage + "\n"+risk.getDrug().getName()+" "+risk.getRiskStatus()+" "+risk.getOrderQuantity();
+				messageShouldSent = true;
+			}
+		}
+		
+		if(messageShouldSent)
+		{
+			JOptionPane.showMessageDialog(null,riskMessage);
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, "No worry no drug is with low stock");
+		}
 		closeShell(false);
 	}
 

@@ -56,6 +56,77 @@ order by d.name asc]]>
 		<variableExpression><![CDATA["test"]]></variableExpression>
 		<initialValueExpression><![CDATA["test"]]></initialValueExpression>
 	</variable>
+	<group name="Detail Footer">
+		<groupExpression><![CDATA[$P{stockCenterName}]]></groupExpression>
+		<groupFooter>
+			<band height="26" splitType="Stretch">
+				<subreport isUsingCache="true" runToBottom="true">
+					<reportElement key="subreport-1" isPrintRepeatedValues="false" mode="Opaque" x="0" y="0" width="265" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<subreportParameter name="id">
+						<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="StockCode">
+						<subreportParameterExpression><![CDATA[$F{stockcode}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="monthEnd">
+						<subreportParameterExpression><![CDATA[$P{monthEnd}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="ATC">
+						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="stockCenterId">
+						<subreportParameterExpression><![CDATA[$P{stockCenterId}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="packsize">
+						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="name">
+						<subreportParameterExpression><![CDATA[$F{name}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="dateFormat">
+						<subreportParameterExpression><![CDATA[$P{dateFormat}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="monthStart">
+						<subreportParameterExpression><![CDATA[$P{monthStart}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="java.lang.String"><![CDATA[($P{path} + java.io.File.separator+ "MmiaReport_batch2.jasper")]]></subreportExpression>
+				</subreport>
+				<subreport isUsingCache="true" runToBottom="true">
+					<reportElement key="subreport-1" isPrintRepeatedValues="false" mode="Opaque" x="270" y="0" width="279" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+					<subreportParameter name="id">
+						<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="StockCode">
+						<subreportParameterExpression><![CDATA[$F{stockcode}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="monthEnd">
+						<subreportParameterExpression><![CDATA[$P{monthEnd}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="ATC">
+						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="packsize">
+						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="stockCenterId">
+						<subreportParameterExpression><![CDATA[$P{stockCenterId}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="name">
+						<subreportParameterExpression><![CDATA[$F{name}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="dateFormat">
+						<subreportParameterExpression><![CDATA[$P{dateFormat}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="monthStart">
+						<subreportParameterExpression><![CDATA[$P{monthStart}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression class="java.lang.String"><![CDATA[($P{path} + java.io.File.separator+ "MmiaReport_batch3.jasper")]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupFooter>
+	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -102,7 +173,7 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<text><![CDATA[Ano:]]></text>
 			</staticText>
 			<textField pattern="" isBlankWhenNull="false">
-				<reportElement key="tf_date" mode="Opaque" x="503" y="79" width="277" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement key="tf_date" mode="Opaque" x="495" y="79" width="277" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -119,7 +190,7 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<graphicElement fill="Solid"/>
 			</line>
 			<staticText>
-				<reportElement key="st_drug" mode="Opaque" x="67" y="103" width="129" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement key="st_drug" mode="Opaque" x="3" y="105" width="129" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -145,7 +216,7 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<text><![CDATA[Unidade Sanitária:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement key="st_openingBalance" mode="Transparent" x="265" y="103" width="50" height="33" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement key="st_openingBalance" mode="Transparent" x="204" y="105" width="50" height="33" forecolor="#000000" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -158,7 +229,7 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<text><![CDATA[SALDO INICIAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement key="st_stockReceived" mode="Transparent" x="315" y="102" width="50" height="32" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement key="st_stockReceived" mode="Transparent" x="266" y="104" width="50" height="32" forecolor="#000000" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -171,7 +242,7 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<text><![CDATA[ENTRADAS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement key="st_stockIssued" mode="Transparent" x="367" y="103" width="43" height="32" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement key="st_stockIssued" mode="Transparent" x="319" y="103" width="43" height="32" forecolor="#000000" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -184,7 +255,7 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<text><![CDATA[SAIDAS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement key="st_stockOnHand" mode="Transparent" x="449" y="101" width="54" height="32" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement key="st_stockOnHand" mode="Transparent" x="411" y="103" width="54" height="32" forecolor="#000000" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -201,7 +272,7 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<graphicElement fill="Solid"/>
 			</line>
 			<line>
-				<reportElement key="line-3" mode="Opaque" x="214" y="100" width="1" height="37" forecolor="#000000" backcolor="#000000"/>
+				<reportElement key="line-3" mode="Opaque" x="154" y="100" width="1" height="37" forecolor="#000000" backcolor="#000000"/>
 				<graphicElement fill="Solid"/>
 			</line>
 			<line>
@@ -209,11 +280,11 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<graphicElement fill="Solid"/>
 			</line>
 			<line>
-				<reportElement key="line-4" mode="Opaque" x="366" y="100" width="1" height="38" forecolor="#000000" backcolor="#000000"/>
+				<reportElement key="line-4" mode="Opaque" x="356" y="100" width="1" height="38" forecolor="#000000" backcolor="#000000"/>
 				<graphicElement fill="Solid"/>
 			</line>
 			<line>
-				<reportElement key="line-5" mode="Opaque" x="448" y="100" width="1" height="38" forecolor="#000000" backcolor="#000000"/>
+				<reportElement key="line-5" mode="Opaque" x="463" y="100" width="1" height="38" forecolor="#000000" backcolor="#000000"/>
 				<graphicElement fill="Solid"/>
 			</line>
 			<line>
@@ -221,11 +292,11 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<graphicElement fill="Solid"/>
 			</line>
 			<line>
-				<reportElement key="line-24" mode="Opaque" x="264" y="101" width="1" height="37" forecolor="#000000" backcolor="#000000"/>
+				<reportElement key="line-24" mode="Opaque" x="203" y="101" width="1" height="37" forecolor="#000000" backcolor="#000000"/>
 				<graphicElement fill="Solid"/>
 			</line>
 			<staticText>
-				<reportElement key="st_openingBalance-2" mode="Transparent" x="215" y="103" width="42" height="32" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement key="st_openingBalance-2" mode="Transparent" x="154" y="104" width="42" height="32" forecolor="#000000" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -252,14 +323,14 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<reportElement key="line-28" x="503" y="100" width="1" height="37" backcolor="#000000"/>
 			</line>
 			<staticText>
-				<reportElement key="staticText-3" x="413" y="103" width="35" height="30"/>
+				<reportElement key="staticText-3" x="468" y="103" width="35" height="30"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Arial" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<text><![CDATA[PERDAS E AJUSTES]]></text>
@@ -330,7 +401,7 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<text><![CDATA[Mês:]]></text>
 			</staticText>
 			<textField pattern="" isBlankWhenNull="false">
-				<reportElement key="tf_date" mode="Opaque" x="504" y="63" width="277" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement key="tf_date" mode="Opaque" x="495" y="63" width="277" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -352,7 +423,7 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<reportElement x="1" y="97" width="549" height="1"/>
 			</line>
 			<line>
-				<reportElement key="line-28" x="448" y="55" width="1" height="42" backcolor="#000000"/>
+				<reportElement key="line-28" x="463" y="55" width="1" height="42" backcolor="#000000"/>
 			</line>
 			<staticText>
 				<reportElement key="st_facilityName" mode="Transparent" x="1" y="82" width="42" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
@@ -384,22 +455,9 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<reportElement key="line-28" x="214" y="79" width="1" height="18" backcolor="#000000"/>
 			</line>
 			<line>
-				<reportElement key="line-2" mode="Opaque" x="62" y="100" width="1" height="38" forecolor="#000000" backcolor="#000000"/>
+				<reportElement key="line-2" mode="Opaque" x="263" y="99" width="1" height="38" forecolor="#000000" backcolor="#000000"/>
 				<graphicElement fill="Solid"/>
 			</line>
-			<staticText>
-				<reportElement key="st_drug" mode="Opaque" x="17" y="103" width="26" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
-					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-				</textElement>
-				<text><![CDATA[FNM]]></text>
-			</staticText>
 			<line>
 				<reportElement x="1" y="-2" width="549" height="1"/>
 			</line>
@@ -411,6 +469,19 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<reportElement key="line-3" mode="Opaque" x="410" y="100" width="1" height="37" forecolor="#000000" backcolor="#000000"/>
 				<graphicElement fill="Solid"/>
 			</line>
+			<staticText>
+				<reportElement key="st_stockOnHand" mode="Transparent" x="357" y="104" width="54" height="32" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[STOCK NO FIM DE PERIODO]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
@@ -420,45 +491,13 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="63" splitType="Stretch">
+		<band height="27" splitType="Stretch">
 			<line>
 				<reportElement key="line-22" mode="Opaque" x="3" y="23" width="547" height="1" forecolor="#000000" backcolor="#FFFFFF"/>
 				<graphicElement fill="Solid"/>
 			</line>
 			<subreport isUsingCache="true">
 				<reportElement key="subreport-1" mode="Opaque" x="1" y="1" width="548" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
-				<subreportParameter name="id">
-					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="StockCode">
-					<subreportParameterExpression><![CDATA[$F{stockcode}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="monthEnd">
-					<subreportParameterExpression><![CDATA[$P{monthEnd}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="ATC">
-					<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="packsize">
-					<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="stockCenterId">
-					<subreportParameterExpression><![CDATA[$P{stockCenterId}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="name">
-					<subreportParameterExpression><![CDATA[$F{name}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="dateFormat">
-					<subreportParameterExpression><![CDATA[$P{dateFormat}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="monthStart">
-					<subreportParameterExpression><![CDATA[$P{monthStart}]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression class="java.lang.String"><![CDATA[($P{path} + java.io.File.separator+ "MmiaReport_batch.jasper")]]></subreportExpression>
-			</subreport>
-			<subreport isUsingCache="true">
-				<reportElement key="subreport-1" mode="Opaque" x="-1" y="24" width="548" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 				<subreportParameter name="id">
 					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -495,9 +534,31 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="24" splitType="Stretch">
+		<band height="21" splitType="Stretch">
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-3" x="373" y="2" width="80" height="15"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page " + String.valueOf($V{PAGE_NUMBER}) + " of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" isBlankWhenNull="false">
+				<reportElement key="textField-2" x="458" y="2" width="75" height="15"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + String.valueOf($V{PAGE_NUMBER})]]></textFieldExpression>
+			</textField>
 			<textField pattern="" isBlankWhenNull="false">
-				<reportElement key="textField-1" mode="Transparent" x="3" y="4" width="209" height="19" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement key="textField-1" mode="Transparent" x="6" y="2" width="209" height="19" forecolor="#000000" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -509,48 +570,10 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				</textElement>
 				<textFieldExpression class="java.util.Date"><![CDATA[new Date()]]></textFieldExpression>
 			</textField>
-			<textField evaluationTime="Report" isBlankWhenNull="false">
-				<reportElement key="textField-2" x="458" y="6" width="75" height="15"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Left"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[" " + String.valueOf($V{PAGE_NUMBER})]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="false">
-				<reportElement key="textField-3" x="377" y="6" width="80" height="15"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression class="java.lang.String"><![CDATA["Page " + String.valueOf($V{PAGE_NUMBER}) + " of"]]></textFieldExpression>
-			</textField>
 		</band>
 	</pageFooter>
 	<lastPageFooter>
 		<band height="60" splitType="Stretch">
-			<staticText>
-				<reportElement key="staticText-1" mode="Transparent" x="17" y="8" width="158" height="13" forecolor="#000000" backcolor="#FFFFFF">
-					<printWhenExpression><![CDATA[new Boolean($P{pharmacist1}!=null)]]></printWhenExpression>
-				</reportElement>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
-					<font fontName="Arial" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-				</textElement>
-				<text><![CDATA[....................................
-]]></text>
-			</staticText>
 			<staticText>
 				<reportElement key="staticText-2" mode="Transparent" x="362" y="8" width="158" height="13" forecolor="#000000" backcolor="#FFFFFF">
 					<printWhenExpression><![CDATA[new Boolean($P{pharmacist2}!=null)]]></printWhenExpression>
@@ -577,7 +600,7 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Left"/>
+				<textElement textAlignment="Left" lineSpacing="Single"/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{pharmacist1}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="false">
@@ -590,7 +613,7 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Left"/>
+				<textElement textAlignment="Left" lineSpacing="Single"/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{pharmacist2}]]></textFieldExpression>
 			</textField>
 			<textField pattern="" isBlankWhenNull="false">
@@ -614,7 +637,7 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Left"/>
+				<textElement textAlignment="Left" lineSpacing="Single"/>
 				<textFieldExpression class="java.lang.String"><![CDATA[" " + String.valueOf($V{PAGE_NUMBER})]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="false">
@@ -625,9 +648,25 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Right"/>
+				<textElement textAlignment="Right" lineSpacing="Single"/>
 				<textFieldExpression class="java.lang.String"><![CDATA["Page " + String.valueOf($V{PAGE_NUMBER}) + " of"]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement key="staticText-1" mode="Transparent" x="17" y="8" width="158" height="13" forecolor="#000000" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[new Boolean($P{pharmacist1}!=null)]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[....................................
+]]></text>
+			</staticText>
 		</band>
 	</lastPageFooter>
 	<summary>
