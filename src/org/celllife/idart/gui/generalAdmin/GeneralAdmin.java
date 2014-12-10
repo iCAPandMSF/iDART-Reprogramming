@@ -21,6 +21,8 @@ package org.celllife.idart.gui.generalAdmin;
 
 import java.lang.reflect.InvocationTargetException;
 
+import javax.swing.JOptionPane;
+
 import model.manager.excel.reports.in.PatientSheet;
 
 import org.apache.log4j.Logger;
@@ -28,6 +30,7 @@ import org.celllife.idart.commonobjects.iDartProperties;
 import org.celllife.idart.database.hibernate.util.HibernateUtil;
 import org.celllife.idart.gui.clinic.AddClinic;
 import org.celllife.idart.gui.doctor.AddDoctor;
+import org.celllife.idart.gui.parameter.UpdateParameter;
 import org.celllife.idart.gui.drug.AddDrug;
 import org.celllife.idart.gui.drugGroup.AddDrugGroup;
 import org.celllife.idart.gui.platform.GenericAdminGui;
@@ -116,7 +119,7 @@ public class GeneralAdmin extends GenericAdminGui {
 
 		// grpClinics
 		Group grpClinics = new Group(getCompOptions(), SWT.NONE);
-		grpClinics.setBounds(new Rectangle(495, 13, 305, 150));
+		grpClinics.setBounds(new Rectangle(495, 0, 305, 180));
 		grpClinics.setText(Messages.getString("GeneralAdmin.group.title")); //$NON-NLS-1$
 		grpClinics.setFont(ResourceUtils.getFont(iDartFont.VERASANS_12));
 
@@ -170,7 +173,7 @@ public class GeneralAdmin extends GenericAdminGui {
 
 		// grpDoctors
 		Group grpDoctors = new Group(getCompOptions(), SWT.NONE);
-		grpDoctors.setBounds(new Rectangle(495, 329, 305, 150));
+		grpDoctors.setBounds(new Rectangle(495, 339, 305, 140));
 		grpDoctors.setText(Messages.getString("GeneralAdmin.doctors.group.title")); //$NON-NLS-1$
 		grpDoctors.setFont(ResourceUtils.getFont(iDartFont.VERASANS_12));
 
@@ -223,7 +226,7 @@ public class GeneralAdmin extends GenericAdminGui {
 
 		// grpDrugs
 		Group grpDrugs = new Group(getCompOptions(), SWT.NONE);
-		grpDrugs.setBounds(new Rectangle(50, 329, 305, 150));
+		grpDrugs.setBounds(new Rectangle(50, 339, 305, 140));
 		grpDrugs.setText(Messages.getString("GeneralAdmin.group.drug.title")); //$NON-NLS-1$
 		grpDrugs.setFont(ResourceUtils.getFont(iDartFont.VERASANS_12));
 
@@ -282,7 +285,7 @@ public class GeneralAdmin extends GenericAdminGui {
 
 		// grpDrugGroups
 		Group grpDrugGroups = new Group(getCompOptions(), SWT.NONE);
-		grpDrugGroups.setBounds(new Rectangle(495, 171, 305, 150));
+		grpDrugGroups.setBounds(new Rectangle(495, 189, 305, 140));
 		grpDrugGroups.setText(Messages.getString("GeneralAdmin.group.drugupdate.title")); //$NON-NLS-1$
 		grpDrugGroups.setFont(ResourceUtils.getFont(iDartFont.VERASANS_12));
 
@@ -339,7 +342,7 @@ public class GeneralAdmin extends GenericAdminGui {
 	private void createGrpImport() {
 
 		Group grpImport = new Group(getCompOptions(), SWT.NONE);
-		grpImport.setBounds(new Rectangle(50, 171, 305, 150));
+		grpImport.setBounds(new Rectangle(50, 189, 305, 140));
 		grpImport.setText(Messages.getString("GeneralAdmin.group.import.title")); //$NON-NLS-1$
 		grpImport.setFont(ResourceUtils.getFont(iDartFont.VERASANS_12));
 
@@ -390,7 +393,7 @@ public class GeneralAdmin extends GenericAdminGui {
 
 		// grpPharmacy
 		Group grpPharmacy = new Group(getCompOptions(), SWT.NONE);
-		grpPharmacy.setBounds(new Rectangle(50, 13, 305, 150));
+		grpPharmacy.setBounds(new Rectangle(50, 0, 305, 180));
 		grpPharmacy.setText(Messages.getString("GeneralAdmin.group.pharmacy.title")); //$NON-NLS-1$
 		grpPharmacy.setFont(ResourceUtils.getFont(iDartFont.VERASANS_12));
 
@@ -437,6 +440,24 @@ public class GeneralAdmin extends GenericAdminGui {
 				cmd_pharmUsersUpdate();
 			}
 		});
+		
+		// btnPharmParameters
+				Button btnPharmParameters = new Button(grpPharmacy, SWT.NONE);
+				btnPharmParameters.setBounds(new org.eclipse.swt.graphics.Rectangle(
+						35, 145, 235, 30));
+				btnPharmParameters
+				.setToolTipText(Messages.getString("GeneralAdmin.button.parameters.tooltip")); //$NON-NLS-1$
+				btnPharmParameters.setText(Messages.getString("GeneralAdmin.button.parameters.title")); //$NON-NLS-1$
+				btnPharmParameters.setFont(ResourceUtils
+						.getFont(iDartFont.VERASANS_8));
+				btnPharmParameters
+				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+					@Override
+					public void widgetSelected(
+							org.eclipse.swt.events.SelectionEvent e) {
+						cmd_parametersUpdate();
+					}
+				});
 	}
 
 	public void cmd_clinicsAdd() {
@@ -489,6 +510,10 @@ public class GeneralAdmin extends GenericAdminGui {
 
 	public void cmd_pharmUsersUpdate() {
 		new StockCenterInfo(getShell());
+	}
+	
+	public void cmd_parametersUpdate() {
+		new UpdateParameter(getShell());
 	}
 
 	public void cmd_regimenAdd() {

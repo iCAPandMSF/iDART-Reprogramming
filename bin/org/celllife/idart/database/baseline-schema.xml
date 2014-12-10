@@ -169,6 +169,7 @@
 			<column name="defaulttimes" type="int4" />
 			<column name="nsncode" type="VARCHAR(50)" />
 			<column name="stockcode" type="VARCHAR(50)" />
+			<column name="adult" type="boolean" />
 		</createTable>
 	</changeSet>
 	<changeSet author="simon (generated)" id="0.0.13">
@@ -579,6 +580,16 @@
 			<column name="cl_password" type="VARCHAR(255)" />
 			<column name="role" type="VARCHAR(255)" />
 			<column name="cl_username" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="simon (generated)" id="0.0.38">
+		<createTable schemaName="public" tableName="parameter">
+			<column name="id" type="int4">
+				<constraints nullable="false" primaryKey="true"
+					primaryKeyName="parameter_pkey" />
+			</column>
+			<column name="parametername" type="VARCHAR(255)" />
+			<column name="parametervalue" type="VARCHAR(255)" />
 		</createTable>
 	</changeSet>
 </databaseChangeLog>

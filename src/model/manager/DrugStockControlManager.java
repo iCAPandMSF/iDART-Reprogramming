@@ -14,7 +14,7 @@ import org.hibernate.Session;
 
 public class DrugStockControlManager {
 
-	private static Logger log = Logger.getLogger(DrugManager.class);
+	private static Logger log = Logger.getLogger(DrugStockControlManager.class);
 	
 	public static List<DrugStockControl> getDrugStockControls(Session session)
 	{
@@ -152,11 +152,12 @@ public class DrugStockControlManager {
 	
 	private static Long getExistingStock(Session session,int drugId)
 	{
-		return ((Long) session
+		Long quantity = ((Long) session
 				.createQuery(
 						"select sum(sl.fullContainersRemaining) "
 						+ "from StockLevel sl where sl.batch.drug = :drug ")
 						.setInteger("drug", drugId).uniqueResult());
+		return quantity == null ? new Long(0) : quantity;
 	}
 	
 }

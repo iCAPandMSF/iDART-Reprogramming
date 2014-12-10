@@ -1,21 +1,27 @@
 
 package org.celllife.idart.database.hibernate;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
-@Entity
+import org.hibernate.annotations.Cascade;
+
+@Entity (name ="linhat")
 public class LinhaT {
 	
 	@Id
-	@GeneratedValue
 	private int linhaid;
 	private String linhanome;
 	private boolean active;
+	@OneToMany(mappedBy = "linhaT")
+	@Cascade( { org.hibernate.annotations.CascadeType.ALL,
+		org.hibernate.annotations.CascadeType.DELETE_ORPHAN })
+	private Set<RegimeTerapeutico> regimes;
 	
-
-
 	public LinhaT(int linhaid, String linhanome, boolean active) {
 		super();
 		this.linhaid = linhaid;

@@ -115,10 +115,10 @@
 				<constraints primaryKey="true" nullable="false" />
 			</column>
 			<column name="linhanome" type="varchar(255)">
-				<constraints nullable="false" unique="true" />
+				<constraints nullable="false"/>
 			</column>
 			<column name="active" type="boolean">
-				<constraints nullable="false" unique="true" />
+				<constraints nullable="false"/>
 			</column>
 		</createTable>
 	</changeSet>
@@ -128,11 +128,17 @@
 			<column name="regimeid" type="int">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
+			<column name="linhaid" type="int">
+				<constraints nullable="false"/>
+			</column>
 			<column name="regimeesquema" type="varchar(255)">
-				<constraints nullable="false" unique="true" />
+				<constraints nullable="false"/>
+			</column>
+			<column name="adult" type="boolean">
+				<constraints nullable="false"/>
 			</column>
 			<column name="active" type="boolean">
-				<constraints nullable="false" unique="true" />
+				<constraints nullable="false"/>
 			</column>
 		</createTable>
 	</changeSet>
@@ -143,10 +149,10 @@
 				<constraints primaryKey="true" nullable="false" />
 			</column>
 			<column name="motivo" type="varchar(255)">
-				<constraints nullable="false" unique="true" />
+				<constraints nullable="false"/>
 			</column>
 			<column name="active" type="boolean">
-				<constraints nullable="false" unique="true" />
+				<constraints nullable="false"/>
 			</column>
 		</createTable>
 	</changeSet>
@@ -174,6 +180,11 @@
 			baseColumnNames="linhaid" 
 			referencedTableName="linhat" 
 			referencedColumnNames="linhaid"/>
+		<addForeignKeyConstraint constraintName="fk_linhat_regimeterapeutico" 
+			baseTableName="regimeterapeutico" 
+			baseColumnNames="linhaid" 
+			referencedTableName="linhat" 
+			referencedColumnNames="linhaid"/>
 	</changeSet>
 	<changeSet author="simon@cell-life.org" id="3.8.16">
 		<comment>add drugstockcontrol table</comment>
@@ -191,6 +202,20 @@
 				<constraints nullable="false" />
 			</column>
 			<column name="riskstatus" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="simon@cell-life.org" id="3.8.17">
+		<comment>add regimeterapeuticodrugs table</comment>
+		<createTable tableName="regimeterapeuticodrugs">
+			<column name="id" type="int">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="regimeid" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="chemicalid" type="int">
 				<constraints nullable="false" />
 			</column>
 		</createTable>

@@ -1,760 +1,115 @@
-02-12-2014 12:25:26 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:25:26 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:25:26 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:25:26 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:25:26 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:25:26 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:25:26 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:25:27 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 12:25:27 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:25:27 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 12:25:28 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:25:28 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:25:28 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:25:28 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:25:30 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 12:25:31 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 12:25:31 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@84aa02Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 12:25:31 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 12:25:31 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 12:25:35 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 12:25:36 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 12:25:36 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 12:25:36 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 12:25:50 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:26:59 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:27:17 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
-02-12-2014 12:27:17 [main] DEBUG dart.start.PharmacyApplication - Logged out..
-02-12-2014 12:27:17 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 12:27:19 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:27:19 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:27:19 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
-02-12-2014 12:27:19 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:27:19 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:28:58 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:28:58 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:28:58 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 12:28:58 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:28:58 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:28:59 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 12:28:59 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 12:28:59 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 12:28:59 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:28:59 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:28:59 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:28:59 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:28:59 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:28:59 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:28:59 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:29:00 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 12:29:00 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:29:00 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 12:29:00 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:29:00 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:29:01 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:29:01 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:29:03 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 12:29:03 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 12:29:03 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@3c37f4Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 12:29:03 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 12:29:04 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 12:29:07 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 12:29:08 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 12:29:08 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 12:29:08 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 12:29:17 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:31:12 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:31:45 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
-02-12-2014 12:31:45 [main] DEBUG dart.start.PharmacyApplication - Logged out..
-02-12-2014 12:31:45 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 12:31:46 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:31:46 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:31:46 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
-02-12-2014 12:31:46 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:31:46 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:34:39 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:34:39 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:34:39 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 12:34:39 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:34:39 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:34:40 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 12:34:40 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 12:34:40 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 12:34:40 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:34:40 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:34:40 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:34:40 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:34:40 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:34:40 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:34:40 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:34:41 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 12:34:41 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:34:41 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 12:34:41 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:34:42 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:34:42 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:34:42 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:34:44 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 12:34:44 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 12:34:44 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@15b55bcDemo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 12:34:44 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 12:34:45 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 12:34:48 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 12:34:48 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 12:34:48 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 12:34:48 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 12:35:09 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
-02-12-2014 12:35:09 [main] DEBUG dart.start.PharmacyApplication - Logged out..
-02-12-2014 12:35:09 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 12:35:10 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:35:10 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:35:10 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
-02-12-2014 12:35:10 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:35:10 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:36:43 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:36:43 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:36:43 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 12:36:43 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:36:43 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:36:43 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 12:36:43 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 12:36:43 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 12:36:43 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:36:43 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:36:43 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:36:43 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:36:43 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:36:43 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:36:43 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:36:44 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 12:36:44 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:36:44 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 12:36:45 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:36:45 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:36:45 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:36:45 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:36:47 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 12:36:47 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 12:36:48 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@ee21f5Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 12:36:48 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 12:36:48 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 12:36:51 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 12:36:51 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 12:36:51 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 12:36:51 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 12:37:24 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:37:24 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:37:24 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 12:37:24 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:37:24 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:37:25 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 12:37:25 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 12:37:25 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 12:37:25 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:25 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:25 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:25 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:25 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:25 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:25 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:26 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 12:37:26 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:37:26 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 12:37:27 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:37:27 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:37:27 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:37:27 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:30 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 12:37:30 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 12:37:30 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@127e2eeDemo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 12:37:30 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 12:37:30 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 12:37:33 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 12:37:33 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 12:37:33 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 12:37:33 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 12:37:46 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:37:46 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:37:46 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 12:37:46 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:37:46 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:37:47 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 12:37:47 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 12:37:47 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 12:37:47 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:47 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:47 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:47 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:47 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:47 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:47 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:48 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 12:37:48 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:37:48 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 12:37:48 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:37:48 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:37:49 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:37:49 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:37:51 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 12:37:51 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 12:37:51 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@13515eDemo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 12:37:51 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 12:37:52 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 12:37:55 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 12:37:55 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 12:37:55 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 12:37:55 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 12:38:23 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:38:23 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:38:23 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 12:38:23 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:38:23 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:38:23 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 12:38:23 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 12:38:23 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 12:38:23 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:38:23 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:38:23 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:38:23 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:38:23 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:38:23 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:38:23 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:38:24 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 12:38:24 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:38:24 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 12:38:25 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:38:25 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:38:25 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:38:25 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:38:27 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 12:38:28 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 12:38:28 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@1fc468eDemo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 12:38:28 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 12:38:28 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 12:38:31 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 12:38:31 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 12:38:31 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 12:38:31 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 12:38:49 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
-02-12-2014 12:38:49 [main] DEBUG dart.start.PharmacyApplication - Logged out..
-02-12-2014 12:38:49 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 12:38:50 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:38:50 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:38:50 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
-02-12-2014 12:38:50 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:38:50 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:39:10 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:39:10 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:39:10 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 12:39:10 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:39:10 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:39:11 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 12:39:11 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 12:39:11 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 12:39:11 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:39:11 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:39:11 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:39:11 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:39:11 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:39:11 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:39:11 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:39:12 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 12:39:12 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:39:12 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 12:39:13 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:39:13 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:39:14 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:39:14 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:39:15 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 12:39:16 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 12:39:16 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@5878d2Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 12:39:16 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 12:39:16 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 12:39:21 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 12:39:21 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 12:39:21 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 12:39:21 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 12:39:43 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:40:25 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
-02-12-2014 12:40:25 [main] DEBUG dart.start.PharmacyApplication - Logged out..
-02-12-2014 12:40:25 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 12:40:27 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:40:27 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:40:27 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
-02-12-2014 12:40:27 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:40:27 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:41:52 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:41:52 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:41:52 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 12:41:52 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:41:52 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:41:53 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 12:41:53 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 12:41:53 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 12:41:53 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:41:53 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:41:53 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:41:53 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:41:53 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:41:53 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:41:53 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:41:54 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 12:41:54 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:41:54 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 12:41:54 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:41:54 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 12:41:55 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 12:41:55 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 12:41:57 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 12:41:57 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 12:41:57 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@43153cDemo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 12:41:57 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 12:41:57 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 12:42:00 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 12:42:00 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 12:42:00 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 12:42:00 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 12:42:16 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
-02-12-2014 12:42:16 [main] DEBUG dart.start.PharmacyApplication - Logged out..
-02-12-2014 12:42:16 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 12:42:17 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 12:42:17 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:42:17 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
-02-12-2014 12:42:17 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 12:42:17 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 13:41:37 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 13:41:37 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 13:41:37 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 13:41:37 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 13:41:37 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 13:41:38 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 13:41:38 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 13:41:38 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 13:41:38 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:41:38 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:41:38 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:41:38 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:41:38 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:41:38 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:41:38 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:41:39 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 13:41:39 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 13:41:39 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 13:41:39 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 13:41:39 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 13:41:40 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 13:41:40 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:41:42 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 13:41:42 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 13:41:42 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@1b0d33cDemo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 13:41:42 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 13:41:43 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 13:42:02 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 13:42:02 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 13:42:02 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 13:42:02 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 13:42:28 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
-02-12-2014 13:42:28 [main] DEBUG dart.start.PharmacyApplication - Logged out..
-02-12-2014 13:42:28 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 13:42:29 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 13:42:29 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 13:42:29 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
-02-12-2014 13:42:29 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 13:42:29 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 13:49:50 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 13:49:50 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 13:49:50 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 13:49:50 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 13:49:50 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 13:49:50 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 13:49:51 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 13:49:51 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 13:49:51 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:49:51 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:49:51 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:49:51 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:49:51 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:49:51 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:49:51 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:49:51 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 13:49:52 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 13:49:52 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 13:49:52 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 13:49:52 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 13:49:53 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 13:49:53 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:49:55 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 13:49:55 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 13:49:55 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@86d1daDemo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 13:49:55 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 13:49:55 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 13:50:00 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 13:50:00 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 13:50:00 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 13:50:00 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 13:51:25 [main] INFO  .gui.generalAdmin.GeneralAdmin - GeneralAdmin: Initializing the GUI
-02-12-2014 13:51:40 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
-02-12-2014 13:51:40 [main] DEBUG dart.start.PharmacyApplication - Logged out..
-02-12-2014 13:51:40 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 13:51:41 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 13:51:41 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 13:51:41 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
-02-12-2014 13:51:41 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 13:51:41 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 13:51:46 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 13:51:46 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 13:51:46 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 13:51:46 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 13:51:46 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 13:51:46 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 13:51:46 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 13:51:46 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 13:51:46 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:51:46 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:51:46 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:51:46 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:51:46 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:51:47 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:51:47 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:51:47 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 13:51:47 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 13:51:47 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 13:51:48 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 13:51:48 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 13:51:48 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 13:51:48 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:51:50 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 13:51:51 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 13:51:51 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@1b5a40aDemo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 13:51:51 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 13:51:51 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 13:51:55 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 13:51:55 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 13:51:55 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 13:51:55 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 13:52:02 [main] INFO  t.gui.composite.PillCountTable - Creating PillCountTable
-02-12-2014 13:53:04 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:53:39 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 13:55:29 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
-02-12-2014 13:55:50 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
-02-12-2014 13:57:56 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
-02-12-2014 14:05:18 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
-02-12-2014 14:05:19 [main] ERROR dart.start.PharmacyApplication - iDART CRASH: - Fatal Error caused by Exception:
-java.lang.NullPointerException
-	at org.celllife.idart.gui.prescription.AddPrescription.loadPrescriptionDetails(AddPrescription.java:1234)
-	at org.celllife.idart.gui.prescription.AddPrescription.loadPrescription(AddPrescription.java:1491)
-	at org.celllife.idart.gui.prescription.AddPrescription.cmdSearchWidgetSelected(AddPrescription.java:1594)
-	at org.celllife.idart.gui.prescription.AddPrescription.access$0(AddPrescription.java:1569)
-	at org.celllife.idart.gui.prescription.AddPrescription$2.widgetSelected(AddPrescription.java:393)
-	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
-	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at org.celllife.idart.gui.welcome.GenericWelcome.showGUI(GenericWelcome.java:133)
-	at org.celllife.idart.gui.welcome.GenericWelcome.<init>(GenericWelcome.java:105)
-	at org.celllife.idart.gui.welcome.PharmacyWelcome.<init>(PharmacyWelcome.java:28)
-	at org.celllife.idart.start.PharmacyApplication.runIDART(PharmacyApplication.java:184)
-	at org.celllife.idart.start.PharmacyApplication.launch(PharmacyApplication.java:111)
-	at org.celllife.idart.start.PharmacyApplication.main(PharmacyApplication.java:93)
-02-12-2014 14:05:27 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 14:05:27 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 14:05:27 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 14:05:27 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 14:05:27 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 14:05:28 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 14:05:28 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 14:05:28 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 14:05:28 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:05:28 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:05:28 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:05:28 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:05:28 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:05:28 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:05:28 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:05:29 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 14:05:29 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 14:05:29 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 14:05:29 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 14:05:29 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 14:05:30 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 14:05:30 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:05:32 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 14:05:32 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 14:05:32 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@52eef4Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 14:05:32 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 14:05:32 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 14:05:35 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 14:05:35 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 14:05:35 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 14:05:35 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 14:05:50 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
-02-12-2014 14:05:52 [main] ERROR dart.start.PharmacyApplication - iDART CRASH: - Fatal Error caused by Exception:
-java.lang.NullPointerException
-	at org.celllife.idart.gui.prescription.AddPrescription.loadPrescriptionDetails(AddPrescription.java:1234)
-	at org.celllife.idart.gui.prescription.AddPrescription.loadPrescription(AddPrescription.java:1491)
-	at org.celllife.idart.gui.prescription.AddPrescription.cmdSearchWidgetSelected(AddPrescription.java:1594)
-	at org.celllife.idart.gui.prescription.AddPrescription.access$0(AddPrescription.java:1569)
-	at org.celllife.idart.gui.prescription.AddPrescription$2.widgetSelected(AddPrescription.java:393)
-	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
-	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at org.celllife.idart.gui.welcome.GenericWelcome.showGUI(GenericWelcome.java:133)
-	at org.celllife.idart.gui.welcome.GenericWelcome.<init>(GenericWelcome.java:105)
-	at org.celllife.idart.gui.welcome.PharmacyWelcome.<init>(PharmacyWelcome.java:28)
-	at org.celllife.idart.start.PharmacyApplication.runIDART(PharmacyApplication.java:184)
-	at org.celllife.idart.start.PharmacyApplication.launch(PharmacyApplication.java:111)
-	at org.celllife.idart.start.PharmacyApplication.main(PharmacyApplication.java:93)
-02-12-2014 14:06:09 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 14:06:09 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 14:06:09 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 14:06:09 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 14:06:09 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 14:06:10 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 14:06:10 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 14:06:10 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 14:06:10 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:06:10 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:06:10 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:06:10 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:06:10 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:06:10 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:06:10 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:06:11 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 14:06:11 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 14:06:11 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 14:06:11 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 14:06:11 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 14:06:12 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 14:06:12 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:06:14 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 14:06:14 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 14:06:14 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@5878d2Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 14:06:14 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 14:06:14 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 14:06:18 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 14:06:18 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 14:06:18 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 14:06:18 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 14:06:46 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
-02-12-2014 14:07:54 [main] INFO  .gui.generalAdmin.GeneralAdmin - GeneralAdmin: Initializing the GUI
-02-12-2014 14:12:48 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:20:04 [main] INFO  .gui.generalAdmin.GeneralAdmin - GeneralAdmin: Initializing the GUI
-02-12-2014 14:29:51 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
-02-12-2014 14:29:53 [main] ERROR dart.start.PharmacyApplication - iDART CRASH: - Fatal Error caused by Exception:
-java.lang.NullPointerException
-	at org.celllife.idart.gui.prescription.AddPrescription.loadPrescriptionDetails(AddPrescription.java:1234)
-	at org.celllife.idart.gui.prescription.AddPrescription.loadPrescription(AddPrescription.java:1491)
-	at org.celllife.idart.gui.prescription.AddPrescription.cmdSearchWidgetSelected(AddPrescription.java:1594)
-	at org.celllife.idart.gui.prescription.AddPrescription.access$0(AddPrescription.java:1569)
-	at org.celllife.idart.gui.prescription.AddPrescription$2.widgetSelected(AddPrescription.java:393)
-	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
-	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at org.celllife.idart.gui.welcome.GenericWelcome.showGUI(GenericWelcome.java:133)
-	at org.celllife.idart.gui.welcome.GenericWelcome.<init>(GenericWelcome.java:105)
-	at org.celllife.idart.gui.welcome.PharmacyWelcome.<init>(PharmacyWelcome.java:28)
-	at org.celllife.idart.start.PharmacyApplication.runIDART(PharmacyApplication.java:184)
-	at org.celllife.idart.start.PharmacyApplication.launch(PharmacyApplication.java:111)
-	at org.celllife.idart.start.PharmacyApplication.main(PharmacyApplication.java:93)
-02-12-2014 14:30:02 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 14:30:02 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 14:30:02 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 14:30:02 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 14:30:02 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 14:30:02 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 14:30:02 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 14:30:02 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 14:30:02 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:03 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:03 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:03 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:03 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:03 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:03 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:03 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 14:30:04 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 14:30:04 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 14:30:04 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 14:30:04 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 14:30:05 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 14:30:05 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:07 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 14:30:07 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 14:30:07 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@a34783Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 14:30:07 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 14:30:07 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 14:30:10 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 14:30:10 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 14:30:10 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 14:30:10 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 14:30:17 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
-02-12-2014 14:30:19 [main] ERROR dart.start.PharmacyApplication - iDART CRASH: - Fatal Error caused by Exception:
-java.lang.NullPointerException
-	at org.celllife.idart.gui.prescription.AddPrescription.loadPrescriptionDetails(AddPrescription.java:1234)
-	at org.celllife.idart.gui.prescription.AddPrescription.loadPrescription(AddPrescription.java:1491)
-	at org.celllife.idart.gui.prescription.AddPrescription.cmdSearchWidgetSelected(AddPrescription.java:1594)
-	at org.celllife.idart.gui.prescription.AddPrescription.access$0(AddPrescription.java:1569)
-	at org.celllife.idart.gui.prescription.AddPrescription$2.widgetSelected(AddPrescription.java:393)
-	at org.eclipse.swt.widgets.TypedListener.handleEvent(Unknown Source)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
-	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
-	at org.celllife.idart.gui.welcome.GenericWelcome.showGUI(GenericWelcome.java:133)
-	at org.celllife.idart.gui.welcome.GenericWelcome.<init>(GenericWelcome.java:105)
-	at org.celllife.idart.gui.welcome.PharmacyWelcome.<init>(PharmacyWelcome.java:28)
-	at org.celllife.idart.start.PharmacyApplication.runIDART(PharmacyApplication.java:184)
-	at org.celllife.idart.start.PharmacyApplication.launch(PharmacyApplication.java:111)
-	at org.celllife.idart.start.PharmacyApplication.main(PharmacyApplication.java:93)
-02-12-2014 14:30:22 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 14:30:22 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 14:30:22 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 14:30:22 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 14:30:22 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 14:30:23 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 14:30:23 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 14:30:23 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 14:30:23 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:23 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:23 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:23 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:23 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:23 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:23 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:24 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 14:30:24 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 14:30:24 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 14:30:24 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 14:30:25 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 14:30:25 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 14:30:25 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:30:27 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 14:30:27 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 14:30:27 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@19f90e3Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 14:30:28 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 14:30:28 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 14:30:30 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 14:30:30 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 14:30:30 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 14:30:30 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 14:30:37 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
-02-12-2014 14:35:08 [main] INFO  .gui.generalAdmin.GeneralAdmin - GeneralAdmin: Initializing the GUI
-02-12-2014 14:48:20 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 14:48:20 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 14:48:20 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-02-12-2014 14:48:20 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 14:48:20 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 14:48:20 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-02-12-2014 14:48:20 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-02-12-2014 14:48:20 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-02-12-2014 14:48:20 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:48:20 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:48:20 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:48:20 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:48:20 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:48:20 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:48:20 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:48:21 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-02-12-2014 14:48:21 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 14:48:21 [main] INFO                       liquibase - Successfully acquired change log lock
-02-12-2014 14:48:22 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 14:48:22 [main] INFO                       liquibase - Reading from databasechangelog
-02-12-2014 14:48:22 [main] INFO                       liquibase - Successfully released change log lock
-02-12-2014 14:48:22 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:48:24 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-02-12-2014 14:48:25 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-02-12-2014 14:48:25 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@24bfaaDemo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-02-12-2014 14:48:25 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-02-12-2014 14:48:25 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 14:48:28 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-02-12-2014 14:48:28 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-02-12-2014 14:48:28 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-02-12-2014 14:48:29 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-02-12-2014 14:52:18 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 14:54:57 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-02-12-2014 15:15:43 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
-02-12-2014 15:15:43 [main] DEBUG dart.start.PharmacyApplication - Logged out..
-02-12-2014 15:15:43 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-02-12-2014 15:15:44 [main] INFO  dart.start.PharmacyApplication - 
-02-12-2014 15:15:44 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 15:15:44 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
-02-12-2014 15:15:44 [main] INFO  dart.start.PharmacyApplication - *********************
-02-12-2014 15:15:44 [main] INFO  dart.start.PharmacyApplication - 
-05-12-2014 13:02:56 [main] INFO  dart.start.PharmacyApplication - 
-05-12-2014 13:02:56 [main] INFO  dart.start.PharmacyApplication - *********************
-05-12-2014 13:02:57 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-05-12-2014 13:02:57 [main] INFO  dart.start.PharmacyApplication - *********************
-05-12-2014 13:02:57 [main] INFO  dart.start.PharmacyApplication - 
-05-12-2014 13:02:57 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-05-12-2014 13:02:57 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-05-12-2014 13:02:57 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-05-12-2014 13:02:57 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-05-12-2014 13:02:58 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-05-12-2014 13:02:58 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-05-12-2014 13:02:58 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-05-12-2014 13:02:58 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-05-12-2014 13:02:58 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-05-12-2014 13:02:58 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-05-12-2014 13:02:58 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-05-12-2014 13:02:59 [main] INFO                       liquibase - Successfully released change log lock
-05-12-2014 13:02:59 [main] INFO                       liquibase - Successfully acquired change log lock
-05-12-2014 13:02:59 [main] INFO                       liquibase - Reading from databasechangelog
-05-12-2014 13:02:59 [main] INFO                       liquibase - Reading from databasechangelog
-05-12-2014 13:03:00 [main] INFO                       liquibase - Successfully released change log lock
-05-12-2014 13:03:00 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-05-12-2014 13:03:02 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-05-12-2014 13:03:02 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-05-12-2014 13:03:02 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@12d26d2Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-05-12-2014 13:03:03 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-05-12-2014 13:03:03 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-05-12-2014 13:03:06 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-05-12-2014 13:03:06 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-05-12-2014 13:03:06 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-05-12-2014 13:03:06 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-05-12-2014 13:04:25 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
-05-12-2014 13:19:35 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 25
-05-12-2014 13:28:04 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-07-12-2014 11:51:42 [main] INFO  dart.start.PharmacyApplication - 
-07-12-2014 11:51:42 [main] INFO  dart.start.PharmacyApplication - *********************
-07-12-2014 11:51:42 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
-07-12-2014 11:51:42 [main] INFO  dart.start.PharmacyApplication - *********************
-07-12-2014 11:51:42 [main] INFO  dart.start.PharmacyApplication - 
-07-12-2014 11:51:43 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
-07-12-2014 11:51:43 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
-07-12-2014 11:51:44 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
-07-12-2014 11:51:44 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-07-12-2014 11:51:44 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-07-12-2014 11:51:45 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-07-12-2014 11:51:45 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-07-12-2014 11:51:45 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-07-12-2014 11:51:46 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-07-12-2014 11:51:46 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-07-12-2014 11:51:47 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-07-12-2014 11:51:47 [main] INFO                       liquibase - Successfully released change log lock
-07-12-2014 11:51:47 [main] INFO                       liquibase - Successfully acquired change log lock
-07-12-2014 11:51:48 [main] INFO                       liquibase - Reading from databasechangelog
-07-12-2014 11:51:48 [main] INFO                       liquibase - Reading from databasechangelog
-07-12-2014 11:51:49 [main] INFO                       liquibase - Successfully released change log lock
-07-12-2014 11:51:49 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-07-12-2014 11:51:54 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-07-12-2014 11:51:54 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-07-12-2014 11:51:55 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@c51614Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-07-12-2014 11:51:56 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-07-12-2014 11:51:57 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-07-12-2014 11:52:00 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-07-12-2014 11:52:01 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-07-12-2014 11:52:01 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-07-12-2014 11:52:01 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
-07-12-2014 12:00:30 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
-07-12-2014 12:00:30 [main] DEBUG dart.start.PharmacyApplication - Logged out..
-07-12-2014 12:00:30 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-07-12-2014 12:00:31 [main] INFO  dart.start.PharmacyApplication - 
-07-12-2014 12:00:31 [main] INFO  dart.start.PharmacyApplication - *********************
-07-12-2014 12:00:31 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
-07-12-2014 12:00:31 [main] INFO  dart.start.PharmacyApplication - *********************
-07-12-2014 12:00:31 [main] INFO  dart.start.PharmacyApplication - 
+10-12-2014 03:20:59 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_regimen::simon@cell-life.org::(Checksum: 3:b913910ee776e770b5631768f2014074) ran despite precondition failure due to onFail='MARK_RAN': 
+          org/celllife/idart/database/changelog-master.xml : Not precondition failed
+
+10-12-2014 03:21:01 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_regimendrugs::simon@cell-life.org::(Checksum: 3:3c079643b3b3ffcaf7370fc4edaa3073) ran despite precondition failure due to onFail='MARK_RAN': 
+          org/celllife/idart/database/changelog-master.xml : Not precondition failed
+
+10-12-2014 03:21:03 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_simpledomain::simon@cell-life.org::(Checksum: 3:6f095ddb484c809556de817a9f70f58e) ran despite precondition failure due to onFail='MARK_RAN': 
+          org/celllife/idart/database/changelog-master.xml : Not precondition failed
+
+10-12-2014 03:21:04 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_stock::simon@cell-life.org::(Checksum: 3:ad4e3536ea32daacfa809c2a94be4492) ran despite precondition failure due to onFail='MARK_RAN': 
+          org/celllife/idart/database/changelog-master.xml : Not precondition failed
+
+10-12-2014 03:21:06 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_stockadjustment::simon@cell-life.org::(Checksum: 3:7436350105baf235f1e864bf644fa5b2) ran despite precondition failure due to onFail='MARK_RAN': 
+          org/celllife/idart/database/changelog-master.xml : Not precondition failed
+
+10-12-2014 03:21:08 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_stockcenter::simon@cell-life.org::(Checksum: 3:1946a57ea71da6248ffbe36374fdb500) ran despite precondition failure due to onFail='MARK_RAN': 
+          org/celllife/idart/database/changelog-master.xml : Not precondition failed
+
+10-12-2014 03:21:10 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_stocklevel::simon@cell-life.org::(Checksum: 3:f71b887f75813b86f1273830653b4106) ran despite precondition failure due to onFail='MARK_RAN': 
+          org/celllife/idart/database/changelog-master.xml : Not precondition failed
+
+10-12-2014 03:21:12 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_stocktake::simon@cell-life.org::(Checksum: 3:1adfcebe89367d6337d0c9739cf11b48) ran despite precondition failure due to onFail='MARK_RAN': 
+          org/celllife/idart/database/changelog-master.xml : Not precondition failed
+
+10-12-2014 03:21:12 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.1::Rashid ran successfully in 10ms
+10-12-2014 03:21:12 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.2::Rashid ran successfully in 283ms
+10-12-2014 03:21:12 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.3::michael ran successfully in 117ms
+10-12-2014 03:21:12 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.4::Rashid ran successfully in 17ms
+10-12-2014 03:21:12 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.5::michael ran successfully in 7ms
+10-12-2014 03:21:12 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.6::michael ran successfully in 4ms
+10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.7::michael ran successfully in 2244ms
+10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.8::michael ran successfully in 3ms
+10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.9::Rashid ran successfully in 103ms
+10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.10::Rashid ran successfully in 234ms
+10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.11::Rashid ran successfully in 132ms
+10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.12::michael ran successfully in 12ms
+10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.13::simon ran successfully in 4ms
+10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.14::simon ran successfully in 5ms
+10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.15::simon ran successfully in 18ms
+10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.16::munaf ran successfully in 4ms
+10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.16::simon ran successfully in 9ms
+10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.18::simon@cell-life.org ran successfully in 3ms
+10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.19::simon ran successfully in 9ms
+10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.20::simon@cell-life.org ran successfully in 8ms
+10-12-2014 03:21:16 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.1::simon@cell-life.org ran successfully in 268ms
+10-12-2014 03:21:16 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.2::simon@cell-life.org ran successfully in 8ms
+10-12-2014 03:21:16 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.3::simon@cell-life.org ran successfully in 12ms
+10-12-2014 03:21:16 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.4::simon@cell-life.org ran successfully in 7ms
+10-12-2014 03:21:16 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.5::simon@cell-life.org ran successfully in 5ms
+10-12-2014 03:21:16 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.6::simon@cell-life.org ran successfully in 5ms
+10-12-2014 03:21:17 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.7::simon@cell-life.org ran successfully in 1278ms
+10-12-2014 03:21:17 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.8::simon@cell-life.org ran successfully in 6ms
+10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.1::simon@cell-life.org ran successfully in 549ms
+10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.2::simon@cell-life.org ran successfully in 21ms
+10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.3::simon@cell-life.org ran successfully in 5ms
+10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.4::simon@cell-life.org ran successfully in 108ms
+10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.5::simon@cell-life.org ran successfully in 23ms
+10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.6::simon@cell-life.org ran successfully in 181ms
+10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.7::simon@cell-life.org ran successfully in 298ms
+10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.8::simon@cell-life.org ran successfully in 39ms
+10-12-2014 03:21:18 [main] INFO  e.hibernate.util.HibernateUtil - Initialising HibernateUtil.
+10-12-2014 03:21:20 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.9::simon@cell-life.org ran successfully in 1731ms
+10-12-2014 03:21:20 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.10::simon@cell-life.org ran successfully in 4ms
+10-12-2014 03:21:20 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.11::simon@cell-life.org ran successfully in 6ms
+10-12-2014 03:21:20 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.12::simon@cell-life.org ran successfully in 59ms
+10-12-2014 03:21:20 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.13::simon@cell-life.org ran successfully in 72ms
+10-12-2014 03:21:21 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.14::simon@cell-life.org ran successfully in 172ms
+10-12-2014 03:21:21 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.15::simon@cell-life.org ran successfully in 48ms
+10-12-2014 03:21:21 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.16::simon@cell-life.org ran successfully in 78ms
+10-12-2014 03:21:21 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.17::simon@cell-life.org ran successfully in 79ms
+10-12-2014 03:21:21 [main] INFO                       liquibase - Successfully released change log lock
+10-12-2014 03:21:21 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
+10-12-2014 03:21:21 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
+10-12-2014 03:21:21 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
+10-12-2014 03:21:21 [main] INFO                       liquibase - Successfully released change log lock
+10-12-2014 03:21:21 [main] INFO                       liquibase - Successfully acquired change log lock
+10-12-2014 03:21:21 [main] INFO                       liquibase - Reading from databasechangelog
+10-12-2014 03:21:22 [main] INFO                       liquibase - Reading from databasechangelog
+10-12-2014 03:21:22 [main] INFO                       liquibase - Successfully released change log lock
+10-12-2014 03:21:22 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
+10-12-2014 03:21:23 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
+10-12-2014 03:21:23 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
+10-12-2014 03:21:23 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@1af7e68Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 1
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 2
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 3
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 4
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 5
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 6
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 7
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 8
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 9
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 10
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 11
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 12
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 13
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 14
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 15
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 16
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 17
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 18
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 19
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 20
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 21
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 22
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 23
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 24
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 25
+10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 26
+10-12-2014 03:21:24 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
+10-12-2014 03:21:24 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+10-12-2014 03:21:35 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+10-12-2014 03:21:35 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+10-12-2014 03:21:35 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+10-12-2014 03:21:35 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.

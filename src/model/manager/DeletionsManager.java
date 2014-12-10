@@ -19,6 +19,8 @@ import org.celllife.idart.database.hibernate.Packages;
 import org.celllife.idart.database.hibernate.Patient;
 import org.celllife.idart.database.hibernate.PillCount;
 import org.celllife.idart.database.hibernate.Prescription;
+import org.celllife.idart.database.hibernate.RegimeTerapeutico;
+import org.celllife.idart.database.hibernate.RegimeTerapeuticoDrugs;
 import org.celllife.idart.database.hibernate.Regimen;
 import org.celllife.idart.database.hibernate.RegimenDrugs;
 import org.celllife.idart.database.hibernate.Stock;
@@ -489,5 +491,22 @@ public class DeletionsManager {
 		// Call helper method
 		removePillCountInfo(session, fromPackage, delList);
 		TemporaryRecordsManager.saveDeletedItemsToDB(session, delList);
+	}
+
+	public static void removeRegime(Session sess,
+			RegimeTerapeutico reg) {
+		// delete regimen drugs, if any
+				for (RegimeTerapeuticoDrugs rd : reg.getRegimeDrugs()) {
+					String regDelete = "delete regimeterapeuticodrugs where regimeid = :rdId";
+					sess.createQuery(regDelete).setInteger("rdId", rd.getRegime().getRegimeid())
+							.executeUpdate();
+					log.info("deleting regimeterapeuticodrugs record " + rd.getRegime().getRegimeid());
+				}
+				String regDrugsDelete = "delete regimeterapeutico where regimeid = :rId";
+				sess.createQuery(regDrugsDelete).setInteger("rId", reg.getRegimeid())
+						.executeUpdate();
+
+				log.info("deleting RegimeTerapeutico record " + reg.getRegimeid());
+		
 	}
 }

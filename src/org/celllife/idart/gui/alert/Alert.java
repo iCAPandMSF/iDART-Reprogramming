@@ -273,13 +273,8 @@ public class Alert extends GenericFormGui  {
 			clmTipoDeAlerta.pack();
 	}
 
-
-
-
-
-
-	@Override
-	protected void cmdCancelWidgetSelected() {
+	private void sendMessage()
+	{
 		// TODO Auto-generated method stub
 		String riskMessage = "Dear Pharmacist pay attention to the following: ";
 		boolean messageShouldSent = false;
@@ -296,12 +291,29 @@ public class Alert extends GenericFormGui  {
 		
 		if(messageShouldSent)
 		{
-			JOptionPane.showMessageDialog(null,riskMessage);
+			Object[] options = {"Send SMS ?","Close alert!"};
+			int n = JOptionPane.showOptionDialog(null,
+					riskMessage,
+					"SMS stock control alert",
+					JOptionPane.YES_NO_OPTION,
+					JOptionPane.QUESTION_MESSAGE,
+					null,     //do not use a custom Icon
+					options,  //the titles of buttons
+					options[0]); //default button title
+			if(n==0)
+			{
+				JOptionPane.showMessageDialog(null, "SMS sent.");
+			}
 		}
 		else
 		{
 			JOptionPane.showMessageDialog(null, "No worry no drug is with low stock");
 		}
+	}
+	
+	@Override
+	protected void cmdCancelWidgetSelected() {
+		sendMessage();
 		closeShell(false);
 	}
 

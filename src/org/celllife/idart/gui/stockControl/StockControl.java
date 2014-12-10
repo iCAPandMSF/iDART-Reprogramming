@@ -24,11 +24,15 @@ import org.celllife.idart.commonobjects.iDartProperties;
 import org.celllife.idart.gui.alert.Alert;
 import org.celllife.idart.gui.deletions.DeleteStockPrescriptionsPackages;
 import org.celllife.idart.gui.deletions.DestroyStock;
+import org.celllife.idart.gui.drug.AddLine;
+import org.celllife.idart.gui.drugGroup.AddDrugGroup;
+import org.celllife.idart.gui.drugGroup.AddRegimen;
 import org.celllife.idart.gui.packaging.NewPatientPackaging;
 import org.celllife.idart.gui.packaging.PackageReturn;
 import org.celllife.idart.gui.packaging.PackagesToOrFromClinic;
 import org.celllife.idart.gui.packaging.PackagesToPatients;
 import org.celllife.idart.gui.platform.GenericAdminGui;
+import org.celllife.idart.gui.platform.GenericFormGui;
 import org.celllife.idart.gui.prescription.AddPrescription;
 import org.celllife.idart.gui.stockArrives.StockArrives;
 import org.celllife.idart.gui.stockTake.StockTakeGui;
@@ -68,7 +72,23 @@ public class StockControl extends GenericAdminGui {
 	private Button btnPrescription;
 
 	private Label lblPrescription;
+	
+	private Button btnRegimen;
 
+	private Label lblRegimen;
+
+	private Button btnLine;
+
+	private Label lblLine;
+	
+	private Button btnRegimenUpdate;
+
+	private Label lblRegimenUpdate;
+
+	private Button btnLineUpdate;
+
+	private Label lblLineUpdate;
+	
 	private Label lblDispenseToPatients;
 
 	private Button btnDispenseToPatients;
@@ -464,6 +484,115 @@ public class StockControl extends GenericAdminGui {
 				cmdStockTakeSelected();
 			}
 		});
+		
+		// lblLine
+		lblLine = new Label(compOptions, SWT.NONE);
+		lblLine.setBounds(new Rectangle(415, 340, 50, 43));
+		lblLine.setImage(ResourceUtils.getImage(iDartImage.PRESCRIPTIONNEW));
+		lblLine.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseUp(MouseEvent mu) {
+				cmdAddLineWidgetSelected();
+			}
+		});
+
+		// btnLine
+		btnLine = new Button(compOptions, SWT.NONE);
+		btnLine.setBounds(new Rectangle(470, 342, 260, 40));
+		btnLine.setToolTipText(Messages
+				.getString("StockControl.button.addLine.tooltip")); //$NON-NLS-1$
+		btnLine.setText(Messages
+				.getString("StockControl.button.addLine")); //$NON-NLS-1$
+		btnLine.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		btnLine
+				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+					@Override
+					public void widgetSelected(
+							org.eclipse.swt.events.SelectionEvent e) {
+						cmdAddLineWidgetSelected();
+					}
+				});
+		
+		// lblLineUpdate
+		lblLineUpdate = new Label(compOptions, SWT.NONE);
+		lblLineUpdate.setBounds(new Rectangle(415, 420, 50, 43));
+		lblLineUpdate.setImage(ResourceUtils.getImage(iDartImage.PRESCRIPTIONNEW));
+		lblLineUpdate.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseUp(MouseEvent mu) {
+				cmdUpdateLineWidgetSelected();
+			}
+		});
+
+		// btnLineUpdate
+		btnLineUpdate = new Button(compOptions, SWT.NONE);
+		btnLineUpdate.setBounds(new Rectangle(470, 422, 260, 40));
+		btnLineUpdate.setToolTipText(Messages
+				.getString("StockControl.button.updateLine.tooltip")); //$NON-NLS-1$
+		btnLineUpdate.setText(Messages.getString("StockControl.button.updateLine")); //$NON-NLS-1$
+		btnLineUpdate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		btnLineUpdate.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+			@Override
+			public void widgetSelected(org.eclipse.swt.events.SelectionEvent e) {
+				cmdUpdateLineWidgetSelected();
+			}
+		});
+
+		// lblRegimen
+		lblRegimen = new Label(compOptions, SWT.NONE);
+		lblRegimen.setBounds(new Rectangle(50, 340, 50, 43));
+		lblRegimen.setImage(ResourceUtils.getImage(iDartImage.PRESCRIPTIONNEW));
+		lblRegimen.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseUp(MouseEvent mu) {
+				cmdAddRegimenWidgetSelected();
+			}
+		});
+
+		// btnRegimen
+		btnRegimen = new Button(compOptions, SWT.NONE);
+		btnRegimen.setBounds(new Rectangle(105, 342, 260, 40));
+		btnRegimen.setToolTipText(Messages
+				.getString("StockControl.button.addRegimen.tooltip")); //$NON-NLS-1$
+		btnRegimen.setText(Messages
+				.getString("StockControl.button.addRegimen")); //$NON-NLS-1$
+		btnRegimen.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		btnRegimen
+				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+					@Override
+					public void widgetSelected(
+							org.eclipse.swt.events.SelectionEvent e) {
+						cmdAddRegimenWidgetSelected();
+					}
+				});
+
+		// lblRegimenUpdate
+		lblRegimenUpdate = new Label(compOptions, SWT.NONE);
+		lblRegimenUpdate.setBounds(new Rectangle(50, 420, 50, 43));
+		lblRegimenUpdate.setImage(ResourceUtils.getImage(iDartImage.PRESCRIPTIONNEW));
+		lblRegimenUpdate.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseUp(MouseEvent mu) {
+				cmdUpdateRegimenWidgetSelected();
+			}
+		});
+
+		// btnRegimenUpdate
+		btnRegimenUpdate = new Button(compOptions, SWT.NONE);
+		btnRegimenUpdate.setBounds(new Rectangle(105, 422, 260, 40));
+		btnRegimenUpdate.setToolTipText(Messages
+				.getString("StockControl.button.updateRegimen.tooltip")); //$NON-NLS-1$
+		btnRegimenUpdate.setText(Messages
+				.getString("StockControl.button.updateRegimen")); //$NON-NLS-1$
+		btnRegimenUpdate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		btnRegimenUpdate
+				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+					@Override
+					public void widgetSelected(
+							org.eclipse.swt.events.SelectionEvent e) {
+						cmdUpdateRegimenWidgetSelected();
+					}
+				});
 
 	}
 
@@ -498,6 +627,36 @@ public class StockControl extends GenericAdminGui {
 	new AddPrescription(null, getShell(), false);
 		
 	
+	}
+	
+	private void cmdAddRegimenWidgetSelected() {
+		// AddDrgGroup(true) to ADD new regimen
+				AddDrugGroup.addInitialisationOption(
+						GenericFormGui.OPTION_isAddNotUpdate, true);
+		new AddRegimen(getShell());
+
+	}
+
+	private void cmdUpdateRegimenWidgetSelected() {
+		// AddDrgGroup(true) to ADD new regimen
+				AddDrugGroup.addInitialisationOption(
+						GenericFormGui.OPTION_isAddNotUpdate, false);
+		new AddRegimen(getShell());
+
+	}
+	
+	private void cmdAddLineWidgetSelected() {
+		AddLine.addInitialisationOption(
+				GenericFormGui.OPTION_isAddNotUpdate, true);
+		new AddLine(getShell());
+
+	}
+
+	private void cmdUpdateLineWidgetSelected() {
+		AddLine.addInitialisationOption(
+				GenericFormGui.OPTION_isAddNotUpdate, false);
+		new AddLine(getShell());
+
 	}
 
 	private void cmdReturnStockSelected() {

@@ -666,6 +666,17 @@ public class CommonObjects {
 		
 	}
 
+	public static void populateLines(Session session, CCombo cmbLine) {
+		List<LinhaT> lines = AdministrationManager
+				.getAllLinhas(session);
+		String[] items = new String[lines.size()];
+		for (int i = 0; i < lines.size(); i++) {
+			items[i] = lines.get(i).getLinhanome();
+		}
+		cmbLine.setItems(items);
+
+	}
+
 
 
 

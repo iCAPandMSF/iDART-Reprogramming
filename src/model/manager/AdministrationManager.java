@@ -85,7 +85,7 @@ public class AdministrationManager {
 			throws HibernateException {
 				
 				List<RegimeTerapeutico> result = sess.createQuery(
-				"select r from RegimeTerapeutico as r)").list();
+				"select r from regimeterapeutico as r)").list();
 
 				return result;
 			}
@@ -100,7 +100,7 @@ public class AdministrationManager {
 			throws HibernateException {
 				
 				List<LinhaT> result = sess.createQuery(
-				"select l from LinhaT as l)").list();
+				"select l from linhat as l)").list();
 
 				return result;
 			}
@@ -1215,6 +1215,11 @@ public class AdministrationManager {
 			"select r from Motivomudanca as r)").list();
 
 			return result;
+		}
+
+
+		public static void saveLinhaT(Session s, LinhaT linhaT) {
+			s.save(linhaT);
 		}
 	
 //

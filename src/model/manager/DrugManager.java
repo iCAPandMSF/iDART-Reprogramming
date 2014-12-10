@@ -17,6 +17,7 @@ import org.celllife.idart.database.hibernate.PackagedDrugs;
 import org.celllife.idart.database.hibernate.Packages;
 import org.celllife.idart.database.hibernate.PrescribedDrugs;
 import org.celllife.idart.database.hibernate.Prescription;
+import org.celllife.idart.database.hibernate.RegimeTerapeutico;
 import org.celllife.idart.database.hibernate.Regimen;
 import org.celllife.idart.database.hibernate.RegimenDrugs;
 import org.hibernate.HibernateException;
@@ -603,5 +604,35 @@ public class DrugManager {
 		}
 
 		return null;
+	}
+
+	public static RegimeTerapeutico getRegime(Session session, String name) {
+		RegimeTerapeutico result = null;
+		List<RegimeTerapeutico> regList = session.createQuery(
+				"from regimeterapeutico r where r.regimeesquema = :name").setString("name",
+				name).list();
+		if (regList.size() > 0) {
+			if (regList.size() > 1) {
+				log.warn("There are 2 regimens with the name '" + name
+						+ "' in the database. Returning the first only");
+			}
+			result = regList.get(0);
+		}
+		return result;
+	}
+
+	public static void saveRegime(Session sess, RegimeTerapeutico regToSave) {
+		sess.save(regToSave);	
+	}
+
+	public static boolean regimeDrugsIdentical(Session hSession,
+			RegimeTerapeutico regToSave) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public static boolean regimeDrugsDuplicated(RegimeTerapeutico regToSave) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

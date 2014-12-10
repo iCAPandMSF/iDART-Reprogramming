@@ -68,6 +68,8 @@ public class Drug implements Comparable<Drug> {
 	private int defaultTimes;
 
 	private String stockCode;
+	
+	private boolean adult;
 
 	@OneToMany(mappedBy = "drug")
 	@Cascade( { org.hibernate.annotations.CascadeType.ALL,
@@ -109,7 +111,7 @@ public class Drug implements Comparable<Drug> {
 	public Drug(Form form, String dispensingInstructions1,
 			String dispensingInstructions2, char modified, String name,
 			int packSize, Set<Stock> stock, char sideTreatment,
-			double defaultAmnt, int defaultTimes) {
+			double defaultAmnt, int defaultTimes, boolean adult) {
 		super();
 
 		this.form = form;
@@ -122,8 +124,18 @@ public class Drug implements Comparable<Drug> {
 		this.sideTreatment = sideTreatment;
 		this.defaultAmnt = defaultAmnt;
 		this.defaultTimes = defaultTimes;
+		this.adult=adult;
 	}
 
+	
+	
+	public boolean isAdult() {
+		return adult;
+	}
+
+	public void setAdult(boolean adult) {
+		this.adult = adult;
+	}
 	/**
 	 * Method compareTo.
 	 * @param d2 Drug
