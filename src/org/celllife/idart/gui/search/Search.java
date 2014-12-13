@@ -219,6 +219,12 @@ public class Search extends GenericOthersGui {
 		case CommonObjects.ATC:
 			searchList = SearchManager.loadAtccodes(getHSession(), this);
 			break;
+		case CommonObjects.LINE:
+			searchList = SearchManager.loadLines(getHSession(), this);
+			break;
+		case CommonObjects.REGIME:
+			searchList = SearchManager.loadRegimes(getHSession(), this);
+			break;
 		}
 	}
 

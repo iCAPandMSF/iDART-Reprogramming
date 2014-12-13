@@ -975,7 +975,7 @@ public class AdministrationManager {
 	public static List<LinhaT> getLinhasT(Session sess)
 	throws HibernateException {
 
-		String qString = "from LinhaT lt order by lt.linhanome";
+		String qString = "from linhat lt order by lt.linhanome";
 		Query q = sess.createQuery(qString);
 		List<LinhaT> result = q.list();
 
@@ -1220,6 +1220,36 @@ public class AdministrationManager {
 
 		public static void saveLinhaT(Session s, LinhaT linhaT) {
 			s.save(linhaT);
+		}
+
+
+		public static void saveRegime(Session s,
+				RegimeTerapeutico localRegime) {
+			s.save(localRegime);
+		}
+
+
+		public static RegimeTerapeutico getRegime(Session sess, int regimeId) {
+			RegimeTerapeutico regime = null;
+			List<RegimeTerapeutico> lt = AdministrationManager.getAllRegimes(sess);
+			if (lt != null) {
+				for (int i = 0; i < lt.size(); i++) {
+					regime= lt.get(i);
+					if (regime.getRegimeid()==regimeId) {
+						break;
+					}
+				}
+			}
+			return regime ;
+		}
+
+
+		public static List<RegimeTerapeutico> getRegimeTerapeuticos(Session sess) {
+			String qString = "from regimeterapeutico rt order by rt.regimeesquema";
+			Query q = sess.createQuery(qString);
+			List<RegimeTerapeutico> result = q.list();
+
+			return result;
 		}
 	
 //

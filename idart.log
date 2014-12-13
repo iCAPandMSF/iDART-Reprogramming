@@ -1,115 +1,62 @@
-10-12-2014 03:20:59 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_regimen::simon@cell-life.org::(Checksum: 3:b913910ee776e770b5631768f2014074) ran despite precondition failure due to onFail='MARK_RAN': 
-          org/celllife/idart/database/changelog-master.xml : Not precondition failed
-
-10-12-2014 03:21:01 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_regimendrugs::simon@cell-life.org::(Checksum: 3:3c079643b3b3ffcaf7370fc4edaa3073) ran despite precondition failure due to onFail='MARK_RAN': 
-          org/celllife/idart/database/changelog-master.xml : Not precondition failed
-
-10-12-2014 03:21:03 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_simpledomain::simon@cell-life.org::(Checksum: 3:6f095ddb484c809556de817a9f70f58e) ran despite precondition failure due to onFail='MARK_RAN': 
-          org/celllife/idart/database/changelog-master.xml : Not precondition failed
-
-10-12-2014 03:21:04 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_stock::simon@cell-life.org::(Checksum: 3:ad4e3536ea32daacfa809c2a94be4492) ran despite precondition failure due to onFail='MARK_RAN': 
-          org/celllife/idart/database/changelog-master.xml : Not precondition failed
-
-10-12-2014 03:21:06 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_stockadjustment::simon@cell-life.org::(Checksum: 3:7436350105baf235f1e864bf644fa5b2) ran despite precondition failure due to onFail='MARK_RAN': 
-          org/celllife/idart/database/changelog-master.xml : Not precondition failed
-
-10-12-2014 03:21:08 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_stockcenter::simon@cell-life.org::(Checksum: 3:1946a57ea71da6248ffbe36374fdb500) ran despite precondition failure due to onFail='MARK_RAN': 
-          org/celllife/idart/database/changelog-master.xml : Not precondition failed
-
-10-12-2014 03:21:10 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_stocklevel::simon@cell-life.org::(Checksum: 3:f71b887f75813b86f1273830653b4106) ran despite precondition failure due to onFail='MARK_RAN': 
-          org/celllife/idart/database/changelog-master.xml : Not precondition failed
-
-10-12-2014 03:21:12 [main] INFO                       liquibase - Marking ChangeSet: org/celllife/idart/database/changelog-primary_key_fix.xml::fix_primary_keys_stocktake::simon@cell-life.org::(Checksum: 3:1adfcebe89367d6337d0c9739cf11b48) ran despite precondition failure due to onFail='MARK_RAN': 
-          org/celllife/idart/database/changelog-master.xml : Not precondition failed
-
-10-12-2014 03:21:12 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.1::Rashid ran successfully in 10ms
-10-12-2014 03:21:12 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.2::Rashid ran successfully in 283ms
-10-12-2014 03:21:12 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.3::michael ran successfully in 117ms
-10-12-2014 03:21:12 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.4::Rashid ran successfully in 17ms
-10-12-2014 03:21:12 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.5::michael ran successfully in 7ms
-10-12-2014 03:21:12 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.6::michael ran successfully in 4ms
-10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.7::michael ran successfully in 2244ms
-10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.8::michael ran successfully in 3ms
-10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.9::Rashid ran successfully in 103ms
-10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.10::Rashid ran successfully in 234ms
-10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.11::Rashid ran successfully in 132ms
-10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.12::michael ran successfully in 12ms
-10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.13::simon ran successfully in 4ms
-10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.14::simon ran successfully in 5ms
-10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.15::simon ran successfully in 18ms
-10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.16::munaf ran successfully in 4ms
-10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.16::simon ran successfully in 9ms
-10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.18::simon@cell-life.org ran successfully in 3ms
-10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.19::simon ran successfully in 9ms
-10-12-2014 03:21:15 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.6.xml::3.6.20::simon@cell-life.org ran successfully in 8ms
-10-12-2014 03:21:16 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.1::simon@cell-life.org ran successfully in 268ms
-10-12-2014 03:21:16 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.2::simon@cell-life.org ran successfully in 8ms
-10-12-2014 03:21:16 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.3::simon@cell-life.org ran successfully in 12ms
-10-12-2014 03:21:16 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.4::simon@cell-life.org ran successfully in 7ms
-10-12-2014 03:21:16 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.5::simon@cell-life.org ran successfully in 5ms
-10-12-2014 03:21:16 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.6::simon@cell-life.org ran successfully in 5ms
-10-12-2014 03:21:17 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.7::simon@cell-life.org ran successfully in 1278ms
-10-12-2014 03:21:17 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.7.xml::3.7.8::simon@cell-life.org ran successfully in 6ms
-10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.1::simon@cell-life.org ran successfully in 549ms
-10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.2::simon@cell-life.org ran successfully in 21ms
-10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.3::simon@cell-life.org ran successfully in 5ms
-10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.4::simon@cell-life.org ran successfully in 108ms
-10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.5::simon@cell-life.org ran successfully in 23ms
-10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.6::simon@cell-life.org ran successfully in 181ms
-10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.7::simon@cell-life.org ran successfully in 298ms
-10-12-2014 03:21:18 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.8::simon@cell-life.org ran successfully in 39ms
-10-12-2014 03:21:18 [main] INFO  e.hibernate.util.HibernateUtil - Initialising HibernateUtil.
-10-12-2014 03:21:20 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.9::simon@cell-life.org ran successfully in 1731ms
-10-12-2014 03:21:20 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.10::simon@cell-life.org ran successfully in 4ms
-10-12-2014 03:21:20 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.11::simon@cell-life.org ran successfully in 6ms
-10-12-2014 03:21:20 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.12::simon@cell-life.org ran successfully in 59ms
-10-12-2014 03:21:20 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.13::simon@cell-life.org ran successfully in 72ms
-10-12-2014 03:21:21 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.14::simon@cell-life.org ran successfully in 172ms
-10-12-2014 03:21:21 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.15::simon@cell-life.org ran successfully in 48ms
-10-12-2014 03:21:21 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.16::simon@cell-life.org ran successfully in 78ms
-10-12-2014 03:21:21 [main] INFO                       liquibase - ChangeSet org/celllife/idart/database/changelog-3.8.xml::3.8.17::simon@cell-life.org ran successfully in 79ms
-10-12-2014 03:21:21 [main] INFO                       liquibase - Successfully released change log lock
-10-12-2014 03:21:21 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-10-12-2014 03:21:21 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
-10-12-2014 03:21:21 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
-10-12-2014 03:21:21 [main] INFO                       liquibase - Successfully released change log lock
-10-12-2014 03:21:21 [main] INFO                       liquibase - Successfully acquired change log lock
-10-12-2014 03:21:21 [main] INFO                       liquibase - Reading from databasechangelog
-10-12-2014 03:21:22 [main] INFO                       liquibase - Reading from databasechangelog
-10-12-2014 03:21:22 [main] INFO                       liquibase - Successfully released change log lock
-10-12-2014 03:21:22 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
-10-12-2014 03:21:23 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
-10-12-2014 03:21:23 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
-10-12-2014 03:21:23 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@1af7e68Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 1
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 2
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 3
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 4
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 5
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 6
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 7
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 8
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 9
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 10
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 11
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 12
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 13
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 14
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 15
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 16
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 17
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 18
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 19
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 20
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 21
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 22
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 23
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 24
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 25
-10-12-2014 03:21:23 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 26
-10-12-2014 03:21:24 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
-10-12-2014 03:21:24 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
-10-12-2014 03:21:35 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
-10-12-2014 03:21:35 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
-10-12-2014 03:21:35 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
-10-12-2014 03:21:35 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+12-12-2014 15:05:59 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
+12-12-2014 15:05:59 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
+12-12-2014 15:05:59 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
+12-12-2014 15:06:00 [main] INFO                       liquibase - Successfully released change log lock
+12-12-2014 15:06:00 [main] INFO                       liquibase - Successfully acquired change log lock
+12-12-2014 15:06:00 [main] INFO                       liquibase - Reading from databasechangelog
+12-12-2014 15:06:00 [main] INFO                       liquibase - Reading from databasechangelog
+12-12-2014 15:06:01 [main] INFO                       liquibase - Successfully released change log lock
+12-12-2014 15:06:01 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/idart
+12-12-2014 15:06:03 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
+12-12-2014 15:06:03 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
+12-12-2014 15:06:03 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@52eef4Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Street Address City Tel Facility Name
+12-12-2014 15:06:03 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
+12-12-2014 15:06:03 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+12-12-2014 15:06:11 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+12-12-2014 15:06:11 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+12-12-2014 15:06:11 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+12-12-2014 15:06:11 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+12-12-2014 15:07:16 [main] INFO  .gui.generalAdmin.GeneralAdmin - GeneralAdmin: Initializing the GUI
+12-12-2014 15:11:34 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
+12-12-2014 15:11:34 [main] DEBUG dart.start.PharmacyApplication - Logged out..
+12-12-2014 15:11:35 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+12-12-2014 15:11:42 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+12-12-2014 15:11:42 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+12-12-2014 15:11:42 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+12-12-2014 15:11:42 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+12-12-2014 15:12:59 [main] INFO  .gui.generalAdmin.GeneralAdmin - GeneralAdmin: Initializing the GUI
+12-12-2014 15:16:27 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
+12-12-2014 15:22:06 [main] INFO  i.prescription.AddPrescription - Saved Prescription for Patient: 0
+12-12-2014 15:27:26 [main] INFO  .gui.generalAdmin.GeneralAdmin - GeneralAdmin: Initializing the GUI
+12-12-2014 15:28:23 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
+12-12-2014 15:29:37 [main] INFO  t.gui.composite.PillCountTable - Creating PillCountTable
+12-12-2014 15:29:55 [main] INFO  .packaging.NewPatientPackaging - getSelectedWeekSupply() called
+12-12-2014 15:29:55 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 17
+12-12-2014 15:29:55 [main] INFO      model.manager.StockManager - Deleting empty batch number BATCH17 of drug [D4T] Stavudine 30mg
+12-12-2014 15:29:55 [main] INFO      model.manager.StockManager - Marking stock as empty: BATCH17 of drug [D4T] Stavudine 30mg
+12-12-2014 15:29:55 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 10
+12-12-2014 15:29:55 [main] INFO      model.manager.StockManager - Deleting empty batch number BATCH10 of drug [3TC] Lamivudine 150mg
+12-12-2014 15:29:55 [main] INFO      model.manager.StockManager - Marking stock as empty: BATCH10 of drug [3TC] Lamivudine 150mg
+12-12-2014 15:29:55 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 11
+12-12-2014 15:29:55 [main] INFO      model.manager.StockManager - Deleting empty batch number BATCH11 of drug [NVP] Nevirapine 200mg
+12-12-2014 15:29:55 [main] INFO      model.manager.StockManager - Marking stock as empty: BATCH11 of drug [NVP] Nevirapine 200mg
+12-12-2014 15:29:55 [main] INFO  .packaging.NewPatientPackaging - savePackageAndPackagedDrugs() called
+12-12-2014 15:29:55 [main] INFO  anager.TemporaryRecordsManager - Saving package drug infos.
+12-12-2014 15:29:55 [main] INFO  anager.TemporaryRecordsManager - Saving package drug infos.
+12-12-2014 15:29:55 [main] INFO  anager.TemporaryRecordsManager - Saving package drug infos.
+12-12-2014 15:29:55 [main] INFO  .packaging.NewPatientPackaging - cmdDispenseDrugsSelected() called
+12-12-2014 15:30:01 [main] INFO  t.gui.composite.PillCountTable - Creating PillCountTable
+12-12-2014 15:41:27 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/idart
+12-12-2014 15:44:15 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
+12-12-2014 15:44:25 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
+12-12-2014 15:46:14 [main] INFO  .gui.generalAdmin.GeneralAdmin - GeneralAdmin: Initializing the GUI
+12-12-2014 15:46:50 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
+12-12-2014 15:47:53 [main] INFO  .gui.generalAdmin.GeneralAdmin - GeneralAdmin: Initializing the GUI
+12-12-2014 15:58:22 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
+12-12-2014 15:58:22 [main] DEBUG dart.start.PharmacyApplication - Logged out..
+12-12-2014 15:58:22 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+12-12-2014 15:58:23 [main] INFO  dart.start.PharmacyApplication - 
+12-12-2014 15:58:23 [main] INFO  dart.start.PharmacyApplication - *********************
+12-12-2014 15:58:23 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
+12-12-2014 15:58:23 [main] INFO  dart.start.PharmacyApplication - *********************
+12-12-2014 15:58:23 [main] INFO  dart.start.PharmacyApplication - 

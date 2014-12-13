@@ -43,6 +43,7 @@ import org.celllife.idart.gui.utils.ResourceUtils;
 import org.celllife.idart.gui.utils.iDartColor;
 import org.celllife.idart.gui.utils.iDartFont;
 import org.celllife.idart.gui.utils.iDartImage;
+import org.celllife.idart.messages.Messages;
 import org.celllife.idart.misc.iDARTUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
@@ -90,6 +91,10 @@ public class AddDrug extends GenericFormGui {
 	private Button rdBtnSideTreatment;
 
 	private Button rdBtnARV;
+	
+	private Button rdBtnAdult;
+
+	private Button rdBtnChild;
 
 	private Text txtName;
 
@@ -132,6 +137,8 @@ public class AddDrug extends GenericFormGui {
 	private Button btnAtcSearch;
 
 	private Group grpDrugInfo;
+	
+	private Group grpDrugAge;
 
 	private Button btnEditChemical;
 
@@ -164,6 +171,7 @@ public class AddDrug extends GenericFormGui {
 	@Override
 	protected void createContents() {
 		createCompDrugInfo();
+		createGrpAges();
 		createGrpStandardDosages();
 		createCompInstructions();
 		createGrpChemicalCompounds();
@@ -175,6 +183,34 @@ public class AddDrug extends GenericFormGui {
 			enableFields(false);
 			btnSearch.setFocus();
 		}
+	}
+
+	private void createGrpAges() {
+		grpDrugAge = new Group(getShell(), SWT.NONE);
+		grpDrugAge.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		grpDrugAge.setText("Drug age group");
+		grpDrugAge.setBounds(new Rectangle(18, 10, 83, 293));
+		
+		Label lblAge = new Label(grpDrugAge, SWT.NONE);
+		lblAge.setLayoutData(new GridData(GridData.BEGINNING, GridData.BEGINNING, false, false, 1,1));
+		lblAge.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		lblAge.setText("* Drug is:");
+		
+		rdBtnAdult = new Button(grpDrugAge, SWT.RADIO);
+		rdBtnAdult.setLayoutData(new GridData(GridData.FILL, GridData.BEGINNING, false, false, 1,1));
+		rdBtnAdult.setLayoutData(new GridData(110, 20));
+		rdBtnAdult.setText(Messages.getString("addDrug.field.adult"));
+		rdBtnAdult.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		rdBtnAdult.setSelection(false);
+
+		rdBtnChild = new Button(grpDrugAge, SWT.RADIO);
+		rdBtnChild.setLayoutData(new GridData(GridData.BEGINNING, GridData.BEGINNING, false, false, 1,1));
+		rdBtnChild.setText(Messages.getString("addDrug.field.child"));
+		rdBtnChild.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		rdBtnChild.setSelection(true);
+		
+		grpDrugAge.layout();
+		
 	}
 
 	/**
@@ -467,33 +503,50 @@ public class AddDrug extends GenericFormGui {
 		grpStandadDosages.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		grpStandadDosages.setText("Standard Dosage ");
 		grpStandadDosages.setLayout(null);
-		grpStandadDosages.setBounds(new Rectangle(16, 423, 485, 61));
+		grpStandadDosages.setBounds(new Rectangle(16, 423, 485, 100));
+		
+		Label lblAge = new Label(grpStandadDosages, SWT.NONE);
+		lblAge.setBounds(new Rectangle(60, 23, 57, 22));
+		lblAge.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		lblAge.setText("* Drug is:");
+		
+		rdBtnAdult = new Button(grpStandadDosages, SWT.RADIO);
+		rdBtnAdult.setBounds(new Rectangle(137, 18, 120, 22));
+		rdBtnAdult.setText(Messages.getString("addDrug.field.adult"));
+		rdBtnAdult.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		rdBtnAdult.setSelection(true);
+
+		rdBtnChild = new Button(grpStandadDosages, SWT.RADIO);
+		rdBtnChild.setBounds(new Rectangle(257, 18, 120, 22));
+		rdBtnChild.setText(Messages.getString("addDrug.field.child"));
+		rdBtnChild.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		rdBtnChild.setSelection(false);
 
 		// lblTake
 		lblTake = new Label(grpStandadDosages, SWT.CENTER);
-		lblTake.setBounds(new Rectangle(27, 28, 107, 22));
+		lblTake.setBounds(new Rectangle(27, 48, 107, 22));
 		lblTake.setText("Take");
 		lblTake.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		// txtAmountPerTime
 		txtAmountPerTime = new Text(grpStandadDosages, SWT.BORDER);
-		txtAmountPerTime.setBounds(new Rectangle(137, 26, 40, 22));
+		txtAmountPerTime.setBounds(new Rectangle(137, 46, 40, 22));
 		txtAmountPerTime.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		// lblTablets
 		lblTablets = new Label(grpStandadDosages, SWT.CENTER);
-		lblTablets.setBounds(new Rectangle(180, 28, 76, 22));
+		lblTablets.setBounds(new Rectangle(180, 48, 76, 22));
 		lblTablets.setText("tablets");
 		lblTablets.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		// txtTimesPerDay
 		txtTimesPerDay = new Text(grpStandadDosages, SWT.BORDER);
-		txtTimesPerDay.setBounds(new Rectangle(260, 26, 40, 22));
+		txtTimesPerDay.setBounds(new Rectangle(260, 46, 40, 22));
 		txtTimesPerDay.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		// lblTimesPerDay
 		Label lblTimesPerDay = new Label(grpStandadDosages, SWT.CENTER);
-		lblTimesPerDay.setBounds(new Rectangle(298, 28, 126, 22));
+		lblTimesPerDay.setBounds(new Rectangle(298, 48, 126, 22));
 		lblTimesPerDay.setText("times per day");
 		lblTimesPerDay.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 	}
@@ -704,6 +757,16 @@ public class AddDrug extends GenericFormGui {
 		else {
 			rdBtnARV.setSelection(true);
 			rdBtnSideTreatment.setSelection(false);
+		}
+		
+		if (localDrug.isAdult()) {
+			rdBtnAdult.setSelection(true);
+			rdBtnChild.setSelection(false);
+		}
+
+		else {
+			rdBtnAdult.setSelection(false);
+			rdBtnChild.setSelection(true);
 		}
 
 		if (localDrug.getStockCode() != null) {
@@ -1026,6 +1089,14 @@ public class AddDrug extends GenericFormGui {
 
 			else {
 				localDrug.setSideTreatment('F');
+			}
+			
+			if (rdBtnAdult.getSelection()) {
+				localDrug.setAdult(true);
+			}
+
+			else {
+				localDrug.setAdult(false);
 			}
 
 			if (!txtAtc.getText().trim().isEmpty()){

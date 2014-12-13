@@ -64,6 +64,10 @@ public class CommonObjects {
 	public static final int NATION = 10;
 
 	public static final int ATC = 11;
+	
+	public static final int LINE = 12;
+	
+	public static final int REGIME = 13;
 
 	public static String timesPerDayLanguage1 = "times per day";
 
@@ -675,6 +679,17 @@ public class CommonObjects {
 		}
 		cmbLine.setItems(items);
 
+	}
+
+	public static void populateLines(Session session, Combo cmbLine) {
+		List<LinhaT> lines = AdministrationManager
+				.getAllLinhas(session);
+		String[] items = new String[lines.size()];
+		for (int i = 0; i < lines.size(); i++) {
+			items[i] = lines.get(i).getLinhanome();
+		}
+		cmbLine.setItems(items);
+		
 	}
 
 

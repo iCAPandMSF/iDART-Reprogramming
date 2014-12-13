@@ -28,6 +28,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import javax.swing.JOptionPane;
+
 import model.manager.AdministrationManager;
 import model.manager.DeletionsManager;
 import model.manager.DrugManager;
@@ -41,6 +43,8 @@ import org.celllife.function.DateRuleFactory;
 import org.celllife.function.IRule;
 import org.celllife.idart.commonobjects.CommonObjects;
 import org.celllife.idart.commonobjects.iDartProperties;
+import org.celllife.idart.database.hibernate.ChemicalCompound;
+import org.celllife.idart.database.hibernate.ChemicalDrugStrength;
 import org.celllife.idart.database.hibernate.Doctor;
 import org.celllife.idart.database.hibernate.Drug;
 import org.celllife.idart.database.hibernate.Episode;
@@ -51,6 +55,7 @@ import org.celllife.idart.database.hibernate.PatientIdentifier;
 import org.celllife.idart.database.hibernate.PrescribedDrugs;
 import org.celllife.idart.database.hibernate.Prescription;
 import org.celllife.idart.database.hibernate.RegimeTerapeutico;
+import org.celllife.idart.database.hibernate.RegimeTerapeuticoDrugs;
 import org.celllife.idart.database.hibernate.Regimen;
 import org.celllife.idart.database.hibernate.RegimenDrugs;
 import org.celllife.idart.database.hibernate.util.HibernateUtil;
@@ -158,7 +163,7 @@ iDARTChangeListener {
 	//lbl motivo de mudanca
 	private Label lblMotivoMudanca;
 	
-	//Data de inicio noutro serviço
+	//Data de inicio noutro serviï¿½o
 	private DateButton btnDataInicioNoutroServico;
 	
 	private Patient thePatient;
@@ -494,7 +499,7 @@ iDARTChangeListener {
 	lblDataInicioNoutroServico=new Label(grpPatientID, SWT.NONE);
 	lblDataInicioNoutroServico.setBounds(new Rectangle(10, 65, 150, 20));
 	lblDataInicioNoutroServico.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-	lblDataInicioNoutroServico.setText("Data de Início Noutro Serviço:");
+	lblDataInicioNoutroServico.setText("Data de Inicio Noutro Servico:");
 	
 
 	btnDataInicioNoutroServico = new DateButton(grpPatientID, DateButton.NONE, null);
@@ -507,7 +512,7 @@ iDARTChangeListener {
 	lblMotivoMudanca=new Label(grpPatientID, SWT.NONE);
 	lblMotivoMudanca.setBounds(new Rectangle(10, 90, 150, 20));
 	lblMotivoMudanca.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-	lblMotivoMudanca.setText("Motivo de Mudança:");
+	lblMotivoMudanca.setText("Motivo de Mudanca:");
 		
 
 	cmbMotivoMudanca= new CCombo(grpPatientID, SWT.BORDER | SWT.READ_ONLY);
@@ -1115,9 +1120,9 @@ iDARTChangeListener {
 			
 			MessageBox dataNoutroServico = new MessageBox(getShell(), SWT.ICON_ERROR
 					| SWT.OK);
-			dataNoutroServico.setText("Data Inicio Noutro Serviço Inválido");
+			dataNoutroServico.setText("Data Inicio Noutro Serviï¿½o Invï¿½lido");
 			dataNoutroServico
-			.setMessage("A data do inicio noutro serviço não pode ser depois da data de hoje.");
+			.setMessage("A data do inicio noutro serviï¿½o nï¿½o pode ser depois da data de hoje.");
 			dataNoutroServico.open();
 			btnDataInicioNoutroServico.setFocus();
 			return false;
@@ -1128,9 +1133,9 @@ iDARTChangeListener {
 			
 			MessageBox dataNoutroServico = new MessageBox(getShell(), SWT.ICON_ERROR
 					| SWT.OK);
-			dataNoutroServico.setText("Motivo da Mudança");
+			dataNoutroServico.setText("Motivo da Mudanï¿½a");
 			dataNoutroServico
-			.setMessage("Insira o motivo da mudança.");
+			.setMessage("Insira o motivo da mudanï¿½a.");
 			dataNoutroServico.open();
 			cmbMotivoMudanca.setFocus();
 			
@@ -1229,14 +1234,25 @@ iDARTChangeListener {
 						localPrescription.getDoctor().getFullname())
 						.getFullname());
 		
-		cmbRegime.setText(""
-				+ AdministrationManager.getRegimeTerapeutico(getHSession(),
-						localPrescription.getRegimeTerapeutico().getRegimeesquema())
-						.getRegimeesquema());
+		if(localPrescription.getRegimeTerapeutico()==null)
+		{cmbRegime.setText("");}
+		else
+		{
+			cmbRegime.setText(""
+					+ AdministrationManager.getRegimeTerapeutico(getHSession(),
+							localPrescription.getRegimeTerapeutico().getRegimeesquema())
+							.getRegimeesquema());
+		}
+		if(localPrescription.getLinha()==null)
+		{cmbRegime.setText("");}
+		else
+		{
+			cmbLinha.setText(""
+					+ AdministrationManager.getLinha(getHSession(),
+							localPrescription.getLinha().getLinhanome()).getLinhanome());
+		}
 		
-		cmbLinha.setText(""
-				+ AdministrationManager.getLinha(getHSession(),
-						localPrescription.getLinha().getLinhanome()).getLinhanome());
+		
 					
 
 		if (localPrescription.getDuration() <= 2) {
@@ -1718,6 +1734,18 @@ iDARTChangeListener {
 					}
 					setLocalPrescription();
 
+					if(localPrescription.getLinha().getLinhaid()!=localPrescription.getRegimeTerapeutico().getLinhaT().getLinhaid())
+					{
+						JOptionPane.showMessageDialog(null, "Please choose Regimen that is in the same Line as Line selected");
+						return false;
+					}
+					
+					if(!validateCompound())
+					{
+						JOptionPane.showMessageDialog(null, "Please choose drugs with the same compound as in the regimen");
+						return false;
+					}
+					
 					SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
 					Prescription oldPrescription = localPrescription
 					.getPatient().getCurrentPrescription();
@@ -1751,8 +1779,7 @@ iDARTChangeListener {
 								+ oldPrescription.getDoctor()
 								.getFullname()
 								+ "\nReguime: "
-								+ oldPrescription.getRegimeTerapeutico()
-								.getRegimeesquema()
+								+ ""
 								+ "\nDuration: "
 								+ oldPrescription.getDuration()
 								+ " weeks "
@@ -1787,6 +1814,7 @@ iDARTChangeListener {
 					// de-normalise table to speed up reports 
 					if(localPrescription.containsARVDrug())
 						localPrescription.setDrugTypes("ARV");
+					
 					
 					PackageManager.saveNewPrescription(getHSession(),
 							localPrescription, deletedPrescription);
@@ -1849,6 +1877,37 @@ iDARTChangeListener {
 		}
 
 		return saveSuccessful;
+	}
+
+	private boolean validateCompound() {
+		boolean validCompound = false, validRegimen=false;
+		int quantityRegimen=0,quantityPrescribed=0;
+		for(RegimeTerapeuticoDrugs regime: localPrescription.getRegimeTerapeutico().getRegimeDrugs())
+		{
+			for(PrescribedDrugs pd: localPrescription.getPrescribedDrugs())
+			{
+				for(ChemicalCompound cc : pd.getDrug().getChemicalCompounds())
+				{
+					if(regime.getChemicalCompound().getAcronym().equals(cc.getAcronym()))
+					{
+						validRegimen=true;
+					}
+				}
+			}
+		}
+		quantityRegimen=localPrescription.getRegimeTerapeutico().getRegimeDrugs().size();
+		
+		for(PrescribedDrugs pd: localPrescription.getPrescribedDrugs())
+		{
+			quantityPrescribed=quantityPrescribed+pd.getDrug().getChemicalCompounds().size();
+		}
+		
+		if(quantityPrescribed==quantityRegimen)
+		{
+			validCompound=validRegimen;
+		}
+			
+		return validCompound;
 	}
 
 	/**

@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.Cascade;
 
 @Entity (name ="linhat")
-public class LinhaT {
+public class LinhaT implements Comparable<LinhaT>{
 	
 	@Id
 	private int linhaid;
@@ -55,6 +55,22 @@ public class LinhaT {
 	}
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	@Override
+	public int compareTo(LinhaT o) {
+		final int BEFORE = -1;
+	    final int EQUAL = 0;
+	    final int AFTER = 1;
+
+	    //this optimization is usually worthwhile, and can
+	    //always be added
+	    if (this.getLinhaid() == o.getLinhaid()) return EQUAL;
+
+	    //primitive numbers follow this form
+	    if (this.getLinhaid() < o.getLinhaid()) return BEFORE;
+	    if (this.getLinhaid() > o.getLinhaid()) return AFTER;
+	    return EQUAL;
 	}
 	
 	

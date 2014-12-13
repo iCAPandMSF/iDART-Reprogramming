@@ -131,7 +131,7 @@ public class Alert extends GenericFormGui  {
 	 */
 	@Override
 	protected void createCompHeader() {
-		String headerTxt = "Alerta de N�veis de Stock";
+		String headerTxt = "Alerta de Niveis de Stock";
 		iDartImage icoImage = iDartImage.PRESCRIPTIONNEW;
 		buildCompHeaderAlerta(headerTxt, icoImage);
 	}

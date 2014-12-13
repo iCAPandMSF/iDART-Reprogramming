@@ -20,6 +20,7 @@
 package model.manager;
 
 import model.nonPersistent.PatientIdAndName;
+
 import org.celllife.idart.commonobjects.CommonObjects;
 import org.celllife.idart.database.hibernate.*;
 import org.celllife.idart.gui.search.Search;
@@ -1094,6 +1095,100 @@ public class SearchManager {
 		"select st from StockTake st where st.open = false").list();
 
 		return result;
+	}
+
+	public static List<? extends Object> loadLines(Session sess,
+			Search search) {
+		listTableEntries = new ArrayList<SearchEntry>();
+		comparator = new TableComparator();
+
+		List<LinhaT> lines = null;
+		String itemText[];
+		search.getTableColumn1().setText("Line ID");
+		search.getTableColumn1().addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+				cmdColOneSelected();
+			}
+		});
+		search.getTableColumn2().setText("Line Name");
+		search.getTableColumn2().addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+				cmdColTwoSelected();
+			}
+		});
+
+		search.getShell().setText("Select a Line...");
+
+		lines = AdministrationManager.getLinhasT(sess);
+
+		Collections.sort(lines);
+
+		Iterator<LinhaT> iter = new ArrayList<LinhaT>(lines).iterator();
+		TableItem[] t = new TableItem[lines.size()];
+
+		int i = 0;
+		while (iter.hasNext()) {
+			LinhaT linha = iter.next();
+			t[i] = new TableItem(search.getTblSearch(), SWT.NONE);
+			itemText = new String[2];
+			itemText[0] = linha.getLinhaid()+"";
+			itemText[1] = linha.getLinhanome();
+			t[i].setText(itemText);
+			listTableEntries.add(new SearchEntry(itemText[0], itemText[1]));
+			i++;
+		}
+		comparator.setColumn(TableComparator.COL1_NAME);
+		redrawTable();
+		return lines;
+	}
+
+	public static List<? extends Object> loadRegimes(Session sess,
+			Search search) {
+		listTableEntries = new ArrayList<SearchEntry>();
+		comparator = new TableComparator();
+
+		List<RegimeTerapeutico> regimens = null;
+		String itemText[];
+		search.getTableColumn1().setText("Regimen ID");
+		search.getTableColumn1().addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+				cmdColOneSelected();
+			}
+		});
+		search.getTableColumn2().setText("Regimen Scheme");
+		search.getTableColumn2().addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+				cmdColTwoSelected();
+			}
+		});
+
+		search.getShell().setText("Select a Regimen...");
+
+		regimens = AdministrationManager.getRegimeTerapeuticos(sess);
+
+		Collections.sort(regimens);
+
+		Iterator<RegimeTerapeutico> iter = new ArrayList<RegimeTerapeutico>(regimens).iterator();
+		TableItem[] t = new TableItem[regimens.size()];
+
+		int i = 0;
+		while (iter.hasNext()) {
+			RegimeTerapeutico regime = iter.next();
+			t[i] = new TableItem(search.getTblSearch(), SWT.NONE);
+			itemText = new String[2];
+			itemText[0] = regime.getRegimeid()+"";
+			itemText[1] = regime.getRegimeesquema();
+			t[i].setText(itemText);
+			listTableEntries.add(new SearchEntry(itemText[0], itemText[1]));
+			i++;
+		}
+		comparator.setColumn(TableComparator.COL1_NAME);
+		redrawTable();
+		return regimens;
 	}
 
 }

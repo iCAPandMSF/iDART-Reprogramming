@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.Cascade;
 
 @Entity (name ="regimeterapeutico")
-public class RegimeTerapeutico {
+public class RegimeTerapeutico implements Comparable<RegimeTerapeutico>{
 	
 	@Id
 	@GeneratedValue
@@ -36,13 +36,11 @@ public class RegimeTerapeutico {
 		this.regimeesquema = regimeesquema;
 		this.active = active;
 		this.adult = adult;
-		this.linhaT = linhaT;
-		this.regimeDrugs = regimeDrugs;
 	}
 
 	public RegimeTerapeutico() {
 		super();
-		// TODO Auto-generated constructor stub
+		active = true;
 	}
 	
 	public boolean isAdult() {
@@ -80,5 +78,21 @@ public class RegimeTerapeutico {
 	}
 	public void setRegimeDrugs(Set<RegimeTerapeuticoDrugs> regimeDrugs) {
 		this.regimeDrugs = regimeDrugs;
+	}
+
+	@Override
+	public int compareTo(RegimeTerapeutico o) {
+		final int BEFORE = -1;
+	    final int EQUAL = 0;
+	    final int AFTER = 1;
+
+	    //this optimization is usually worthwhile, and can
+	    //always be added
+	    if (this.getRegimeid() == o.getRegimeid()) return EQUAL;
+
+	    //primitive numbers follow this form
+	    if (this.getRegimeid() < o.getRegimeid()) return BEFORE;
+	    if (this.getRegimeid() > o.getRegimeid()) return AFTER;
+	    return EQUAL;
 	}
 }
