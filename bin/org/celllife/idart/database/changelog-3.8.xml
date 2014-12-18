@@ -157,7 +157,7 @@
 		</createTable>
 	</changeSet>
 	<changeSet author="simon@cell-life.org" id="3.8.15">
-		<comment>add datainicionoutroservico,motivoMudanca,regimeid to prescription</comment>
+		<comment>add datainicionoutroservico,motivoMudanca,regimeid,sectorid to prescription</comment>
 		<addColumn tableName="prescription">
 			<column name="datainicionoutroservico" type="TIMESTAMP WITH TIME ZONE"/>
 		</addColumn>
@@ -169,6 +169,9 @@
 		</addColumn>
 		<addColumn tableName="prescription">
 			<column name="linhaid" type="int"/>
+		</addColumn>
+		<addColumn tableName="prescription">
+			<column name="sectorid" type="int"/>
 		</addColumn>
 		<addForeignKeyConstraint constraintName="fk_prescription_regimeterapeutico" 
 			baseTableName="prescription" 
@@ -185,6 +188,11 @@
 			baseColumnNames="linhaid" 
 			referencedTableName="linhat" 
 			referencedColumnNames="linhaid"/>
+		<addForeignKeyConstraint constraintName="fk_prescription_sector" 
+			baseTableName="prescription" 
+			baseColumnNames="sectorid" 
+			referencedTableName="sector" 
+			referencedColumnNames="sector_id"/>
 	</changeSet>
 	<changeSet author="simon@cell-life.org" id="3.8.16">
 		<comment>add drugstockcontrol table</comment>
@@ -216,6 +224,17 @@
 				<constraints nullable="false" />
 			</column>
 			<column name="chemicalid" type="int">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="simon@cell-life.org" id="3.8.18">
+		<comment>add sector table</comment>
+		<createTable tableName="sector">
+			<column name="sector_id" type="int">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="sector_nome" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
 		</createTable>

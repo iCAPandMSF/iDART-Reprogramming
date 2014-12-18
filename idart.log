@@ -821,3 +821,8 @@ Caused by: org.postgresql.util.PSQLException: ERROR: column drug0_.adult does no
 16-12-2014 16:11:16 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
 16-12-2014 16:11:16 [main] DEBUG dart.start.PharmacyApplication - Logged out..
 16-12-2014 16:11:16 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+17-12-2014 18:50:19 [main] INFO  dart.start.PharmacyApplication - 
+17-12-2014 18:50:20 [main] INFO  dart.start.PharmacyApplication - *********************
+17-12-2014 18:50:20 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
+17-12-2014 18:50:20 [main] INFO  dart.start.PharmacyApplication - *********************
+17-12-2014 18:50:20 [main] INFO  dart.start.PharmacyApplication - 

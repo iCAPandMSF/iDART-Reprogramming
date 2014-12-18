@@ -9,6 +9,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.celllife.idart.database.hibernate.Drug;
 import org.celllife.idart.database.hibernate.DrugStockControl;
+import org.celllife.idart.database.hibernate.Parameter;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -60,10 +61,12 @@ public class DrugStockControlManager {
 		
 		List<DrugStockControl> drugStockControls = query.list();
 		
-		Date startFirstMonth,endFirstMonth,startSecondMonth,endSecondMonth,startThirdMonth,endThirdMonth;
-		Long firstMonthQty,secondMonthQty,thirdMonthQty,existingQuantity,orderQuantity;
+		Date startFirstMonth,endFirstMonth,startSecondMonth,endSecondMonth,startThirdMonth,endThirdMonth,startCurrentMonth,endCurrentMonth;
+		Long firstMonthQty,secondMonthQty,thirdMonthQty,CurrentMonthQty, existingQuantity,orderQuantity;
 		String riskStatus;
 		int amc;
+		Parameter getAmc=ParameterManager.getAmc(session);
+		int getAmcValue=Integer.parseInt(getAmc.getParameterValue());
 		
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.HOUR_OF_DAY, 0);
@@ -71,38 +74,50 @@ public class DrugStockControlManager {
 		cal.set(Calendar.SECOND, 0);
 
 		Date currentDate = cal.getTime();
+		endCurrentMonth = cal.getTime();
 		
-		cal.add(Calendar.MONTH, cal.get(Calendar.DAY_OF_MONTH) > 20 ? 0 : -1);
+		cal.add(Calendar.MONTH, cal.get(Calendar.DAY_OF_MONTH) > getAmcValue ? 0 : -1);
+		cal.set(Calendar.DAY_OF_MONTH, getAmcValue+1);
+		startCurrentMonth = cal.getTime();
 		
-		cal.set(Calendar.DAY_OF_MONTH, 20);
+		cal.add(Calendar.MONTH, cal.get(Calendar.DAY_OF_MONTH) > getAmcValue ? 0 : -1);
+		
+		cal.set(Calendar.DAY_OF_MONTH,getAmcValue );
 		endThirdMonth = cal.getTime();
 		
 		cal.add(Calendar.MONTH, -1);
-		cal.set(Calendar.DAY_OF_MONTH, 21);
+		cal.set(Calendar.DAY_OF_MONTH, getAmcValue+1);
 		startThirdMonth = cal.getTime();
 		
-		cal.set(Calendar.DAY_OF_MONTH, 20);
+		cal.set(Calendar.DAY_OF_MONTH, getAmcValue);
 		endSecondMonth = cal.getTime();
 		
 		cal.add(Calendar.MONTH, -1);
-		cal.set(Calendar.DAY_OF_MONTH, 21);
+		cal.set(Calendar.DAY_OF_MONTH, getAmcValue+1);
 		startSecondMonth = cal.getTime();
 		
-		cal.set(Calendar.DAY_OF_MONTH, 20);
+		cal.set(Calendar.DAY_OF_MONTH, getAmcValue);
 		endFirstMonth = cal.getTime();
 		
 		cal.add(Calendar.MONTH, -1);
-		cal.set(Calendar.DAY_OF_MONTH, 21);
+		cal.set(Calendar.DAY_OF_MONTH, getAmcValue+1);
 		startFirstMonth = cal.getTime();
+		
+		
+		
+		
+		
 		
 		for(DrugStockControl dsc : drugStockControls)
 		{
 			firstMonthQty = quantityDrugDispensed(session, dsc.getDrugId(), startFirstMonth, endFirstMonth);
 			secondMonthQty = quantityDrugDispensed(session, dsc.getDrugId(), startSecondMonth, endSecondMonth);
 			thirdMonthQty = quantityDrugDispensed(session, dsc.getDrugId(), startThirdMonth, endThirdMonth);
-			
+			CurrentMonthQty=quantityDrugDispensed(session, dsc.getDrugId(), startCurrentMonth, endCurrentMonth);
+					
 			amc = Math.max(firstMonthQty.intValue(), secondMonthQty.intValue());
 			amc = Math.max(amc, thirdMonthQty.intValue());
+			amc =Math.max(amc, CurrentMonthQty.intValue());
 			
 			dsc.setAmc(amc);
 
