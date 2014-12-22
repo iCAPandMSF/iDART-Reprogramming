@@ -63,6 +63,7 @@ import org.celllife.idart.database.hibernate.RegimeTerapeutico;
 import org.celllife.idart.database.hibernate.RegimeTerapeuticoDrugs;
 import org.celllife.idart.database.hibernate.Regimen;
 import org.celllife.idart.database.hibernate.RegimenDrugs;
+import org.celllife.idart.database.hibernate.Sector;
 import org.celllife.idart.database.hibernate.SimpleDomain;
 import org.celllife.idart.database.hibernate.Stock;
 import org.celllife.idart.database.hibernate.StockAdjustment;
@@ -178,6 +179,7 @@ public class HibernateUtil {
 		ac.addAnnotatedClass(Motivomudanca.class);
 		ac.addAnnotatedClass(LinhaT.class);
 		ac.addAnnotatedClass(RegimeTerapeuticoDrugs.class);
+		ac.addAnnotatedClass(Sector.class);
 		sessionFactory = ac.buildSessionFactory();
 	}
 

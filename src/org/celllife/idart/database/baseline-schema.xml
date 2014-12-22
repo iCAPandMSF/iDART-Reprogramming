@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<databaseChangeLog
-     xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 	<changeSet author="simon (generated)" id="0.0.1">
 		<createTable schemaName="public" tableName="accumulateddrugs">
 			<column name="id" type="int4">
@@ -590,6 +589,66 @@
 			</column>
 			<column name="parametername" type="VARCHAR(255)" />
 			<column name="parametervalue" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="simon (generated)" id="0.0.39">
+		<comment>add sector table</comment>
+		<createTable schemaName="public" tableName="sector">
+			<column name="sectorid" type="int4">
+				<constraints nullable="false" primaryKey="true"
+					primaryKeyName="secotr_pkey" />
+			</column>
+			<column name="sectorname" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="simon@cell-life.org" id="0.0.40">
+		<comment>add regimeterapeutico table</comment>
+		<createTable tableName="regimeterapeutico">
+			<column name="regimeid" type="int">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="linhaid" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="regimeesquema" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="adult" type="boolean">
+				<constraints nullable="false" />
+			</column>
+			<column name="active" type="boolean">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="simon (generated)" id="0.0.40">
+		<comment>add regimeterapeuticodrugs table</comment>
+		<createTable tableName="regimeterapeuticodrugs">
+			<column name="id" type="int">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="regimeid" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="chemicalid" type="int">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+		<changeSet author="simon@cell-life.org" id="0.0.41">
+		<comment>add linhat table</comment>
+		<createTable tableName="linhat">
+			<column name="linhaid" type="int">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="linhanome" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="active" type="boolean">
+				<constraints nullable="false"/>
+			</column>
 		</createTable>
 	</changeSet>
 </databaseChangeLog>

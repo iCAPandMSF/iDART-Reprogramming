@@ -59,6 +59,10 @@ public class Prescription {
 	@JoinColumn(name = "regimeid")
 	private RegimeTerapeutico regimeTerapeutico;
 	
+	@ManyToOne
+	@JoinColumn(name = "sectorid")
+	private Sector sector;
+	
 	
 	private String motivoMudanca;
 
@@ -503,5 +507,12 @@ public class Prescription {
 		return this.linha;
 		
 	}
-	
+
+	public Sector getSector() {
+		return sector;
+	}
+
+	public void setSector(Sector sector) {
+		this.sector = sector;
+	}
 }

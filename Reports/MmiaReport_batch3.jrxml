@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="monthlyStockOverview_batch" pageWidth="265" pageHeight="430" columnWidth="265" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MmiaReport_batch3" pageWidth="265" pageHeight="430" columnWidth="265" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.scriptlethandling" value="0"/>
 	<property name="ireport.encoding" value="UTF-8"/>
 	<property name="ireport.zoom" value="1.0"/>
@@ -30,11 +30,43 @@
 	</style>
 	<subDataset name="Table Dataset 1"/>
 	<subDataset name="Table Dataset 2"/>
+	<parameter name="startDate" class="java.util.Date"/>
+	<parameter name="endDate" class="java.util.Date"/>
 	<queryString>
-		<![CDATA[select sum(case when a.dateofbirth <= '2002-01-01 00:00:00' then 1 else 0 end) as adult,sum(case when a.dateofbirth <= '2002-01-01 00:00:00' then 0 else 1 end) as child from patient a]]>
+		<![CDATA[select
+sum(case when current_timestamp - ini.dateofbirth > interval '15 years' then 1 else 0 end) as iniadult,
+sum(case when current_timestamp - ini.dateofbirth <= interval '15 years' then 0 else 1 end) as inichild,
+sum(case when current_timestamp - man.dateofbirth > interval '15 years' then 1 else 0 end) as manadult,
+sum(case when current_timestamp - man.dateofbirth <= interval '15 years' then 0 else 1 end) as manchild,
+count(ptv.dateofbirth) as ptv
+from
+(
+select pat.dateofbirth from patient pat join prescription pres on pat.id=pres.patient join package pa on pres.id=pa.prescription
+join sector se on pres.sectorid=se.sectorid
+where pres.reasonforupdate='Initial' and se.sectorname <> 'smi'
+) as ini,
+(
+select pat.dateofbirth from patient pat join prescription pres on pat.id=pres.patient join package pa on pres.id=pa.prescription
+join sector se on pres.sectorid=se.sectorid
+where pres.reasonforupdate='Manter' and se.sectorname <> 'smi'
+) as man,
+(
+select pat.dateofbirth from patient pat join prescription pres on pat.id=pres.patient join package pa on pres.id=pa.prescription
+join sector se on pres.sectorid=se.sectorid
+where se.sectorname = 'smi'
+) as ptv]]>
 	</queryString>
-	<field name="adult" class="java.lang.Integer"/>
-	<field name="child" class="java.lang.Integer"/>
+	<field name="iniadult" class="java.lang.Integer"/>
+	<field name="inichild" class="java.lang.Integer"/>
+	<field name="manadult" class="java.lang.Integer"/>
+	<field name="manchild" class="java.lang.Integer"/>
+	<field name="ptv" class="java.lang.Integer"/>
+	<variable name="totaladult" class="java.lang.Integer">
+		<variableExpression><![CDATA[new Integer($F{manadult}.intValue()+$F{iniadult}.intValue()+$F{ptv}.intValue())]]></variableExpression>
+	</variable>
+	<variable name="totalchild" class="java.lang.Integer">
+		<variableExpression><![CDATA[new Integer($F{inichild}.intValue()+$F{manchild}.intValue())]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -56,7 +88,7 @@
 				</graphicElement>
 			</line>
 			<textField pattern="" isBlankWhenNull="false">
-				<reportElement key="textField-6" mode="Transparent" x="75" y="47" width="71" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement key="textField-6" mode="Transparent" x="75" y="47" width="88" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -66,7 +98,8 @@
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
 					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{adult}.toString()]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{manadult} != null) ? $F{manadult}+"" : "0"
+]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement key="line-8" mode="Opaque" x="265" y="0" width="1" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
@@ -89,7 +122,7 @@
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
 					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{child}.toString()]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{manchild} != null) ? $F{manchild}+"" : "0"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement key="st_openingBalance-2" mode="Transparent" x="0" y="21" width="52" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
@@ -183,7 +216,7 @@
 				<text><![CDATA[Total  doentes em TARV ]]></text>
 			</staticText>
 			<textField pattern="" isBlankWhenNull="false">
-				<reportElement key="textField-6" mode="Transparent" x="75" y="180" width="71" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement key="textField-6" mode="Transparent" x="75" y="180" width="88" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -193,7 +226,8 @@
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
 					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{adult}.toString()]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[($V{totaladult} != null) ? $V{totaladult}+"" : "0"
+]]></textFieldExpression>
 			</textField>
 			<textField pattern="" isBlankWhenNull="false">
 				<reportElement key="textField-6" mode="Transparent" x="178" y="180" width="88" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
@@ -206,7 +240,7 @@
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
 					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{child}.toString()]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[($V{totalchild} != null) ? $V{totalchild} : "0"]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement key="line-6" mode="Opaque" x="64" y="1" width="1" height="211" forecolor="#000000" backcolor="#FFFFFF"/>
@@ -293,6 +327,46 @@
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</graphicElement>
 			</line>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField-6" mode="Transparent" x="75" y="21" width="88" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{iniadult} != null) ? $F{iniadult}+"" : "0"]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField-6" mode="Transparent" x="177" y="21" width="88" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{inichild} != null) ? $F{inichild}+"" : "0"
+]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField-6" mode="Transparent" x="75" y="99" width="88" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ptv}.toString()]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>

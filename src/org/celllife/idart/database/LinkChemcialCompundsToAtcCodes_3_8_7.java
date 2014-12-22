@@ -51,23 +51,23 @@ public class LinkChemcialCompundsToAtcCodes_3_8_7 implements CustomSqlChange {
 			insertChemicalCompoundIfNeeded(con, statements, "Didanosine", "DDI");
 			getMappingStatement(statements, 27, "Didanosine");
 			
-			insertChemicalCompoundIfNeeded(con, statements, "Efavirenz", "EFV");
-			getMappingStatement(statements, 40, "Efavirenz");
+			insertChemicalCompoundIfNeeded(con, statements, "Efavirenze", "EFV");
+			getMappingStatement(statements, 40, "Efavirenze");
 			
-			insertChemicalCompoundIfNeeded(con, statements, "Lamivudine", "3TC");
-			getMappingStatement(statements, 30, "Lamivudine");
+			insertChemicalCompoundIfNeeded(con, statements, "Lamivudina", "3TC");
+			getMappingStatement(statements, 30, "Lamivudina");
 			
-			insertChemicalCompoundIfNeeded(con, statements, "Nevirapine", "NVP");
-			getMappingStatement(statements, 38, "Nevirapine");
+			insertChemicalCompoundIfNeeded(con, statements, "Nevirapina", "NVP");
+			getMappingStatement(statements, 38, "Nevirapina");
 			
 			insertChemicalCompoundIfNeeded(con, statements, "Ritonavir", "RTV");
 			getMappingStatement(statements, 18, "Ritonavir");
 			
-			insertChemicalCompoundIfNeeded(con, statements, "Stavudine", "D4T");
-			getMappingStatement(statements, 29, "Stavudine");
+			insertChemicalCompoundIfNeeded(con, statements, "Stavudina", "D4T");
+			getMappingStatement(statements, 29, "Stavudina");
 			
-			insertChemicalCompoundIfNeeded(con, statements, "Zidovudine", "AZT");
-			getMappingStatement(statements, 26, "Zidovudine");
+			insertChemicalCompoundIfNeeded(con, statements, "Zidovudina", "AZT");
+			getMappingStatement(statements, 26, "Zidovudina");
 			
 			insertChemicalCompoundIfNeeded(con, statements, "Lopinavir", "LPV");
 			getMappingStatement(statements, 21, "Lopinavir");

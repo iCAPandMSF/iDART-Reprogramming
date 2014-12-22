@@ -44,6 +44,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.vafada.swtcalendar.SWTCalendar;
+import org.vafada.swtcalendar.SWTCalendarListener;
 
 /**
  */
@@ -165,6 +166,27 @@ public class MmiaReport extends GenericReportGui {
 
 	}
 
+	/**
+	 * Method addStartDateChangedListener.
+	 * 
+	 * @param listener
+	 *            SWTCalendarListener
+	 */
+	public void addStartDateChangedListener(SWTCalendarListener listener) {
+
+		calendarStart.addSWTCalendarListener(listener);
+	}
+
+	/**
+	 * Method addEndDateChangedListener.
+	 * 
+	 * @param listener
+	 *            SWTCalendarListener
+	 */
+	public void addEndDateChangedListener(SWTCalendarListener listener) {
+
+		calendarEnd.addSWTCalendarListener(listener);
+	}
 
 
 	/**
@@ -208,7 +230,9 @@ public class MmiaReport extends GenericReportGui {
 				Date theDate = new Date();
 
 				MiaReport report = new MiaReport(
-						getShell(), pharm, theDate);
+						getShell(), pharm, theDate,calendarStart
+						.getCalendar().getTime(), calendarEnd.getCalendar()
+						.getTime());
 				viewReport(report);
 			} catch (Exception e) {
 				getLog()

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="monthlyStockOverview_batch" pageWidth="595" pageHeight="842" columnWidth="70" columnSpacing="5" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MmiaReport_batch" pageWidth="595" pageHeight="842" columnWidth="70" columnSpacing="5" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.scriptlethandling" value="0"/>
 	<property name="ireport.encoding" value="UTF-8"/>
 	<property name="ireport.zoom" value="1.0"/>
@@ -8,22 +8,22 @@
 	<import value="net.sf.jasperreports.engine.*"/>
 	<import value="java.util.*"/>
 	<import value="net.sf.jasperreports.engine.data.*"/>
-	<style name="table" isDefault="false">
+	<style name="table" isDefault="false" lineSpacing="Single">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
 		</box>
 	</style>
-	<style name="table_TH" isDefault="false" mode="Opaque" backcolor="#F0F8FF">
+	<style name="table_TH" isDefault="false" mode="Opaque" backcolor="#F0F8FF" lineSpacing="Single">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<style name="table_CH" isDefault="false" mode="Opaque" backcolor="#BFE1FF">
+	<style name="table_CH" isDefault="false" mode="Opaque" backcolor="#BFE1FF" lineSpacing="Single">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<style name="table_TD" isDefault="false" mode="Opaque" backcolor="#FFFFFF">
+	<style name="table_TD" isDefault="false" mode="Opaque" backcolor="#FFFFFF" lineSpacing="Single">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
@@ -46,7 +46,7 @@
 	<parameter name="packsize" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[new Integer(60)]]></defaultValueExpression>
 	</parameter>
-	<parameter name="formlanguage1" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="formlanguage1" class="java.lang.String"/>
 	<parameter name="StockCode" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="monthStart" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["2007-08-01 00:00:00.000"]]></defaultValueExpression>
@@ -54,6 +54,8 @@
 	<parameter name="monthEnd" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["2007-09-01 00:00:00.000"]]></defaultValueExpression>
 	</parameter>
+	<parameter name="startDate" class="java.util.Date"/>
+	<parameter name="endDate" class="java.util.Date"/>
 	<queryString>
 		<![CDATA[select
 
@@ -69,12 +71,14 @@ COALESCE(d.issued,0) as dispensed , COALESCE(d.pill,0) as dispensedpills,
 
 COALESCE(g.adjusted,0) as adjusted,
 
-COALESCE(i.returned,0) as returned , COALESCE(i.pills,0) as returnedpills
+COALESCE(i.returned,0) as returned , COALESCE(i.pills,0) as returnedpills,
+
+drug_expire.mindate
 
 from (
 select sum(s.unitsreceived) as received
 from drug as d, stock as s
-where s.drug = d.id and d.id = $P{id} and s.stockCenter = $P{stockCenterId} and s.datereceived < $P{monthStart}::timestamp
+where s.drug = d.id and d.id = $P{id} and s.stockCenter = $P{stockCenterId} and s.datereceived < $P{startDate}::timestamp
 
 ) as a,
 
@@ -85,7 +89,7 @@ where d.id = $P{id}
 and s.stockCenter = $P{stockCenterId}
 and s.drug = d.id and pd.stock = s.id
 and pd.parentpackage = p.id
-and p.packdate < $P{monthStart}::timestamp
+and p.packdate < $P{startDate}::timestamp
 
 ) as b,
 
@@ -93,7 +97,7 @@ and p.packdate < $P{monthStart}::timestamp
 select sum(s.unitsreceived) as received from drug as d, stock as s
 where d.id = $P{id} and s.stockCenter = $P{stockCenterId} and s.drug = d.id
 
-and s.datereceived between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
+and s.datereceived between $P{startDate}::timestamp and $P{endDate}::timestamp
 
 ) as c,
 
@@ -102,7 +106,7 @@ from drug as d, stock as s, packageddrugs as pd, package as p,prescription as pr
 where d.id = $P{id} and s.stockCenter = $P{stockCenterId}
 and s.drug = d.id and pd.stock = s.id and pd.parentpackage = p.id
 and p.prescription = pre.id
-and p.packdate between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
+and p.packdate between $P{startDate}::timestamp and $P{endDate}::timestamp
 
 
 ) as d,
@@ -112,7 +116,7 @@ from drug as d, stock as s, packageddrugs as pd, package as p
 where d.id = $P{id} and s.stockCenter = $P{stockCenterId}
 and s.drug = d.id and pd.stock = s.id and pd.parentpackage = p.id
 and p.prescription is null
-and p.packdate between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
+and p.packdate between $P{startDate}::timestamp and $P{endDate}::timestamp
 
 
 ) as e,
@@ -124,7 +128,7 @@ where d.id = $P{id}
 and s.stockCenter = $P{stockCenterId}
 and s.drug = d.id
 and sa.stock = s.id
-and sa.captureDate < $P{monthStart}::timestamp
+and sa.captureDate < $P{startDate}::timestamp
 ) as f,
 
 (select sum(sa.adjustedValue) as adjusted
@@ -134,7 +138,7 @@ where d.id = $P{id}
 and s.stockCenter = $P{stockCenterId}
 and s.drug = d.id
 and sa.stock = s.id
-and sa.captureDate between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
+and sa.captureDate between $P{startDate}::timestamp and $P{endDate}::timestamp
 
 
 ) as g,
@@ -148,7 +152,7 @@ and s.drug = d.id and pd.stock = s.id
 and pd.parentpackage = p.id
 and p.stockReturned = true
 and p.packageReturned = true
-and p.dateReturned < $P{monthStart}::timestamp
+and p.dateReturned < $P{startDate}::timestamp
 
 ) as h,
 
@@ -161,9 +165,26 @@ and s.drug = d.id and pd.stock = s.id
 and pd.parentpackage = p.id
 and p.stockReturned = true
 and p.packageReturned = true
-and p.dateReturned between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
+and p.dateReturned between $P{startDate}::timestamp and $P{endDate}::timestamp
 
-) as i]]>
+) as i,
+(SELECT
+distinct
+drug.id,
+  drug.name,
+  MIN(to_char(stock.expirydate,'MM/YYYY')) as mindate
+FROM
+  public.drug,
+  public.stock
+
+  WHERE
+drug.id = $P{id}
+and
+drug.id=stock.drug
+
+ GROUP BY   drug.id, drug.name
+ ) as drug_expire
+]]>
 	</queryString>
 	<field name="received" class="java.lang.Long"/>
 	<field name="dispensed" class="java.lang.Long"/>
@@ -174,6 +195,7 @@ and p.dateReturned between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
 	<field name="dispensedpills" class="java.lang.Long"/>
 	<field name="returned" class="java.lang.Integer"/>
 	<field name="returnedpills" class="java.lang.Integer"/>
+	<field name="mindate" class="java.lang.String"/>
 	<variable name="totalPills" class="java.lang.Long">
 		<variableExpression><![CDATA[new Long($F{openingpills}.longValue()  + ($F{received}.longValue()*$P{packsize}.intValue())
 - ($F{dispensed}.longValue()*$P{packsize}.intValue()) - $F{dispensedpills}.longValue()
@@ -188,7 +210,7 @@ and p.dateReturned between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
 :(new Long($V{totalPills}.longValue()/$P{packsize}.intValue())).toString() + " ("+ (new Long($V{totalPills}.longValue()%$P{packsize}.intValue())).toString() +")"]]></variableExpression>
 	</variable>
 	<variable name="stocktake" class="java.lang.String">
-		<variableExpression><![CDATA[new Integer(Integer.parseInt($V{totalString})-$F{adjusted}).toString()]]></variableExpression>
+		<variableExpression><![CDATA[new Long($V{totalPills}-$F{adjusted}).toString()]]></variableExpression>
 	</variable>
 	<background>
 		<band splitType="Stretch"/>
@@ -321,7 +343,7 @@ and p.dateReturned between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
 					<bottomPen lineWidth="0.0" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{packsize} +" "+ $P{formlanguage1}]]></textFieldExpression>
@@ -340,7 +362,7 @@ and p.dateReturned between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
 					<bottomPen lineWidth="0.0" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[($F{adjusted}.intValue()%$P{packsize}.intValue())==0?new Integer($F{adjusted}.intValue()/$P{packsize}.intValue()).toString():
@@ -364,6 +386,19 @@ and p.dateReturned between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
 					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$V{stocktake}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-11" x="503" y="0" width="45" height="16"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mindate}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

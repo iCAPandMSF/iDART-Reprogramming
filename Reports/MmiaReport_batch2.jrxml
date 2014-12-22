@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="monthlyStockOverview_batch" pageWidth="265" pageHeight="430" columnWidth="265" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MmiaReport_batch2" pageWidth="265" pageHeight="430" columnWidth="265" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.scriptlethandling" value="0"/>
 	<property name="ireport.encoding" value="UTF-8"/>
 	<property name="ireport.zoom" value="1.0"/>
@@ -30,9 +30,16 @@
 	</style>
 	<subDataset name="Table Dataset 1"/>
 	<subDataset name="Table Dataset 2"/>
+	<parameter name="startDate" class="java.util.Date"/>
+	<parameter name="endDate" class="java.util.Date"/>
 	<queryString>
-		<![CDATA[select rt.regimeesquema as name,count(distinct p.id) as quantity from regimeterapeutico rt join prescription p on rt.regimeid=p.regimeid
-group by rt.regimeesquema]]>
+		<![CDATA[select rt.regimeesquema as name,a.num as quantity from regimeterapeutico rt
+left outer join
+(select p.regimeid,count(p.id) as num from prescription p join package pa on p.id=pa.prescription
+where pa.pickupdate between $P{startDate}::timestamp and $P{endDate}::timestamp
+group by p.regimeid
+) as a on a.regimeid=rt.regimeid
+]]>
 	</queryString>
 	<field name="name" class="java.lang.String"/>
 	<field name="quantity" class="java.lang.Integer"/>
@@ -90,7 +97,9 @@ group by rt.regimeesquema]]>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
 					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{quantity}+""]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{quantity} != null) ? $F{quantity}+"" : "0"
+
+]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

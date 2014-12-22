@@ -33,6 +33,7 @@ import org.celllife.idart.database.hibernate.LinhaT;
 import org.celllife.idart.database.hibernate.Motivomudanca;
 import org.celllife.idart.database.hibernate.RegimeTerapeutico;
 import org.celllife.idart.database.hibernate.Regimen;
+import org.celllife.idart.database.hibernate.Sector;
 import org.celllife.idart.database.hibernate.SimpleDomain;
 import org.celllife.idart.database.hibernate.StockCenter;
 import org.eclipse.swt.custom.CCombo;
@@ -689,6 +690,18 @@ public class CommonObjects {
 			items[i] = lines.get(i).getLinhanome();
 		}
 		cmbLine.setItems(items);
+		
+	}
+
+	public static void populateSector(Session session, CCombo cmbSector,
+			boolean b) {
+		List<Sector> sectors = AdministrationManager
+				.getAllSectors(session);
+		String[] items = new String[sectors.size()];
+		for (int i = 0; i < sectors.size(); i++) {
+			items[i] = sectors.get(i).getSectorname();
+		}
+		cmbSector.setItems(items);
 		
 	}
 

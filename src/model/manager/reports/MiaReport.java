@@ -20,13 +20,17 @@ public class MiaReport extends AbstractJasperReport {
 	
 	private final StockCenter stockCenter;
 	private final Date theDate;
+	private final Date startDate;
+	private final Date endDate;
 
 
 	public MiaReport(Shell parent, StockCenter stockCenter,
-			Date theDate) {
+			Date theDate, Date startDate, Date endDate) {
 		super(parent);
 		this.stockCenter = stockCenter;
 		this.theDate = theDate;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
 
 	@Override
@@ -59,6 +63,8 @@ public class MiaReport extends AbstractJasperReport {
 		map.put("facilityName", LocalObjects.currentClinic.getClinicName());
 		map.put("pharmacist1", LocalObjects.pharmacy.getPharmacist());
 		map.put("pharmacist2", LocalObjects.pharmacy.getAssistantPharmacist());
+		map.put("startDate", startDate);
+		map.put("endDate", endDate);
 		return map;
 	}
 

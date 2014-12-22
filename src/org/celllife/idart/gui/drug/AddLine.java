@@ -74,7 +74,7 @@ public class AddLine extends GenericFormGui {
 		isAddnotUpdate = ((Boolean) getInitialisationOption(OPTION_isAddNotUpdate))
 		.booleanValue();
 		String shellTxt = isAddnotUpdate ? Messages.getString("addLine.screen.title.new") //$NON-NLS-1$
-				: Messages.getString("adddoctor.screen.title.update"); //$NON-NLS-1$
+				: Messages.getString("addLine.screen.title.update"); //$NON-NLS-1$
 		Rectangle bounds = new Rectangle(100, 100, 600, 440);
 		buildShell(shellTxt, bounds);
 	}
@@ -277,11 +277,8 @@ public class AddLine extends GenericFormGui {
 			localLinhaT = AdministrationManager.getLinha(getHSession(),
 					LineSearch.getValueSelected()[0]);
 
-			if (loadDoctorsDetails()) {
+			if (loadLineDetails()) {
 				enableFields(true);
-				btnSearch.setEnabled(false);
-				txtLinhaId.setEnabled(false);
-				txtLineName.setEnabled(false);
 			}
 
 			else {
@@ -326,15 +323,15 @@ public class AddLine extends GenericFormGui {
 	 * Method loadDoctorsDetails.
 	 * @return boolean
 	 */
-	private boolean loadDoctorsDetails() {
+	private boolean loadLineDetails() {
 
 		boolean loadSuccessful = false;
 
 		try {
 			txtLinhaId.setText(localLinhaT.getLinhaid()+"" == null ? EMPTY : localLinhaT.getLinhaid()+""); //$NON-NLS-1$
 			txtLineName.setText(localLinhaT.getLinhanome() == null ? EMPTY : localLinhaT.getLinhanome()); //$NON-NLS-1$
-			txtLinhaId.setEditable(false);
-			txtLineName.setEditable(false);
+			txtLinhaId.setEditable(true);
+			txtLineName.setEditable(true);
 
 			if (localLinhaT.isActive()) {
 				rdBtnActive.setSelection(true);
@@ -359,6 +356,8 @@ public class AddLine extends GenericFormGui {
 	 */
 	@Override
 	protected void enableFields(boolean enable) {
+		txtLineName.setEnabled(enable);
+		txtLinhaId.setEnabled(enable);
 		btnSave.setEnabled(enable);
 	}
 

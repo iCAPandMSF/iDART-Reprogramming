@@ -114,7 +114,7 @@ import org.hibernate.Transaction;
 /**
  */
 public class AddPrescription extends GenericFormGui implements
-iDARTChangeListener {
+		iDARTChangeListener {
 
 	private Button btnAddDrug;
 
@@ -139,7 +139,7 @@ iDARTChangeListener {
 	private CCombo cmbDuration;
 
 	private CCombo cmbUpdateReason;
-	
+
 	private CCombo cmbMotivoMudanca;
 
 	private Composite compButtonsMiddle;
@@ -156,16 +156,16 @@ iDARTChangeListener {
 
 	private Label lblPicChild;
 
-	//lbl tIPO TARV
+	// lbl tIPO TARV
 	private Label lblUpdateReason;
-	//lbl data de inicio noutro servico
+	// lbl data de inicio noutro servico
 	private Label lblDataInicioNoutroServico;
-	//lbl motivo de mudanca
+	// lbl motivo de mudanca
 	private Label lblMotivoMudanca;
-	
-	//Data de inicio noutro servi�o
+
+	// Data de inicio noutro servi�o
 	private DateButton btnDataInicioNoutroServico;
-	
+
 	private Patient thePatient;
 
 	private TableColumn tblDescription;
@@ -213,6 +213,7 @@ iDARTChangeListener {
 	private Text txtWeight;
 
 	private CCombo cmbLinha;
+	private CCombo cmbSector;
 	private CCombo cmbRegime;
 
 	private Button btnRemoveDrug;
@@ -244,7 +245,8 @@ iDARTChangeListener {
 
 		if (patient != null) {
 
-			Patient pat = PatientManager.getPatient(getHSession(), patient.getId());
+			Patient pat = PatientManager.getPatient(getHSession(),
+					patient.getId());
 			localPrescription.setPatient(pat);
 
 			if (!pat.getAccountStatusWithCheck()) {
@@ -253,9 +255,9 @@ iDARTChangeListener {
 
 				noPatient.setText("Patient Does Not Have Current Episode");
 				noPatient
-				.setMessage("The patient "
-						+ (txtPatientId.getText()).toUpperCase()
-						+ " does not have a current episode. \n\nYou need to start a new episode for this patient (using the 'Update Existing Patient' screen) before you capture their prescription.");
+						.setMessage("The patient "
+								+ (txtPatientId.getText()).toUpperCase()
+								+ " does not have a current episode. \n\nYou need to start a new episode for this patient (using the 'Update Existing Patient' screen) before you capture their prescription.");
 				noPatient.open();
 				txtPatientId.setFocus();
 				txtPatientId.setText("");
@@ -272,7 +274,7 @@ iDARTChangeListener {
 					setFormToInitialPrescription();
 				} else {
 					Prescription script = thePatient
-					.getMostRecentPrescription();
+							.getMostRecentPrescription();
 					if (script != null) {
 						localPrescription = script;
 						loadPrescriptionDetails();
@@ -389,15 +391,15 @@ iDARTChangeListener {
 		btnSearch.setBounds(new Rectangle(320, 4, 105, 30));
 		btnSearch.setText("Patient Search");
 		btnSearch
-		.setToolTipText("Press this button to search for an existing patient");
+				.setToolTipText("Press this button to search for an existing patient");
 		btnSearch
-		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
-			@Override
-			public void widgetSelected(
-					org.eclipse.swt.events.SelectionEvent e) {
-				cmdSearchWidgetSelected();
-			}
-		});
+				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+					@Override
+					public void widgetSelected(
+							org.eclipse.swt.events.SelectionEvent e) {
+						cmdSearchWidgetSelected();
+					}
+				});
 
 		btnEkapaSearch = new Button(grpPatientID, SWT.NONE);
 		btnEkapaSearch.setBounds(new Rectangle(310, 36, 105, 30));
@@ -411,16 +413,16 @@ iDARTChangeListener {
 		}
 
 		btnEkapaSearch
-		.setToolTipText("Press this button to import a patient from eKapa.");
+				.setToolTipText("Press this button to import a patient from eKapa.");
 		btnEkapaSearch
-		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
 
-			@Override
-			public void widgetSelected(
-					org.eclipse.swt.events.SelectionEvent e) {
-				cmdEkapaSearchWidgetSelected();
-			}
-		});
+					@Override
+					public void widgetSelected(
+							org.eclipse.swt.events.SelectionEvent e) {
+						cmdEkapaSearchWidgetSelected();
+					}
+				});
 
 		if (thePatient != null) {
 			btnSearch.setEnabled(false);
@@ -439,106 +441,109 @@ iDARTChangeListener {
 		cmbUpdateReason.setBackground(ResourceUtils.getColor(iDartColor.WHITE));
 
 		cmbUpdateReason.addSelectionListener(new SelectionListener() {
-			
+
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
 				// TODO Auto-generated method stub
-				if(cmbUpdateReason.getText().equals("Transfer de")) 
-					{
+				if (cmbUpdateReason.getText().equals("Transfer de")) {
 					btnDataInicioNoutroServico.setEnabled(true);
 					cmbMotivoMudanca.removeAll();
-					cmbMotivoMudanca.setBackground(ResourceUtils.getColor(iDartColor.WIDGET_BACKGROUND));
+					cmbMotivoMudanca.setBackground(ResourceUtils
+							.getColor(iDartColor.WIDGET_BACKGROUND));
 					cmbMotivoMudanca.setEnabled(false);
-					}
-				else if(cmbUpdateReason.getText().equals("Alterar")) 
+				} else if (cmbUpdateReason.getText().equals("Alterar"))
 
 				{
 					cmbMotivoMudanca.setEnabled(true);
-					cmbMotivoMudanca.setBackground(ResourceUtils.getColor(iDartColor.WHITE));
-					}
-				
+					cmbMotivoMudanca.setBackground(ResourceUtils
+							.getColor(iDartColor.WHITE));
+				}
+
 				else {
 					btnDataInicioNoutroServico.setDate(null);
 					btnDataInicioNoutroServico.setText("Seleccione a data");
 					btnDataInicioNoutroServico.setEnabled(false);
 					cmbMotivoMudanca.removeAll();
-					cmbMotivoMudanca.setBackground(ResourceUtils.getColor(iDartColor.WIDGET_BACKGROUND));
-					cmbMotivoMudanca.setEnabled(false);;
+					cmbMotivoMudanca.setBackground(ResourceUtils
+							.getColor(iDartColor.WIDGET_BACKGROUND));
+					cmbMotivoMudanca.setEnabled(false);
+					;
 				}
-				
-				
+
 			}
-			
+
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
 				// TODO Auto-generated method stub
-				if(cmbUpdateReason.getText().equals("Transfer de")) {
-					
+				if (cmbUpdateReason.getText().equals("Transfer de")) {
+
 					btnDataInicioNoutroServico.setEnabled(true);
 					cmbMotivoMudanca.removeAll();
-					cmbMotivoMudanca.setBackground(ResourceUtils.getColor(iDartColor.WIDGET_BACKGROUND));
+					cmbMotivoMudanca.setBackground(ResourceUtils
+							.getColor(iDartColor.WIDGET_BACKGROUND));
 					cmbMotivoMudanca.setEnabled(false);
-				}
-				else if(cmbUpdateReason.getText().equals("Alterar")) 
-					
-					{
+				} else if (cmbUpdateReason.getText().equals("Alterar"))
+
+				{
 					cmbMotivoMudanca.setEnabled(true);
-					cmbMotivoMudanca.setBackground(ResourceUtils.getColor(iDartColor.WHITE));
-					}
-				else {
+					cmbMotivoMudanca.setBackground(ResourceUtils
+							.getColor(iDartColor.WHITE));
+				} else {
 					btnDataInicioNoutroServico.setDate(null);
 					btnDataInicioNoutroServico.setText("Seleccione a data");
 					btnDataInicioNoutroServico.setEnabled(false);
 					cmbMotivoMudanca.removeAll();
-					cmbMotivoMudanca.setBackground(ResourceUtils.getColor(iDartColor.WIDGET_BACKGROUND));
+					cmbMotivoMudanca.setBackground(ResourceUtils
+							.getColor(iDartColor.WIDGET_BACKGROUND));
 					cmbMotivoMudanca.setEnabled(false);
 				}
 			}
 		});
-		
-	lblDataInicioNoutroServico=new Label(grpPatientID, SWT.NONE);
-	lblDataInicioNoutroServico.setBounds(new Rectangle(10, 65, 150, 20));
-	lblDataInicioNoutroServico.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-	lblDataInicioNoutroServico.setText("Data de Inicio Noutro Servico:");
-	
 
-	btnDataInicioNoutroServico = new DateButton(grpPatientID, DateButton.NONE, null);
-	btnDataInicioNoutroServico.setBounds(160, 65, 150, 20);
-	btnDataInicioNoutroServico.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-	btnDataInicioNoutroServico.setText("Seleccione a data");
-	btnDataInicioNoutroServico.setEnabled(false);
-	
-	
-	lblMotivoMudanca=new Label(grpPatientID, SWT.NONE);
-	lblMotivoMudanca.setBounds(new Rectangle(10, 90, 150, 20));
-	lblMotivoMudanca.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-	lblMotivoMudanca.setText("Motivo de Mudanca:");
-		
+		lblDataInicioNoutroServico = new Label(grpPatientID, SWT.NONE);
+		lblDataInicioNoutroServico.setBounds(new Rectangle(10, 65, 150, 20));
+		lblDataInicioNoutroServico.setFont(ResourceUtils
+				.getFont(iDartFont.VERASANS_8));
+		lblDataInicioNoutroServico.setText("Data de Inicio Noutro Servico:");
 
-	cmbMotivoMudanca= new CCombo(grpPatientID, SWT.BORDER | SWT.READ_ONLY);
-	cmbMotivoMudanca.setBounds(new Rectangle(160, 90, 150, 20));
-	cmbMotivoMudanca.setEditable(false);
-	cmbMotivoMudanca.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-	cmbMotivoMudanca.setBackground(ResourceUtils.getColor(iDartColor.WHITE));
-	cmbMotivoMudanca.setEnabled(false);
-	
-	//POPULA OS Motivos de Mudanca
-	cmbMotivoMudanca.setBackground(ResourceUtils.getColor(iDartColor.WHITE));
-	CommonObjects.populateMotivoMudanca(getHSession(), cmbMotivoMudanca, false);
-	cmbMotivoMudanca.addFocusListener(new FocusAdapter() {
-		@Override
-		public void focusGained(FocusEvent e) {
-			cmbMotivoMudanca.removeAll();
-			CommonObjects.populateMotivoMudanca(getHSession(), cmbMotivoMudanca, false);
-			cmbMotivoMudanca.setVisibleItemCount(Math.min(
-					cmbMotivoMudanca.getItemCount(), 25));
-		}
-	});
-	//cmbMotivoMudanca.setFocus();
-	
-	
-	
-	
+		btnDataInicioNoutroServico = new DateButton(grpPatientID,
+				DateButton.NONE, null);
+		btnDataInicioNoutroServico.setBounds(160, 65, 150, 20);
+		btnDataInicioNoutroServico.setFont(ResourceUtils
+				.getFont(iDartFont.VERASANS_8));
+		btnDataInicioNoutroServico.setText("Seleccione a data");
+		btnDataInicioNoutroServico.setEnabled(false);
+
+		lblMotivoMudanca = new Label(grpPatientID, SWT.NONE);
+		lblMotivoMudanca.setBounds(new Rectangle(10, 90, 150, 20));
+		lblMotivoMudanca.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		lblMotivoMudanca.setText("Motivo de Mudanca:");
+
+		cmbMotivoMudanca = new CCombo(grpPatientID, SWT.BORDER | SWT.READ_ONLY);
+		cmbMotivoMudanca.setBounds(new Rectangle(160, 90, 150, 20));
+		cmbMotivoMudanca.setEditable(false);
+		cmbMotivoMudanca.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		cmbMotivoMudanca
+				.setBackground(ResourceUtils.getColor(iDartColor.WHITE));
+		cmbMotivoMudanca.setEnabled(false);
+
+		// POPULA OS Motivos de Mudanca
+		cmbMotivoMudanca
+				.setBackground(ResourceUtils.getColor(iDartColor.WHITE));
+		CommonObjects.populateMotivoMudanca(getHSession(), cmbMotivoMudanca,
+				false);
+		cmbMotivoMudanca.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				cmbMotivoMudanca.removeAll();
+				CommonObjects.populateMotivoMudanca(getHSession(),
+						cmbMotivoMudanca, false);
+				cmbMotivoMudanca.setVisibleItemCount(Math.min(
+						cmbMotivoMudanca.getItemCount(), 25));
+			}
+		});
+		// cmbMotivoMudanca.setFocus();
+
 		CommonObjects.populatePrescriptionUpdateReasons(getHSession(),
 				cmbUpdateReason);
 		cmbUpdateReason.setVisibleItemCount(cmbUpdateReason.getItemCount());
@@ -572,7 +577,7 @@ iDARTChangeListener {
 
 		// grpParticulars
 		grpParticulars = new Group(getShell(), SWT.NONE);
-		grpParticulars.setBounds(new Rectangle(40, 200, 810, 155));
+		grpParticulars.setBounds(new Rectangle(40, 200, 810, 160));
 		grpParticulars.setText("Patient and New Prescription Information");
 		grpParticulars.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
@@ -602,7 +607,7 @@ iDARTChangeListener {
 		btnPatientHistoryReport = new Button(grpParticulars, SWT.NONE);
 		btnPatientHistoryReport.setBounds(new Rectangle(270, 48, 40, 40));
 		btnPatientHistoryReport
-		.setToolTipText("Press this button to view and / or print reports \nof patients' Prescription History.");
+				.setToolTipText("Press this button to view and / or print reports \nof patients' Prescription History.");
 		btnPatientHistoryReport.setImage(ResourceUtils
 				.getImage(iDartImage.REPORT_PATIENTHISTORY_30X26));
 
@@ -694,13 +699,13 @@ iDARTChangeListener {
 		btnAddDoctor.setBounds(new Rectangle(560, 45, 40, 40));
 		btnAddDoctor.setImage(ResourceUtils.getImage(iDartImage.DOCTOR_30X26));
 		btnAddDoctor
-		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
-			@Override
-			public void widgetSelected(
-					org.eclipse.swt.events.SelectionEvent e) {
-				cmdAddDoctorWidgetSelected();
-			}
-		});
+				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+					@Override
+					public void widgetSelected(
+							org.eclipse.swt.events.SelectionEvent e) {
+						cmdAddDoctorWidgetSelected();
+					}
+				});
 		btnAddDoctor.setToolTipText("Press this button to add a new doctor");
 
 		// Duration
@@ -747,53 +752,78 @@ iDARTChangeListener {
 		lblKg.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		// Regime Terapeutico
-				Label lblRegime = new Label(grpParticulars, SWT.NONE);
-				lblRegime.setBounds(new Rectangle(350, 95, 90, 20));
-				lblRegime.setText("*  Regime:");
-				lblRegime.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		Label lblRegime = new Label(grpParticulars, SWT.NONE);
+		lblRegime.setBounds(new Rectangle(350, 95, 90, 20));
+		lblRegime.setText("*  Regime:");
+		lblRegime.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
-				cmbRegime = new CCombo(grpParticulars, SWT.BORDER | SWT.READ_ONLY);
-				cmbRegime.setBounds(new Rectangle(450, 95, 130, 20));
-				cmbRegime.setVisibleItemCount(10);
-				cmbRegime.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-				cmbRegime.setBackground(ResourceUtils.getColor(iDartColor.WHITE));
-//			   POPULA OS REGIMES
-			CommonObjects.populateRegimesTerapeuticos(getHSession(), cmbRegime, false);
-				cmbRegime.addFocusListener(new FocusAdapter() {
-					@Override
-					public void focusGained(FocusEvent e) {
-						cmbRegime.removeAll();
-						CommonObjects.populateRegimesTerapeuticos(getHSession(), cmbRegime, false);
-						cmbRegime.setVisibleItemCount(Math.min(
-								cmbRegime.getItemCount(), 25));
-					}
-				});
-				cmbRegime.setFocus();
-				
-				
-				// Linha Terapeutica
+		cmbRegime = new CCombo(grpParticulars, SWT.BORDER | SWT.READ_ONLY);
+		cmbRegime.setBounds(new Rectangle(450, 95, 130, 20));
+		cmbRegime.setVisibleItemCount(10);
+		cmbRegime.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		cmbRegime.setBackground(ResourceUtils.getColor(iDartColor.WHITE));
+		// POPULA OS REGIMES
+		CommonObjects.populateRegimesTerapeuticos(getHSession(), cmbRegime,
+				false);
+		cmbRegime.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				cmbRegime.removeAll();
+				CommonObjects.populateRegimesTerapeuticos(getHSession(),
+						cmbRegime, false);
+				cmbRegime.setVisibleItemCount(Math.min(
+						cmbRegime.getItemCount(), 25));
+			}
+		});
+		cmbRegime.setFocus();
+
+		// Linha Terapeutica
 		Label lblLinha = new Label(grpParticulars, SWT.NONE);
-		lblLinha.setBounds(new Rectangle(350, 120, 90, 20));
+		lblLinha.setBounds(new Rectangle(350, 117, 90, 20));
 		lblLinha.setText("* Linha:");
 		lblLinha.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		cmbLinha = new CCombo(grpParticulars, SWT.BORDER | SWT.READ_ONLY);
-		cmbLinha.setBounds(new Rectangle(450, 120, 130, 20));
+		cmbLinha.setBounds(new Rectangle(450, 117, 130, 20));
 		cmbLinha.setVisibleItemCount(10);
 		cmbLinha.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		cmbLinha.setBackground(ResourceUtils.getColor(iDartColor.WHITE));
-		//popula o ccombo de linhas
+		// popula o ccombo de linhas
 		CommonObjects.populateLinha(getHSession(), cmbLinha, false);
 		cmbLinha.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
 				cmbLinha.removeAll();
 				CommonObjects.populateLinha(getHSession(), cmbLinha, false);
-				cmbLinha.setVisibleItemCount(Math.min(
-						cmbLinha.getItemCount(), 25));
+				cmbLinha.setVisibleItemCount(Math.min(cmbLinha.getItemCount(),
+						25));
 			}
 		});
 		cmbLinha.setFocus();
+
+		// Sector
+		Label lblSector = new Label(grpParticulars, SWT.NONE);
+		lblSector.setBounds(new Rectangle(350, 137, 90, 20));
+		lblSector.setText("* Sector:");
+		lblSector.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+
+		cmbSector = new CCombo(grpParticulars, SWT.BORDER | SWT.READ_ONLY);
+		cmbSector.setBounds(new Rectangle(450, 137, 130, 20));
+		cmbSector.setVisibleItemCount(10);
+		cmbSector.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		cmbSector.setBackground(ResourceUtils.getColor(iDartColor.WHITE));
+		// popula o ccombo de linhas
+		CommonObjects.populateSector(getHSession(), cmbSector, false);
+		cmbSector.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				cmbSector.removeAll();
+				CommonObjects.populateSector(getHSession(), cmbSector, false);
+				cmbSector.setVisibleItemCount(Math.min(
+						cmbSector.getItemCount(), 25));
+			}
+		});
+		cmbSector.setFocus();
 
 		// Prescription Notes
 		Label lblNotes = new Label(grpParticulars, SWT.CENTER | SWT.BORDER);
@@ -838,28 +868,28 @@ iDARTChangeListener {
 		btnAddDrug.setText("Add Drug to Prescription");
 		btnAddDrug.setEnabled(false);
 		btnAddDrug
-		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
-			@Override
-			public void widgetSelected(
-					org.eclipse.swt.events.SelectionEvent e) {
-				cmdAddDrugWidgetSelected();
-			}
-		});
+				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+					@Override
+					public void widgetSelected(
+							org.eclipse.swt.events.SelectionEvent e) {
+						cmdAddDrugWidgetSelected();
+					}
+				});
 		btnAddDrug.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		btnRemoveDrug = new Button(compButtonsMiddle, SWT.NONE);
-		btnRemoveDrug.setBounds(new Rectangle(268,30, 181, 28));
+		btnRemoveDrug.setBounds(new Rectangle(268, 30, 181, 28));
 		btnRemoveDrug.setText("Remove Selected Drug");
 		lblPicAddDrug.setEnabled(false);
 		btnRemoveDrug.setEnabled(false);
 		btnRemoveDrug
-		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
-			@Override
-			public void widgetSelected(
-					org.eclipse.swt.events.SelectionEvent e) {
-				cmdRemoveDrugWidgetSelected();
-			}
-		});
+				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+					@Override
+					public void widgetSelected(
+							org.eclipse.swt.events.SelectionEvent e) {
+						cmdRemoveDrugWidgetSelected();
+					}
+				});
 		btnRemoveDrug.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		// View Prescription History button and icon
@@ -881,43 +911,43 @@ iDARTChangeListener {
 		btnMoveUp.setBounds(5, 65, 40, 40);
 		btnMoveUp.setImage(ResourceUtils.getImage(iDartImage.UPARROW_30X26));
 		btnMoveUp
-		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
-			@Override
-			public void widgetSelected(
-					org.eclipse.swt.events.SelectionEvent e) {
+				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+					@Override
+					public void widgetSelected(
+							org.eclipse.swt.events.SelectionEvent e) {
 
-				if (tblDrugs.getSelectionIndex() != -1) {
-					cmdMoveDrug(-1);
-				} else {
-					MessageBox mb = new MessageBox(getShell(),
-							SWT.ICON_QUESTION | SWT.OK);
-					mb.setText("No Drug Selected ");
-					mb.setMessage("Please select a drug to move.");
-					mb.open();
-				}
-			}
-		});
+						if (tblDrugs.getSelectionIndex() != -1) {
+							cmdMoveDrug(-1);
+						} else {
+							MessageBox mb = new MessageBox(getShell(),
+									SWT.ICON_QUESTION | SWT.OK);
+							mb.setText("No Drug Selected ");
+							mb.setMessage("Please select a drug to move.");
+							mb.open();
+						}
+					}
+				});
 
 		btnMoveDown = new Button(grpDrugs, SWT.NONE);
 		btnMoveDown.setBounds(655, 60, 40, 40);
 		btnMoveDown
-		.setImage(ResourceUtils.getImage(iDartImage.DOWNARROW_30X26));
+				.setImage(ResourceUtils.getImage(iDartImage.DOWNARROW_30X26));
 		btnMoveDown
-		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
-			@Override
-			public void widgetSelected(
-					org.eclipse.swt.events.SelectionEvent e) {
-				if (tblDrugs.getSelectionIndex() != -1) {
-					cmdMoveDrug(1);
-				} else {
-					MessageBox mb = new MessageBox(getShell(),
-							SWT.ICON_QUESTION | SWT.OK);
-					mb.setText("No Drug Selected ");
-					mb.setMessage("Please select a drug to move.");
-					mb.open();
-				}
-			}
-		});
+				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+					@Override
+					public void widgetSelected(
+							org.eclipse.swt.events.SelectionEvent e) {
+						if (tblDrugs.getSelectionIndex() != -1) {
+							cmdMoveDrug(1);
+						} else {
+							MessageBox mb = new MessageBox(getShell(),
+									SWT.ICON_QUESTION | SWT.OK);
+							mb.setText("No Drug Selected ");
+							mb.setMessage("Please select a drug to move.");
+							mb.open();
+						}
+					}
+				});
 
 		createDrugsTable();
 	}
@@ -1057,7 +1087,7 @@ iDARTChangeListener {
 										// the cell
 										item.setText(col, newVal);
 										PrescribedDrugs pd = (PrescribedDrugs) item
-										.getData();
+												.getData();
 										pd.setAmtPerTime(Double
 												.parseDouble(newVal));
 										item.setData(pd);
@@ -1070,7 +1100,7 @@ iDARTChangeListener {
 										// the cell
 										item.setText(col, newVal);
 										PrescribedDrugs pd = (PrescribedDrugs) item
-										.getData();
+												.getData();
 										pd.setTimesPerDay(Integer
 												.parseInt(newVal));
 										item.setData(pd);
@@ -1102,43 +1132,42 @@ iDARTChangeListener {
 	@Override
 	protected boolean fieldsOk() {
 
-		if ((cmbLinha.getText().trim().equals("")) || (cmbRegime.getText().trim().equals("")) || (cmbDoctor.getText().trim().equals(""))
+		if ((cmbLinha.getText().trim().equals(""))
+				|| (cmbRegime.getText().trim().equals(""))
+				|| (cmbDoctor.getText().trim().equals(""))
 				|| (lblNewPrescriptionId.getText().trim().equals(""))
 				|| (cmbDuration.getText().trim().equals(""))) {
 			MessageBox missing = new MessageBox(getShell(), SWT.ICON_ERROR
 					| SWT.OK);
 			missing.setText("Missing fields");
-			missing
-			.setMessage("Some fields are empty. Please re-enter the missing fields.");
+			missing.setMessage("Some fields are empty. Please re-enter the missing fields.");
 			missing.open();
 			txtPatientId.setFocus();
 			return false;
-		}
-		else
-		
-		if(btnDataInicioNoutroServico.getDate()!=null && btnDataInicioNoutroServico.getDate().after(new Date())){
-			
-			MessageBox dataNoutroServico = new MessageBox(getShell(), SWT.ICON_ERROR
-					| SWT.OK);
+		} else
+
+		if (btnDataInicioNoutroServico.getDate() != null
+				&& btnDataInicioNoutroServico.getDate().after(new Date())) {
+
+			MessageBox dataNoutroServico = new MessageBox(getShell(),
+					SWT.ICON_ERROR | SWT.OK);
 			dataNoutroServico.setText("Data Inicio Noutro Servi�o Inv�lido");
 			dataNoutroServico
-			.setMessage("A data do inicio noutro servi�o n�o pode ser depois da data de hoje.");
+					.setMessage("A data do inicio noutro servi�o n�o pode ser depois da data de hoje.");
 			dataNoutroServico.open();
 			btnDataInicioNoutroServico.setFocus();
 			return false;
-			
-		}
-		else
-		if(cmbUpdateReason.getText().equals("Alterar") && cmbMotivoMudanca.getText().length()==0){
-			
-			MessageBox dataNoutroServico = new MessageBox(getShell(), SWT.ICON_ERROR
-					| SWT.OK);
+
+		} else if (cmbUpdateReason.getText().equals("Alterar")
+				&& cmbMotivoMudanca.getText().length() == 0) {
+
+			MessageBox dataNoutroServico = new MessageBox(getShell(),
+					SWT.ICON_ERROR | SWT.OK);
 			dataNoutroServico.setText("Motivo da Mudan�a");
-			dataNoutroServico
-			.setMessage("Insira o motivo da mudan�a.");
+			dataNoutroServico.setMessage("Insira o motivo da mudan�a.");
 			dataNoutroServico.open();
 			cmbMotivoMudanca.setFocus();
-			
+
 			return false;
 		}
 
@@ -1148,7 +1177,7 @@ iDARTChangeListener {
 					SWT.ICON_ERROR | SWT.OK);
 			missingUpdateReason.setText("Missing Update Reason");
 			missingUpdateReason
-			.setMessage("The 'Reason for Update' field has not been completed. Please select a reason.");
+					.setMessage("The 'Reason for Update' field has not been completed. Please select a reason.");
 			cmbUpdateReason.setFocus();
 			missingUpdateReason.open();
 			return false;
@@ -1160,7 +1189,7 @@ iDARTChangeListener {
 						SWT.ICON_ERROR | SWT.OK);
 				incorrectData.setText("Incorrect Weight Value");
 				incorrectData
-				.setMessage("The weight that was entered is incorrect. Please enter a number.");
+						.setMessage("The weight that was entered is incorrect. Please enter a number.");
 				incorrectData.open();
 				txtWeight.setFocus();
 				return false;
@@ -1179,7 +1208,7 @@ iDARTChangeListener {
 		getShell().redraw();
 
 		cmbUpdateReason.setText("Inicia");
-	    cmbUpdateReason.setEnabled(true);
+		cmbUpdateReason.setEnabled(true);
 		lblHeader.setText("Add Initial Prescription");
 
 		// btnDispenseDrugs.setEnabled(true);
@@ -1233,33 +1262,35 @@ iDARTChangeListener {
 				+ AdministrationManager.getDoctor(getHSession(),
 						localPrescription.getDoctor().getFullname())
 						.getFullname());
-		
-		if(localPrescription.getRegimeTerapeutico()==null)
-		{cmbRegime.setText("");}
-		else
-		{
+
+		if (localPrescription.getRegimeTerapeutico() == null) {
+			cmbRegime.setText("");
+		} else {
 			cmbRegime.setText(""
 					+ AdministrationManager.getRegimeTerapeutico(getHSession(),
-							localPrescription.getRegimeTerapeutico().getRegimeesquema())
-							.getRegimeesquema());
+							localPrescription.getRegimeTerapeutico().getRegimeesquema()).getRegimeesquema());
 		}
-		if(localPrescription.getLinha()==null)
-		{cmbRegime.setText("");}
-		else
-		{
+		if (localPrescription.getSector() == null) {
+			cmbSector.setText("");
+		} else {
+			cmbSector.setText(""
+					+ AdministrationManager.getSector(getHSession(),
+							localPrescription.getSector().getSectorname()).getSectorname());
+		}
+		if (localPrescription.getLinha() == null) {
+			cmbLinha.setText("");
+		} else {
 			cmbLinha.setText(""
 					+ AdministrationManager.getLinha(getHSession(),
-							localPrescription.getLinha().getLinhanome()).getLinhanome());
+							localPrescription.getLinha().getLinhanome())
+							.getLinhanome());
 		}
-		
-		
-					
 
 		if (localPrescription.getDuration() <= 2) {
 			cmbDuration.setText(localPrescription.getDuration() + " weeks");
 		} else {
 			cmbDuration
-			.setText(localPrescription.getDuration() / 4 + " months");
+					.setText(localPrescription.getDuration() / 4 + " months");
 		}
 
 		// cmbClinicalStage.setText("" + localPrescription.getClinicalStage());
@@ -1285,7 +1316,7 @@ iDARTChangeListener {
 			Form theForm = theDrug.getForm();
 
 			if (theForm.getFormLanguage1().equals(""))
-				// is a cream - no amnt per time
+			// is a cream - no amnt per time
 			{
 				tempAmtPerTime = "";
 			}
@@ -1293,8 +1324,8 @@ iDARTChangeListener {
 			else {
 				if (new BigDecimal(pd.getAmtPerTime()).scale() == 0) {
 					tempAmtPerTime = ""
-						+ new BigDecimal(pd.getAmtPerTime())
-					.unscaledValue().intValue();
+							+ new BigDecimal(pd.getAmtPerTime())
+									.unscaledValue().intValue();
 				} else {
 					tempAmtPerTime = "" + pd.getAmtPerTime();
 				}
@@ -1402,7 +1433,7 @@ iDARTChangeListener {
 			tempMovedTo[6] = tmpTiMovedTo.getText(6);
 
 			PrescribedDrugs pdMovedTo = (PrescribedDrugs) tmpTiMovedTo
-			.getData();
+					.getData();
 
 			tblDrugs.getItem(index).setText(tempMovedTo);
 			tblDrugs.getItem(index).setData(pdMovedTo);
@@ -1583,26 +1614,26 @@ iDARTChangeListener {
 	 * user, the PackageManager loads the selected patient's information
 	 */
 	private void cmdSearchWidgetSelected() {
-		
+
 		String parsedPatientId = PatientBarcodeParser.getPatientId(txtPatientId
 				.getText());
 
 		PatientSearch search = new PatientSearch(getShell(), getHSession());
 		PatientIdentifier identifier = search.search(parsedPatientId);
-		
+
 		if (identifier != null) {
 			thePatient = identifier.getPatient();
 			txtPatientId.setText(thePatient.getPatientId());
-					
+
 			if (!thePatient.getAccountStatusWithCheck()) {
 				MessageBox noPatient = new MessageBox(getShell(),
 						SWT.ICON_ERROR | SWT.OK);
 
 				noPatient.setText("Patient Does Not Have Current Episode");
 				noPatient
-				.setMessage("The patient "
-						+ (txtPatientId.getText()).toUpperCase()
-						+ " does not have a current episode. \n\nYou need to start a new episode for this patient (using the 'Update Existing Patient' screen) before you capture their prescription.");
+						.setMessage("The patient "
+								+ (txtPatientId.getText()).toUpperCase()
+								+ " does not have a current episode. \n\nYou need to start a new episode for this patient (using the 'Update Existing Patient' screen) before you capture their prescription.");
 				noPatient.open();
 				txtPatientId.setFocus();
 				txtPatientId.setText("");
@@ -1620,8 +1651,8 @@ iDARTChangeListener {
 		Patient p = ps.getPatient();
 		// check our local database if this patient already exists
 		if (p != null) {
-			Patient patient = PatientManager.getPatient(getHSession(), p
-					.getId());
+			Patient patient = PatientManager.getPatient(getHSession(),
+					p.getId());
 			if (patient == null) {
 				patient = p;
 
@@ -1652,7 +1683,8 @@ iDARTChangeListener {
 	private void cmdDispenseARVDrugsSelected() {
 		if (submitForm()) {
 			if (!fromShortcut) {
-				new NewPatientPackaging(getParent(), localPrescription.getPatient());
+				new NewPatientPackaging(getParent(),
+						localPrescription.getPatient());
 			}
 			closeShell(true);
 		}
@@ -1689,7 +1721,7 @@ iDARTChangeListener {
 					| SWT.OK);
 			noDrugsAdded.setText("No Drugs on Prescription");
 			noDrugsAdded
-			.setMessage("No drugs have been added to this prescription.");
+					.setMessage("No drugs have been added to this prescription.");
 			noDrugsAdded.open();
 			drugsAdded = false;
 		}
@@ -1713,16 +1745,14 @@ iDARTChangeListener {
 		if (fieldsOk() && drugsAddedToPrescription()) {
 			MessageBox mSave = new MessageBox(getShell(), SWT.ICON_QUESTION
 					| SWT.YES | SWT.NO);
-			mSave
-			.setText(isInitialPrescription ? "Add Initial Prescription for Patient "
+			mSave.setText(isInitialPrescription ? "Add Initial Prescription for Patient "
 					.concat(txtPatientId.getText())
-					: "Add New Prescription for Patient "
-						.concat(txtPatientId.getText()));
-			mSave
-			.setMessage(isInitialPrescription ? "Are you sure you want to add this prescription to Patient "
+					: "Add New Prescription for Patient ".concat(txtPatientId
+							.getText()));
+			mSave.setMessage(isInitialPrescription ? "Are you sure you want to add this prescription to Patient "
 					.concat(txtPatientId.getText()).concat("?")
-					: "Do you want to update the changes to Patient "
-						.concat(txtPatientId.getText()).concat("?"));
+					: "Do you want to update the changes to Patient ".concat(
+							txtPatientId.getText()).concat("?"));
 			switch (mSave.open()) {
 			case SWT.YES:
 				Transaction tx = null;
@@ -1734,50 +1764,51 @@ iDARTChangeListener {
 					}
 					setLocalPrescription();
 
-					if(localPrescription.getLinha().getLinhaid()!=localPrescription.getRegimeTerapeutico().getLinhaT().getLinhaid())
-					{
-						JOptionPane.showMessageDialog(null, "Please choose Regimen that is in the same Line as Line selected");
+					if (localPrescription.getLinha().getLinhaid() != localPrescription
+							.getRegimeTerapeutico().getLinhaT().getLinhaid()) {
+						JOptionPane
+								.showMessageDialog(null,
+										"Please choose Regimen that is in the same Line as Line selected");
 						return false;
 					}
-					
-					if(!validateCompound())
-					{
-						JOptionPane.showMessageDialog(null, "Please choose drugs with the same compound as in the regimen");
+
+					if (!validateCompound()) {
+						JOptionPane
+								.showMessageDialog(null,
+										"Please choose drugs with the same compound as in the regimen");
 						return false;
 					}
-					
+
 					SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
 					Prescription oldPrescription = localPrescription
-					.getPatient().getCurrentPrescription();
+							.getPatient().getCurrentPrescription();
 					// Check if any packages have been created for the
 					// prescription
 					if ((oldPrescription != null)
 							&& PackageManager.getPackagesForPrescription(
 									getHSession(), oldPrescription).size() == 0) {
 						List<PrescribedDrugs> prescribedDrugs = oldPrescription
-						.getPrescribedDrugs();
+								.getPrescribedDrugs();
 						String drugs = "";
 						if (prescribedDrugs.size() == 0) {
 							drugs = "\nThere are no drugs on this prescription!";
 						}
 						for (int i = 0; i < prescribedDrugs.size(); i++) {
 							drugs = drugs
-							+ "\n\t\t"
-							+ prescribedDrugs.get(i).getDrug()
-							.getName();
+									+ "\n\t\t"
+									+ prescribedDrugs.get(i).getDrug()
+											.getName();
 						}
 						MessageBox box = new MessageBox(getShell(),
 								SWT.ICON_QUESTION | SWT.YES | SWT.NO);
 
 						box.setText("Delete Previous, Unused Prescription");
-						box
-						.setMessage("This patient has not received any drugs from "
+						box.setMessage("This patient has not received any drugs from "
 								+ "their previous prescription with id "
 								+ oldPrescription.getPrescriptionId()
 								+ " (details below). \n\n '"
 								+ "Doctor: "
-								+ oldPrescription.getDoctor()
-								.getFullname()
+								+ oldPrescription.getDoctor().getFullname()
 								+ "\nReguime: "
 								+ ""
 								+ "\nDuration: "
@@ -1800,7 +1831,7 @@ iDARTChangeListener {
 							ConfirmWithPasswordDialogAdapter passwordDialog = new ConfirmWithPasswordDialogAdapter(
 									getShell(), getHSession());
 							passwordDialog
-							.setMessage("Please enter your Password");
+									.setMessage("Please enter your Password");
 							// if password verified
 							String messg = passwordDialog.open();
 							if (messg.equalsIgnoreCase("verified")) {
@@ -1810,12 +1841,11 @@ iDARTChangeListener {
 							break;
 						}
 					}
-					
-					// de-normalise table to speed up reports 
-					if(localPrescription.containsARVDrug())
+
+					// de-normalise table to speed up reports
+					if (localPrescription.containsARVDrug())
 						localPrescription.setDrugTypes("ARV");
-					
-					
+
 					PackageManager.saveNewPrescription(getHSession(),
 							localPrescription, deletedPrescription);
 					getHSession().flush();
@@ -1823,29 +1853,24 @@ iDARTChangeListener {
 
 					getLog().info(
 							"Saved Prescription for Patient: "
-							+ localPrescription.getPatient().getId());
+									+ localPrescription.getPatient().getId());
 					MessageBox done = new MessageBox(getShell(), SWT.OK
 							| SWT.ICON_INFORMATION);
 					done.setText("Database Updated");
-					done.setMessage("Prescription '".concat(
-							localPrescription.getPrescriptionId()).concat(
-							"' has been added to patient '").concat(
-									localPrescription.getPatient().getPatientId())
-									.concat("'."));
+					done.setMessage("Prescription '"
+							.concat(localPrescription.getPrescriptionId())
+							.concat("' has been added to patient '")
+							.concat(localPrescription.getPatient()
+									.getPatientId()).concat("'."));
 					done.open();
 					saveSuccessful = true;
 				} catch (IllegalArgumentException ie) {
 					MessageBox errorBox = new MessageBox(getShell(), SWT.OK
 							| SWT.ICON_ERROR);
-					errorBox
-					.setText("Can't Save: Prescription Capture Date Invalid");
-					errorBox
-					.setMessage("Prescription '"
-							.concat(
-									localPrescription
-									.getPrescriptionId())
-									.concat(
-									"' has a capture date before the capture date of the previous prescription. Prescription could not be saved "));
+					errorBox.setText("Can't Save: Prescription Capture Date Invalid");
+					errorBox.setMessage("Prescription '"
+							.concat(localPrescription.getPrescriptionId())
+							.concat("' has a capture date before the capture date of the previous prescription. Prescription could not be saved "));
 					errorBox.open();
 					if (tx != null) {
 						tx.rollback();
@@ -1859,8 +1884,7 @@ iDARTChangeListener {
 					MessageBox errorBox = new MessageBox(getShell(), SWT.OK
 							| SWT.ICON_ERROR);
 					errorBox.setText("Can't Save: Database Update Failed");
-					errorBox
-					.setMessage("There was a problem saving this prescription. Please try again.");
+					errorBox.setMessage("There was a problem saving this prescription. Please try again.");
 					if (tx != null) {
 						tx.rollback();
 					}
@@ -1880,33 +1904,31 @@ iDARTChangeListener {
 	}
 
 	private boolean validateCompound() {
-		boolean validCompound = false, validRegimen=false;
-		int quantityRegimen=0,quantityPrescribed=0;
-		for(RegimeTerapeuticoDrugs regime: localPrescription.getRegimeTerapeutico().getRegimeDrugs())
-		{
-			for(PrescribedDrugs pd: localPrescription.getPrescribedDrugs())
-			{
-				for(ChemicalCompound cc : pd.getDrug().getChemicalCompounds())
-				{
-					if(regime.getChemicalCompound().getAcronym().equals(cc.getAcronym()))
-					{
-						validRegimen=true;
+		boolean validCompound = false, validRegimen = false;
+		int quantityRegimen = 0, quantityPrescribed = 0;
+		for (RegimeTerapeuticoDrugs regime : localPrescription
+				.getRegimeTerapeutico().getRegimeDrugs()) {
+			for (PrescribedDrugs pd : localPrescription.getPrescribedDrugs()) {
+				for (ChemicalCompound cc : pd.getDrug().getChemicalCompounds()) {
+					if (regime.getChemicalCompound().getAcronym()
+							.equals(cc.getAcronym())) {
+						validRegimen = true;
 					}
 				}
 			}
 		}
-		quantityRegimen=localPrescription.getRegimeTerapeutico().getRegimeDrugs().size();
-		
-		for(PrescribedDrugs pd: localPrescription.getPrescribedDrugs())
-		{
-			quantityPrescribed=quantityPrescribed+pd.getDrug().getChemicalCompounds().size();
+		quantityRegimen = localPrescription.getRegimeTerapeutico()
+				.getRegimeDrugs().size();
+
+		for (PrescribedDrugs pd : localPrescription.getPrescribedDrugs()) {
+			quantityPrescribed = quantityPrescribed
+					+ pd.getDrug().getChemicalCompounds().size();
 		}
-		
-		if(quantityPrescribed==quantityRegimen)
-		{
-			validCompound=validRegimen;
+
+		if (quantityPrescribed == quantityRegimen) {
+			validCompound = validRegimen;
 		}
-			
+
 		return validCompound;
 	}
 
@@ -1942,14 +1964,13 @@ iDARTChangeListener {
 		localPrescription.setPrescriptionId(lblNewPrescriptionId.getText());
 		localPrescription.setPatient(thePatient);
 		localPrescription.setReasonForUpdate(cmbUpdateReason.getText());
-		localPrescription.setDatainicionoutroservico(btnDataInicioNoutroServico.getDate());
-	
-		
+		localPrescription.setDatainicionoutroservico(btnDataInicioNoutroServico
+				.getDate());
 
 		// weight
 		if (!txtWeight.getText().equals("")) {
 			localPrescription
-			.setWeight(Double.parseDouble(txtWeight.getText()));
+					.setWeight(Double.parseDouble(txtWeight.getText()));
 		} else {
 			localPrescription.setWeight(0.0);
 		}
@@ -1987,26 +2008,26 @@ iDARTChangeListener {
 				.get(Calendar.DAY_OF_MONTH))
 				&& (compareCal.get(Calendar.MONTH) == scriptDateCal
 						.get(Calendar.MONTH))
-						&& (compareCal.get(Calendar.YEAR) == scriptDateCal
-								.get(Calendar.YEAR))) {
+				&& (compareCal.get(Calendar.YEAR) == scriptDateCal
+						.get(Calendar.YEAR))) {
 			scriptDate = new Date();
 		}
 
 		localPrescription.setDate(scriptDate);
 		localPrescription.setDoctor(AdministrationManager.getDoctor(
 				getHSession(), cmbDoctor.getText()));
-		
-		localPrescription.setRegimeTerapeutico(AdministrationManager.getRegimeTerapeutico(
-				getHSession(), cmbRegime.getText()));
-		
-		
+
+		localPrescription.setRegimeTerapeutico(AdministrationManager
+				.getRegimeTerapeutico(getHSession(), cmbRegime.getText()));
+
 		localPrescription.setLinha(AdministrationManager.getLinha(
 				getHSession(), cmbLinha.getText()));
-		
-		
-		
+
+		localPrescription.setSector(AdministrationManager.getSector(
+				getHSession(), cmbSector.getText()));
+
 		localPrescription.setMotivoMudanca(cmbMotivoMudanca.getText());
-		
+
 		localPrescription.setModified('T');
 		localPrescription.setCurrent('T');
 		localPrescription.setNotes(txtAreaNotes.getText());
@@ -2068,8 +2089,7 @@ iDARTChangeListener {
 			MessageBox mSave = new MessageBox(getShell(), SWT.ICON_QUESTION
 					| SWT.YES | SWT.NO);
 			mSave.setText("Remove Existing Drugs?");
-			mSave
-			.setMessage("This prescription has existing drugs. Remove them?");
+			mSave.setMessage("This prescription has existing drugs. Remove them?");
 			switch (mSave.open()) {
 			case SWT.YES:
 				tblDrugs.clearAll();
@@ -2098,7 +2118,7 @@ iDARTChangeListener {
 				Form f = d.getForm();
 
 				if (f.getFormLanguage1().equals(""))
-					// is a cream - no amnt per time
+				// is a cream - no amnt per time
 				{
 					tempAmtPerTime = "";
 				}
@@ -2106,8 +2126,8 @@ iDARTChangeListener {
 				else {
 					if (new BigDecimal(rd.getAmtPerTime()).scale() == 0) {
 						tempAmtPerTime = ""
-							+ new BigDecimal(rd.getAmtPerTime())
-						.unscaledValue().intValue();
+								+ new BigDecimal(rd.getAmtPerTime())
+										.unscaledValue().intValue();
 					} else {
 						tempAmtPerTime = "" + rd.getAmtPerTime();
 					}
@@ -2146,13 +2166,14 @@ iDARTChangeListener {
 
 		try {
 			txtPatientId.setText("");
-	     	cmbMotivoMudanca.setText("");
+			cmbMotivoMudanca.setText("");
 			txtName.setText("");
 			txtSurname.setText("");
 			txtClinic.setText("");
 			cmbDoctor.setText("");
 			cmbRegime.setText("");
 			cmbLinha.setText("");
+			cmbSector.setText("");
 			txtWeight.setText("");
 			txtDOB.setText("");
 			lblNewPrescriptionId.setText("");
@@ -2164,7 +2185,7 @@ iDARTChangeListener {
 			cmbUpdateReason.setEnabled(false);
 			cmbMotivoMudanca.setEnabled(false);
 			txtAreaNotes.setText("");
-            btnDataInicioNoutroServico.setEnabled(false);
+			btnDataInicioNoutroServico.setEnabled(false);
 			lblHeader.setText("Patient's Prescription");
 
 			btnSave.setText("Update this Prescription");
@@ -2216,6 +2237,7 @@ iDARTChangeListener {
 
 		// cmbClinicalStage.setEnabled(enable);
 		cmbLinha.setEnabled(enable);
+		cmbSector.setEnabled(enable);
 		cmbDuration.setEnabled(enable);
 		cmbRegime.setEnabled(enable);
 		txtWeight.setEnabled(enable);
@@ -2240,6 +2262,7 @@ iDARTChangeListener {
 		cmbDuration.setBackground(theColour);
 		cmbRegime.setBackground(theColour);
 		cmbLinha.setBackground(theColour);
+		cmbSector.setBackground(theColour);
 		cmbMotivoMudanca.setBackground(theColour);
 	}
 
@@ -2264,13 +2287,13 @@ iDARTChangeListener {
 		btnDispenseDrugs.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		btnDispenseDrugs.setText("Dispense This Prescription");
 		btnDispenseDrugs
-		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
-			@Override
-			public void widgetSelected(
-					org.eclipse.swt.events.SelectionEvent e) {
-				cmdDispenseARVDrugsSelected();
-			}
-		});
+				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+					@Override
+					public void widgetSelected(
+							org.eclipse.swt.events.SelectionEvent e) {
+						cmdDispenseARVDrugsSelected();
+					}
+				});
 		btnDispenseDrugs.setEnabled(false);
 
 	}
@@ -2282,7 +2305,6 @@ iDARTChangeListener {
 			btnCaptureDate.setDate(new Date());
 			scriptDate = btnCaptureDate.getDate();
 		}
-		
 
 		String prescriptionId = PackageManager.getNewPrescriptionId(
 				getHSession(), thePatient, scriptDate);
@@ -2295,8 +2317,10 @@ iDARTChangeListener {
 	 */
 	private void cmdUpdateClinic() {
 		if (localPrescription != null) {
-			txtClinic.setText((localPrescription.getPatient()
-					.getClinicAtDate(btnCaptureDate.getDate())).getClinicName());
+			txtClinic
+					.setText((localPrescription.getPatient()
+							.getClinicAtDate(btnCaptureDate.getDate()))
+							.getClinicName());
 		}
 	}
 
@@ -2307,7 +2331,7 @@ iDARTChangeListener {
 	private void cmdPatientHistoryWidgetSelected() {
 
 		getLog().info(
-		"New Patient Packaging: User chose 'Patient History Report'");
+				"New Patient Packaging: User chose 'Patient History Report'");
 
 		if (localPrescription != null) {
 			PatientHistoryReport report = new PatientHistoryReport(getShell(),
@@ -2341,8 +2365,7 @@ iDARTChangeListener {
 
 		MessageBox mb = new MessageBox(getShell());
 		mb.setText("Prescription Deletion Successful");
-		mb
-		.setMessage("This prescription was successfully removed from the database.");
+		mb.setMessage("This prescription was successfully removed from the database.");
 		mb.open();
 
 	}
@@ -2357,19 +2380,16 @@ iDARTChangeListener {
 			Doctor doctor = (Doctor) o;
 			cmbDoctor.setText(doctor.getFullname());
 		}
-		
+
 		if (o instanceof RegimeTerapeutico) {
 			RegimeTerapeutico r = (RegimeTerapeutico) o;
 			cmbRegime.setText(r.getRegimeesquema());
 		}
-		
+
 		if (o instanceof LinhaT) {
 			LinhaT r = (LinhaT) o;
 			cmbLinha.setText(r.getLinhanome());
 		}
 	}
-	
-	
 
 }
-

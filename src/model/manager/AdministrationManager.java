@@ -39,6 +39,7 @@ import org.celllife.idart.database.hibernate.Motivomudanca;
 import org.celllife.idart.database.hibernate.NationalClinics;
 import org.celllife.idart.database.hibernate.RegimeTerapeutico;
 import org.celllife.idart.database.hibernate.Regimen;
+import org.celllife.idart.database.hibernate.Sector;
 import org.celllife.idart.database.hibernate.SimpleDomain;
 import org.celllife.idart.database.hibernate.StockCenter;
 import org.celllife.idart.database.hibernate.Study;
@@ -177,7 +178,7 @@ public class AdministrationManager {
 			if (lt != null) {
 				for (int i = 0; i < lt.size(); i++) {
 					linha= lt.get(i);
-					if (linha.getLinhanome().equals(linhat)) {
+					if (linha.getLinhaid()==Integer.parseInt(linhat)) {
 						break;
 					}
 				}
@@ -1250,6 +1251,29 @@ public class AdministrationManager {
 			List<RegimeTerapeutico> result = q.list();
 
 			return result;
+		}
+
+
+		public static List<Sector> getAllSectors(Session sess) {
+			List<Sector> result = sess.createQuery(
+					"select s from sector as s)").list();
+
+					return result;
+		}
+
+
+		public static Sector getSector(Session sess, String sectorname) {
+			Sector sector = null;
+			List<Sector> sectorList = AdministrationManager.getAllSectors(sess);
+			if (sectorList != null) {
+				for (int i = 0; i < sectorList.size(); i++) {
+					sector = sectorList.get(i);
+					if (sector.getSectorname().equals(sectorname)) {
+						break;
+					}
+				}
+			}
+			return sector;
 		}
 	
 //

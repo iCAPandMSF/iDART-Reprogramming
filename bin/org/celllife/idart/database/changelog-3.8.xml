@@ -108,40 +108,6 @@
 		<dropColumn tableName="adherencerecordtmp" columnName="invalid"/>
 		<dropColumn tableName="deleteditem" columnName="invalid"/>
 	</changeSet>
-	<changeSet author="simon@cell-life.org" id="3.8.12">
-		<comment>add linhat table</comment>
-		<createTable tableName="linhat">
-			<column name="linhaid" type="int">
-				<constraints primaryKey="true" nullable="false" />
-			</column>
-			<column name="linhanome" type="varchar(255)">
-				<constraints nullable="false"/>
-			</column>
-			<column name="active" type="boolean">
-				<constraints nullable="false"/>
-			</column>
-		</createTable>
-	</changeSet>
-	<changeSet author="simon@cell-life.org" id="3.8.13">
-		<comment>add regimeterapeutico table</comment>
-		<createTable tableName="regimeterapeutico">
-			<column name="regimeid" type="int">
-				<constraints primaryKey="true" nullable="false" />
-			</column>
-			<column name="linhaid" type="int">
-				<constraints nullable="false"/>
-			</column>
-			<column name="regimeesquema" type="varchar(255)">
-				<constraints nullable="false"/>
-			</column>
-			<column name="adult" type="boolean">
-				<constraints nullable="false"/>
-			</column>
-			<column name="active" type="boolean">
-				<constraints nullable="false"/>
-			</column>
-		</createTable>
-	</changeSet>
 	<changeSet author="simon@cell-life.org" id="3.8.14">
 		<comment>add motivomudanca table</comment>
 		<createTable tableName="motivomudanca">
@@ -183,16 +149,11 @@
 			baseColumnNames="linhaid" 
 			referencedTableName="linhat" 
 			referencedColumnNames="linhaid"/>
-		<addForeignKeyConstraint constraintName="fk_linhat_regimeterapeutico" 
-			baseTableName="regimeterapeutico" 
-			baseColumnNames="linhaid" 
-			referencedTableName="linhat" 
-			referencedColumnNames="linhaid"/>
 		<addForeignKeyConstraint constraintName="fk_prescription_sector" 
 			baseTableName="prescription" 
 			baseColumnNames="sectorid" 
 			referencedTableName="sector" 
-			referencedColumnNames="sector_id"/>
+			referencedColumnNames="sectorid"/>
 	</changeSet>
 	<changeSet author="simon@cell-life.org" id="3.8.16">
 		<comment>add drugstockcontrol table</comment>
@@ -210,31 +171,6 @@
 				<constraints nullable="false" />
 			</column>
 			<column name="riskstatus" type="varchar(255)">
-				<constraints nullable="false" />
-			</column>
-		</createTable>
-	</changeSet>
-	<changeSet author="simon@cell-life.org" id="3.8.17">
-		<comment>add regimeterapeuticodrugs table</comment>
-		<createTable tableName="regimeterapeuticodrugs">
-			<column name="id" type="int">
-				<constraints primaryKey="true" nullable="false" />
-			</column>
-			<column name="regimeid" type="int">
-				<constraints nullable="false" />
-			</column>
-			<column name="chemicalid" type="int">
-				<constraints nullable="false" />
-			</column>
-		</createTable>
-	</changeSet>
-	<changeSet author="simon@cell-life.org" id="3.8.18">
-		<comment>add sector table</comment>
-		<createTable tableName="sector">
-			<column name="sector_id" type="int">
-				<constraints primaryKey="true" nullable="false" />
-			</column>
-			<column name="sector_nome" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
 		</createTable>
