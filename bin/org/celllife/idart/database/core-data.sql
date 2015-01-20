@@ -377,6 +377,7 @@ insert into sector (sectorid,sectorname) values (1,'tb');
 insert into sector (sectorid,sectorname) values (2,'smi');
 insert into sector (sectorid,sectorname) values (3,'saaj');
 insert into sector (sectorid,sectorname) values (4,'pharmacy');
+insert into sector (sectorid,sectorname) values (5,'ppe');
 
 INSERT INTO stockcenter (id, stockcentername, preferred) VALUES (1, 'Main', true);
 
@@ -385,3 +386,5 @@ INSERT INTO users (id, modified, cl_password, role, cl_username) VALUES (1, 'T',
 insert into linhat (linhaid,linhanome,active) values (1,'Primeira',true);
 insert into linhat (linhaid,linhanome,active) values (2,'Segunda',true);
 insert into linhat (linhaid,linhanome,active) values (3,'Terceira',true);
+
+INSERT INTO parameter values (1,'AMC','20');

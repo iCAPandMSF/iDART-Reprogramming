@@ -377,6 +377,7 @@ insert into sector (sectorid,sectorname) values (1,'tb');
 insert into sector (sectorid,sectorname) values (2,'smi');
 insert into sector (sectorid,sectorname) values (3,'saaj');
 insert into sector (sectorid,sectorname) values (4,'pharmacy');
+insert into sector (sectorid,sectorname) values (5,'ppe');
 
 INSERT INTO stockcenter (id, stockcentername, preferred) VALUES (1, 'Main', true);
 

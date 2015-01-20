@@ -172,19 +172,42 @@ public class AdministrationManager {
 	 * @return
 	 */
 		
-		public static LinhaT getLinha(Session sess, String linhat) {
+		public static LinhaT getLinha(Session sess, String linhaid) {
 			LinhaT linha = null;
 			List<LinhaT> lt = AdministrationManager.getAllLinhas(sess);
 			if (lt != null) {
 				for (int i = 0; i < lt.size(); i++) {
 					linha= lt.get(i);
-					if (linha.getLinhaid()==Integer.parseInt(linhat)) {
+					if (linha.getLinhaid()==Integer.parseInt(linhaid)) {
 						break;
 					}
 				}
 			}
 			return linha ;
 		}
+		
+		/**
+		 * Devolve uma linha Terapeutica
+		 * @param sess
+		 * @param linhat
+		 * @return
+		 */
+			
+			public static LinhaT getLinhaTNome(Session sess, String linhanome) {
+				LinhaT linha = null;
+				List<LinhaT> lt = AdministrationManager.getAllLinhas(sess);
+				if (lt != null) {
+					for (int i = 0; i < lt.size(); i++) {
+						linha= lt.get(i);
+						if (linha.getLinhanome().equals(linhanome)) {
+							break;
+						}
+					}
+				}
+				return linha ;
+			}
+			
+			
 	//
 	public static Motivomudanca getMotivoMudanca(Session sess, String motivomudanca) {
 		Motivomudanca motivo = null;

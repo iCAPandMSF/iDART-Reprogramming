@@ -2020,7 +2020,7 @@ public class AddPrescription extends GenericFormGui implements
 		localPrescription.setRegimeTerapeutico(AdministrationManager
 				.getRegimeTerapeutico(getHSession(), cmbRegime.getText()));
 
-		localPrescription.setLinha(AdministrationManager.getLinha(
+		localPrescription.setLinha(AdministrationManager.getLinhaTNome(
 				getHSession(), cmbLinha.getText()));
 
 		localPrescription.setSector(AdministrationManager.getSector(

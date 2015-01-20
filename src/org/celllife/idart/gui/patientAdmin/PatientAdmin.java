@@ -78,6 +78,7 @@ public class PatientAdmin extends GenericAdminGui {
 	 * 
 	 * @param parent
 	 *            Shell
+	 * @wbp.parser.entryPoint
 	 */
 	public PatientAdmin(Shell parent) {
 		super(parent);

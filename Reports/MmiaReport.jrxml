@@ -40,14 +40,14 @@
 	<parameter name="startDate" class="java.util.Date"/>
 	<parameter name="endDate" class="java.util.Date"/>
 	<queryString>
-		<![CDATA[select distinct d.id, d.name, f.formlanguage1,d.packsize, d.stockcode
+		<![CDATA[select distinct d.id, d.name, f.formlanguage1,d.packsize, d.stockcode,d.adult
 from drug as d
 left outer join stock as s on s.drug = d.id
 left outer join atccode as a on d.atccode_id = a.id
 left outer join form as f on d.form=f.id
 where s.stockCenter = $P{stockCenterId}
 and d.sidetreatment = 'F'
-order by d.name asc]]>
+order by d.adult desc ,d.id]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer"/>
 	<field name="name" class="java.lang.String"/>
@@ -76,11 +76,11 @@ order by d.name asc]]>
 					<subreportParameter name="ATC">
 						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
 					</subreportParameter>
-					<subreportParameter name="stockCenterId">
-						<subreportParameterExpression><![CDATA[$P{stockCenterId}]]></subreportParameterExpression>
-					</subreportParameter>
 					<subreportParameter name="packsize">
 						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="stockCenterId">
+						<subreportParameterExpression><![CDATA[$P{stockCenterId}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportParameter name="name">
 						<subreportParameterExpression><![CDATA[$F{name}]]></subreportParameterExpression>
@@ -108,11 +108,11 @@ order by d.name asc]]>
 					<subreportParameter name="ATC">
 						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
 					</subreportParameter>
-					<subreportParameter name="packsize">
-						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
-					</subreportParameter>
 					<subreportParameter name="stockCenterId">
 						<subreportParameterExpression><![CDATA[$P{stockCenterId}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="packsize">
+						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportParameter name="name">
 						<subreportParameterExpression><![CDATA[$F{name}]]></subreportParameterExpression>
@@ -512,11 +512,11 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<subreportParameter name="ATC">
 					<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
 				</subreportParameter>
-				<subreportParameter name="stockCenterId">
-					<subreportParameterExpression><![CDATA[$P{stockCenterId}]]></subreportParameterExpression>
-				</subreportParameter>
 				<subreportParameter name="packsize">
 					<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="stockCenterId">
+					<subreportParameterExpression><![CDATA[$P{stockCenterId}]]></subreportParameterExpression>
 				</subreportParameter>
 				<subreportParameter name="name">
 					<subreportParameterExpression><![CDATA[$F{name}]]></subreportParameterExpression>
