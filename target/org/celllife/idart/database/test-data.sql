@@ -96,4 +96,3 @@ INSERT INTO stock (id, drug, batchnumber, datereceived, stockcenter, expirydate,
 INSERT INTO stock (id, drug, batchnumber, datereceived, stockcenter, expirydate, modified, shelfnumber, unitsreceived, manufacturer, hasunitsremaining, unitprice) VALUES (25, 25, 'BATCH35', '2008-03-26 00:00:00', 1, '2010-03-26 00:00:00', 'F', '123', 5, 'manufacturer', 'T', NULL);
 INSERT INTO stock (id, drug, batchnumber, datereceived, stockcenter, expirydate, modified, shelfnumber, unitsreceived, manufacturer, hasunitsremaining, unitprice) VALUES (26, 26, 'BATCH36', '2008-03-26 00:00:00', 1, '2010-03-26 00:00:00', 'F', '123', 5, 'manufacturer', 'T', NULL);
 
-INSERT INTO parameter values (1,'AMC','20');
