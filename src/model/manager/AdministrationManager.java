@@ -172,13 +172,13 @@ public class AdministrationManager {
 	 * @return
 	 */
 		
-		public static LinhaT getLinha(Session sess, String linhaid) {
+		public static LinhaT getLinha(Session sess, String linhanome) {
 			LinhaT linha = null;
 			List<LinhaT> lt = AdministrationManager.getAllLinhas(sess);
 			if (lt != null) {
 				for (int i = 0; i < lt.size(); i++) {
 					linha= lt.get(i);
-					if (linha.getLinhaid()==Integer.parseInt(linhaid)) {
+					if (linha.getLinhanome().equals(linhanome)) {
 						break;
 					}
 				}
@@ -1005,6 +1005,23 @@ public class AdministrationManager {
 
 		return result;
 	}
+	
+	/**
+	 * @param sess
+	 *            Session
+	 * @return todos sectores
+	 * @throws HibernateException
+	 */
+	@SuppressWarnings("unchecked")
+	public static List<Sector> getSectors(Session sess)
+	throws HibernateException {
+
+		String qString = "from sector s order by s.sectorname";
+		Query q = sess.createQuery(qString);
+		List<Sector> result = q.list();
+
+		return result;
+	}
 
 	/**
 	 * This method saves the simpleDomain objects passed to it
@@ -1245,6 +1262,10 @@ public class AdministrationManager {
 		public static void saveLinhaT(Session s, LinhaT linhaT) {
 			s.save(linhaT);
 		}
+		
+		public static void saveSector(Session s, Sector sector) throws HibernateException{
+			s.save(sector);
+		}
 
 
 		public static void saveRegime(Session s,
@@ -1278,21 +1299,21 @@ public class AdministrationManager {
 
 
 		public static List<Sector> getAllSectors(Session sess) {
-			List<Sector> result = sess.createQuery(
-					"select s from sector as s)").list();
+			List<Sector> result = sess.createQuery("select s from sector as s").list();
 
 					return result;
 		}
 
 
-		public static Sector getSector(Session sess, String sectorname) {
+		public static Sector getSector(Session sess, String sectorId) {
 			Sector sector = null;
 			List<Sector> sectorList = AdministrationManager.getAllSectors(sess);
 			if (sectorList != null) {
 				for (int i = 0; i < sectorList.size(); i++) {
 					sector = sectorList.get(i);
-					if (sector.getSectorname().equals(sectorname)) {
+					if (sector.getSectorname().equals(sectorId)) {
 						break;
+						//sector.getSectorid()==Integer.parseInt(sectorId)
 					}
 				}
 			}

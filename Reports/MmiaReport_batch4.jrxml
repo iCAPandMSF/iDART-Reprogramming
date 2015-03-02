@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MmiaReport_batch4" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<style name="table" isDefault="false" lineSpacing="Single">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" isDefault="false" mode="Opaque" backcolor="#F0F8FF" lineSpacing="Single">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" isDefault="false" mode="Opaque" backcolor="#BFE1FF" lineSpacing="Single">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" isDefault="false" mode="Opaque" backcolor="#FFFFFF" lineSpacing="Single">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1"/>
+	<subDataset name="Table Dataset 2"/>
+	<parameter name="stockCenterId" class="java.lang.Integer">
+		<parameterDescription><![CDATA[Clinic Identifier]]></parameterDescription>
+		<defaultValueExpression><![CDATA[new Integer(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="name" class="java.lang.String">
+		<parameterDescription><![CDATA[Drug Name]]></parameterDescription>
+	</parameter>
+	<parameter name="id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(0)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dateFormat" class="java.lang.String">
+		<defaultValueExpression><![CDATA["2006-03-01"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="packsize" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(60)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="formlanguage1" class="java.lang.String"/>
+	<parameter name="StockCode" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="monthStart" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["2007-08-01 00:00:00.000"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="monthEnd" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["2007-09-01 00:00:00.000"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="startDate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new Date()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="endDate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new Date()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\IDART\\Reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="path" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select distinct d.id as id2, d.name as name2, f.formlanguage1  as formlanguage2,d.packsize  as packsize2, d.stockcode as stockcode2,d.adult,d.drugorder
+from drug as d
+left outer join stock as s on s.drug = d.id
+left outer join atccode as a on d.atccode_id = a.id
+left outer join form as f on d.form=f.id
+left outer join stock as s2 on s2.drug=d.id and s2.datereceived  between $P{startDate}::timestamp and $P{endDate}::timestamp
+left outer join (
+select s.drug
+from stock as s
+join packageddrugs as pd on pd.stock = s.id
+join package as p on pd.parentpackage = p.id
+where p.packdate between $P{startDate}::timestamp and $P{endDate}::timestamp
+) as pac on pac.drug=d.id
+left outer join stockAdjustment as sa on sa.stock = s.id
+and sa.captureDate between $P{startDate}::timestamp and $P{endDate}::timestamp
+where s.stockCenter = $P{stockCenterId}
+and d.sidetreatment = 'F'
+and d.adult=false
+and (s2.drug is not null or pac.drug is not null or sa.id is not null)
+order by d.drugorder]]>
+	</queryString>
+	<field name="id2" class="java.lang.Integer"/>
+	<field name="name2" class="java.lang.String"/>
+	<field name="formlanguage2" class="java.lang.String"/>
+	<field name="packsize2" class="java.lang.Integer"/>
+	<field name="stockcode2" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="548" height="20"/>
+				<subreportParameter name="id">
+					<subreportParameterExpression><![CDATA[$F{id2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="startDate">
+					<subreportParameterExpression><![CDATA[$P{startDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="StockCode">
+					<subreportParameterExpression><![CDATA[$F{stockcode2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="monthEnd">
+					<subreportParameterExpression><![CDATA[$P{monthEnd}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="stockCenterId">
+					<subreportParameterExpression><![CDATA[$P{stockCenterId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="packsize">
+					<subreportParameterExpression><![CDATA[$F{packsize2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="formlanguage1">
+					<subreportParameterExpression><![CDATA[$F{formlanguage2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="name">
+					<subreportParameterExpression><![CDATA[$F{name2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="path">
+					<subreportParameterExpression><![CDATA[$P{path}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="endDate">
+					<subreportParameterExpression><![CDATA[$P{endDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateFormat">
+					<subreportParameterExpression><![CDATA[$P{dateFormat}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="monthStart">
+					<subreportParameterExpression><![CDATA[$P{monthStart}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "MmiaReport_batch.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

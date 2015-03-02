@@ -48,8 +48,8 @@ public class LinkChemcialCompundsToAtcCodes_3_8_7 implements CustomSqlChange {
 			insertChemicalCompoundIfNeeded(con, statements, "Abacavir", "ABC");
 			getMappingStatement(statements, 31, "Abacavir");
 			
-			insertChemicalCompoundIfNeeded(con, statements, "Didanosine", "DDI");
-			getMappingStatement(statements, 27, "Didanosine");
+			insertChemicalCompoundIfNeeded(con, statements, "Didanosina", "DDI");
+			getMappingStatement(statements, 27, "Didanosina");
 			
 			insertChemicalCompoundIfNeeded(con, statements, "Efavirenze", "EFV");
 			getMappingStatement(statements, 40, "Efavirenze");

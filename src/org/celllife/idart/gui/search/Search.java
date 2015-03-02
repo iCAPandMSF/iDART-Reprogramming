@@ -225,6 +225,9 @@ public class Search extends GenericOthersGui {
 		case CommonObjects.REGIME:
 			searchList = SearchManager.loadRegimes(getHSession(), this);
 			break;
+		case CommonObjects.SECTOR:
+			searchList = SearchManager.loadSectors(getHSession(), this);
+			break;
 		}
 	}
 

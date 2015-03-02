@@ -25,6 +25,7 @@ import org.celllife.idart.gui.alert.Alert;
 import org.celllife.idart.gui.deletions.DeleteStockPrescriptionsPackages;
 import org.celllife.idart.gui.deletions.DestroyStock;
 import org.celllife.idart.gui.drug.AddLine;
+import org.celllife.idart.gui.drug.AddSector;
 import org.celllife.idart.gui.drugGroup.AddDrugGroup;
 import org.celllife.idart.gui.drugGroup.AddRegimen;
 import org.celllife.idart.gui.packaging.NewPatientPackaging;
@@ -81,6 +82,10 @@ public class StockControl extends GenericAdminGui {
 
 	private Label lblLine;
 	
+	private Button btnSector;
+
+	private Label lblSector;
+	
 	private Button btnRegimenUpdate;
 
 	private Label lblRegimenUpdate;
@@ -88,6 +93,10 @@ public class StockControl extends GenericAdminGui {
 	private Button btnLineUpdate;
 
 	private Label lblLineUpdate;
+	
+	private Button btnSectorUpdate;
+
+	private Label lblSectorUpdate;
 	
 	private Label lblDispenseToPatients;
 
@@ -135,7 +144,7 @@ public class StockControl extends GenericAdminGui {
 	protected void createCompOptions() {
 		// lblPrescription
 		lblPrescription = new Label(compOptions, SWT.NONE);
-		lblPrescription.setBounds(new Rectangle(50, 20, 50, 43));
+		lblPrescription.setBounds(new Rectangle(50, 40, 50, 43));
 		lblPrescription.setImage(ResourceUtils
 				.getImage(iDartImage.PRESCRIPTIONNEW));
 		lblPrescription.addMouseListener(new MouseAdapter() {
@@ -147,7 +156,7 @@ public class StockControl extends GenericAdminGui {
 
 		// btnPrescriptionz
 		btnPrescription = new Button(compOptions, SWT.NONE);
-		btnPrescription.setBounds(new Rectangle(105, 22, 260, 40));
+		btnPrescription.setBounds(new Rectangle(105, 42, 260, 40));
 		btnPrescription
 		.setToolTipText(Messages.getString("StockControl.button.updatePrescription.tooltip")); //$NON-NLS-1$
 		btnPrescription.setText(Messages.getString("StockControl.button.updatePrescription")); //$NON-NLS-1$
@@ -200,7 +209,7 @@ public class StockControl extends GenericAdminGui {
 		});
 
 		lblDispenseToPatients = new Label(compOptions, SWT.NONE);
-		lblDispenseToPatients.setBounds(new Rectangle(50, 180, 50, 43));
+		lblDispenseToPatients.setBounds(new Rectangle(50, 160, 50, 43));
 		lblDispenseToPatients.setImage(ResourceUtils
 				.getImage(iDartImage.PATIENTARRIVES));
 
@@ -223,7 +232,7 @@ public class StockControl extends GenericAdminGui {
 		btnDispenseToPatients = new Button(compOptions, SWT.NONE);
 		btnDispenseToPatients.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_8));
-		btnDispenseToPatients.setBounds(new Rectangle(105, 182, 260, 40));
+		btnDispenseToPatients.setBounds(new Rectangle(105, 162, 260, 40));
 		btnDispenseToPatients.setText(Messages.getString("StockControl.button.scanOut")); //$NON-NLS-1$
 		btnDispenseToPatients
 		.setToolTipText(Messages.getString("StockControl.button.scanOut.tooltip")); //$NON-NLS-1$
@@ -243,7 +252,7 @@ public class StockControl extends GenericAdminGui {
 
 			// lblDistributePackages
 			lblDistributePackages = new Label(compOptions, SWT.NONE);
-			lblDistributePackages.setBounds(new Rectangle(50, 260, 50, 43));
+			lblDistributePackages.setBounds(new Rectangle(50, 220, 50, 43));
 			lblDistributePackages.setImage(ResourceUtils
 					.getImage(iDartImage.OUTGOINGPACKAGES));
 
@@ -266,7 +275,7 @@ public class StockControl extends GenericAdminGui {
 			// btnDistributePackages
 			btnDistributePackagesToClinic = new Button(compOptions, SWT.NONE);
 			btnDistributePackagesToClinic
-			.setBounds(new Rectangle(105, 262, 260, 40));
+			.setBounds(new Rectangle(105, 222, 260, 40));
 			String label = Messages.getString("StockControl.button.scanDownRefer"); //$NON-NLS-1$
 
 			btnDistributePackagesToClinic
@@ -290,9 +299,9 @@ public class StockControl extends GenericAdminGui {
 		lblReturnStock = new Label(compOptions, SWT.NONE);
 		if (iDartProperties.downReferralMode
 				.equalsIgnoreCase(iDartProperties.ONLINE_DOWNREFERRAL_MODE)) {
-			lblReturnStock.setBounds(new Rectangle(50, 340, 50, 43));
+			lblReturnStock.setBounds(new Rectangle(50, 280, 50, 43));
 		} else {
-			lblReturnStock.setBounds(new Rectangle(50, 260, 50, 43));
+			lblReturnStock.setBounds(new Rectangle(50, 220, 50, 43));
 		}
 		lblReturnStock.setImage(ResourceUtils
 				.getImage(iDartImage.PACKAGERETURN));
@@ -316,9 +325,9 @@ public class StockControl extends GenericAdminGui {
 		btnReturnStock.setText(Messages.getString("StockControl.button.returnPackages")); //$NON-NLS-1$
 		if (iDartProperties.downReferralMode
 				.equalsIgnoreCase(iDartProperties.ONLINE_DOWNREFERRAL_MODE)) {
-			btnReturnStock.setBounds(new Rectangle(105, 342, 260, 40));
+			btnReturnStock.setBounds(new Rectangle(105, 282, 260, 40));
 		} else {
-			btnReturnStock.setBounds(new Rectangle(105, 262, 260, 40));
+			btnReturnStock.setBounds(new Rectangle(105, 222, 260, 40));
 		}
 		btnReturnStock.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		btnReturnStock
@@ -340,7 +349,7 @@ public class StockControl extends GenericAdminGui {
 
 		// lblStockArrives
 		lblStockArrives = new Label(compOptions, SWT.NONE);
-		lblStockArrives.setBounds(new Rectangle(415, 22, 50, 43));
+		lblStockArrives.setBounds(new Rectangle(415, 40, 50, 43));
 		lblStockArrives.setImage(ResourceUtils
 				.getImage(iDartImage.PACKAGESARRIVE));
 		lblStockArrives.addMouseListener(new MouseListener() {
@@ -365,7 +374,7 @@ public class StockControl extends GenericAdminGui {
 		btnStockArrives.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		btnStockArrives
 		.setToolTipText(Messages.getString("StockControl.button.stockArrives.tooltip")); //$NON-NLS-1$
-		btnStockArrives.setBounds(new Rectangle(470, 22, 260, 40));
+		btnStockArrives.setBounds(new Rectangle(470, 42, 260, 40));
 		btnStockArrives
 		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
 			@Override
@@ -414,7 +423,7 @@ public class StockControl extends GenericAdminGui {
 
 		// lblReturnStock
 		lblReturnStock = new Label(compOptions, SWT.NONE);
-		lblReturnStock.setBounds(new Rectangle(415, 180, 50, 43));
+		lblReturnStock.setBounds(new Rectangle(415, 160, 50, 43));
 		lblReturnStock.setImage(ResourceUtils.getImage(iDartImage.REDOPACKAGE));
 		lblReturnStock.addMouseListener(new MouseListener() {
 
@@ -434,7 +443,7 @@ public class StockControl extends GenericAdminGui {
 
 		// btnReturnStock
 		btnReturnStock = new Button(compOptions, SWT.NONE);
-		btnReturnStock.setBounds(new Rectangle(470, 182, 260, 40));
+		btnReturnStock.setBounds(new Rectangle(470, 162, 260, 40));
 		btnReturnStock.setText(Messages.getString("StockControl.button.deletions")); //$NON-NLS-1$
 		btnReturnStock.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		btnReturnStock
@@ -449,7 +458,7 @@ public class StockControl extends GenericAdminGui {
 		});
 		// lblStockTake
 		lblStockTake = new Label(compOptions, SWT.NONE);
-		lblStockTake.setBounds(new Rectangle(415, 260, 50, 43));
+		lblStockTake.setBounds(new Rectangle(415, 220, 50, 43));
 		lblStockTake.setImage(ResourceUtils
 				.getImage(iDartImage.PRESCRIPTIONNEW));
 		lblStockTake.addMouseListener(new MouseListener() {
@@ -470,7 +479,7 @@ public class StockControl extends GenericAdminGui {
 
 		// btnStockTake
 		btnStockTake = new Button(compOptions, SWT.NONE);
-		btnStockTake.setBounds(new Rectangle(470, 262, 260, 40));
+		btnStockTake.setBounds(new Rectangle(470, 222, 260, 40));
 		btnStockTake.setText(Messages.getString("StockControl.button.stocktake")); //$NON-NLS-1$
 		btnStockTake.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		btnStockTake
@@ -487,7 +496,7 @@ public class StockControl extends GenericAdminGui {
 		
 		// lblLine
 		lblLine = new Label(compOptions, SWT.NONE);
-		lblLine.setBounds(new Rectangle(415, 340, 50, 43));
+		lblLine.setBounds(new Rectangle(415, 280, 50, 43));
 		lblLine.setImage(ResourceUtils.getImage(iDartImage.PRESCRIPTIONNEW));
 		lblLine.addMouseListener(new MouseAdapter() {
 			@Override
@@ -498,7 +507,7 @@ public class StockControl extends GenericAdminGui {
 
 		// btnLine
 		btnLine = new Button(compOptions, SWT.NONE);
-		btnLine.setBounds(new Rectangle(470, 342, 260, 40));
+		btnLine.setBounds(new Rectangle(470, 282, 260, 40));
 		btnLine.setToolTipText(Messages
 				.getString("StockControl.button.addLine.tooltip")); //$NON-NLS-1$
 		btnLine.setText(Messages
@@ -515,7 +524,7 @@ public class StockControl extends GenericAdminGui {
 		
 		// lblLineUpdate
 		lblLineUpdate = new Label(compOptions, SWT.NONE);
-		lblLineUpdate.setBounds(new Rectangle(415, 420, 50, 43));
+		lblLineUpdate.setBounds(new Rectangle(415, 340, 50, 43));
 		lblLineUpdate.setImage(ResourceUtils.getImage(iDartImage.PRESCRIPTIONNEW));
 		lblLineUpdate.addMouseListener(new MouseAdapter() {
 			@Override
@@ -526,7 +535,7 @@ public class StockControl extends GenericAdminGui {
 
 		// btnLineUpdate
 		btnLineUpdate = new Button(compOptions, SWT.NONE);
-		btnLineUpdate.setBounds(new Rectangle(470, 422, 260, 40));
+		btnLineUpdate.setBounds(new Rectangle(470, 342, 260, 40));
 		btnLineUpdate.setToolTipText(Messages
 				.getString("StockControl.button.updateLine.tooltip")); //$NON-NLS-1$
 		btnLineUpdate.setText(Messages.getString("StockControl.button.updateLine")); //$NON-NLS-1$
@@ -540,18 +549,18 @@ public class StockControl extends GenericAdminGui {
 
 		// lblRegimen
 		lblRegimen = new Label(compOptions, SWT.NONE);
-		lblRegimen.setBounds(new Rectangle(50, 340, 50, 43));
+		lblRegimen.setBounds(new Rectangle(50, 280, 50, 43));
 		lblRegimen.setImage(ResourceUtils.getImage(iDartImage.PRESCRIPTIONNEW));
 		lblRegimen.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseUp(MouseEvent mu) {
 				cmdAddRegimenWidgetSelected();
 			}
-		});
+		}); 
 
 		// btnRegimen
 		btnRegimen = new Button(compOptions, SWT.NONE);
-		btnRegimen.setBounds(new Rectangle(105, 342, 260, 40));
+		btnRegimen.setBounds(new Rectangle(105, 282, 260, 40));
 		btnRegimen.setToolTipText(Messages
 				.getString("StockControl.button.addRegimen.tooltip")); //$NON-NLS-1$
 		btnRegimen.setText(Messages
@@ -564,11 +573,13 @@ public class StockControl extends GenericAdminGui {
 							org.eclipse.swt.events.SelectionEvent e) {
 						cmdAddRegimenWidgetSelected();
 					}
-				});
+				}); 
+		
+			
 
 		// lblRegimenUpdate
 		lblRegimenUpdate = new Label(compOptions, SWT.NONE);
-		lblRegimenUpdate.setBounds(new Rectangle(50, 420, 50, 43));
+		lblRegimenUpdate.setBounds(new Rectangle(50, 340, 50, 43));
 		lblRegimenUpdate.setImage(ResourceUtils.getImage(iDartImage.PRESCRIPTIONNEW));
 		lblRegimenUpdate.addMouseListener(new MouseAdapter() {
 			@Override
@@ -579,7 +590,7 @@ public class StockControl extends GenericAdminGui {
 
 		// btnRegimenUpdate
 		btnRegimenUpdate = new Button(compOptions, SWT.NONE);
-		btnRegimenUpdate.setBounds(new Rectangle(105, 422, 260, 40));
+		btnRegimenUpdate.setBounds(new Rectangle(105, 342, 260, 40));
 		btnRegimenUpdate.setToolTipText(Messages
 				.getString("StockControl.button.updateRegimen.tooltip")); //$NON-NLS-1$
 		btnRegimenUpdate.setText(Messages
@@ -592,7 +603,63 @@ public class StockControl extends GenericAdminGui {
 							org.eclipse.swt.events.SelectionEvent e) {
 						cmdUpdateRegimenWidgetSelected();
 					}
+				}); 
+		
+		// lblSector
+		lblSector = new Label(compOptions, SWT.NONE);
+		lblSector.setBounds(new Rectangle(50, 400, 50, 43));
+		lblSector.setImage(ResourceUtils.getImage(iDartImage.PRESCRIPTIONNEW));
+		lblSector.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseUp(MouseEvent mu) {
+				cmdAddSectorWidgetSelected();
+			}
+		});
+
+		// btnSector
+		btnSector = new Button(compOptions, SWT.NONE);
+		btnSector.setBounds(new Rectangle(105, 402, 260, 40));
+		btnSector.setToolTipText(Messages
+				.getString("StockControl.button.addSector.tooltip")); //$NON-NLS-1$
+		btnSector.setText(Messages
+				.getString("StockControl.button.addSector")); //$NON-NLS-1$
+		btnSector.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		btnSector
+				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+					@Override
+					public void widgetSelected(
+							org.eclipse.swt.events.SelectionEvent e) {
+						cmdAddSectorWidgetSelected();
+					}
 				});
+		
+		// lblSectorUpdate
+				lblSectorUpdate = new Label(compOptions, SWT.NONE);
+				lblSectorUpdate.setBounds(new Rectangle(415, 400, 50, 43));
+				lblSectorUpdate.setImage(ResourceUtils.getImage(iDartImage.PRESCRIPTIONNEW));
+				lblSectorUpdate.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseUp(MouseEvent mu) {
+						cmdUpdateSectorWidgetSelected();
+					}
+				});
+
+				// btnSectorUpdate
+				btnSectorUpdate = new Button(compOptions, SWT.NONE);
+				btnSectorUpdate.setBounds(new Rectangle(470, 402, 260, 40));
+				btnSectorUpdate.setToolTipText(Messages
+						.getString("StockControl.button.updateSector.tooltip")); //$NON-NLS-1$
+				btnSectorUpdate.setText(Messages
+						.getString("StockControl.button.updateSector")); //$NON-NLS-1$
+				btnSectorUpdate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+				btnSectorUpdate
+						.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+							@Override
+							public void widgetSelected(
+									org.eclipse.swt.events.SelectionEvent e) {
+								cmdUpdateSectorWidgetSelected();
+							}
+						});
 
 	}
 
@@ -656,6 +723,20 @@ public class StockControl extends GenericAdminGui {
 		AddLine.addInitialisationOption(
 				GenericFormGui.OPTION_isAddNotUpdate, false);
 		new AddLine(getShell());
+
+	}
+	
+	private void cmdAddSectorWidgetSelected() {
+		AddLine.addInitialisationOption(
+				GenericFormGui.OPTION_isAddNotUpdate, true);
+		new AddSector(getShell());
+
+	}
+
+	private void cmdUpdateSectorWidgetSelected() {
+		AddLine.addInitialisationOption(
+				GenericFormGui.OPTION_isAddNotUpdate, false);
+		new AddSector(getShell());
 
 	}
 

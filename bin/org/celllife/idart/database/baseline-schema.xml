@@ -169,6 +169,7 @@
 			<column name="nsncode" type="VARCHAR(50)" />
 			<column name="stockcode" type="VARCHAR(50)" />
 			<column name="adult" type="boolean" />
+			<column name="drugorder" type="int" autoIncrement="1" />
 		</createTable>
 	</changeSet>
 	<changeSet author="simon (generated)" id="0.0.13">

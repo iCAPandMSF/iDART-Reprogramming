@@ -140,7 +140,7 @@ public class AddPrescription extends GenericFormGui implements
 
 	private CCombo cmbUpdateReason;
 
-	private CCombo cmbMotivoMudanca;
+	//private CCombo cmbMotivoMudanca;
 
 	private Composite compButtonsMiddle;
 
@@ -158,13 +158,9 @@ public class AddPrescription extends GenericFormGui implements
 
 	// lbl tIPO TARV
 	private Label lblUpdateReason;
-	// lbl data de inicio noutro servico
-	private Label lblDataInicioNoutroServico;
+
 	// lbl motivo de mudanca
 	private Label lblMotivoMudanca;
-
-	// Data de inicio noutro servi�o
-	private DateButton btnDataInicioNoutroServico;
 
 	private Patient thePatient;
 
@@ -365,7 +361,7 @@ public class AddPrescription extends GenericFormGui implements
 
 		// grpPatientID
 		grpPatientID = new Group(getShell(), SWT.NONE);
-		grpPatientID.setBounds(new Rectangle(235, 84, 430, 112));
+		grpPatientID.setBounds(new Rectangle(235, 110, 430, 70));
 
 		// Patient ID
 		Label lblPatientId = new Label(grpPatientID, SWT.NONE);
@@ -432,7 +428,7 @@ public class AddPrescription extends GenericFormGui implements
 		lblUpdateReason = new Label(grpPatientID, SWT.NONE);
 		lblUpdateReason.setBounds(new Rectangle(10, 40, 140, 20));
 		lblUpdateReason.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblUpdateReason.setText("* Tipo Tarv:");
+		lblUpdateReason.setText("* Situação :");
 
 		cmbUpdateReason = new CCombo(grpPatientID, SWT.BORDER | SWT.READ_ONLY);
 		cmbUpdateReason.setBounds(new Rectangle(160, 40, 150, 20));
@@ -445,13 +441,12 @@ public class AddPrescription extends GenericFormGui implements
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
 				// TODO Auto-generated method stub
-				if (cmbUpdateReason.getText().equals("Transfer de")) {
-					btnDataInicioNoutroServico.setEnabled(true);
+			/*	if (cmbUpdateReason.getText().equals("Transferido")) {
 					cmbMotivoMudanca.removeAll();
 					cmbMotivoMudanca.setBackground(ResourceUtils
 							.getColor(iDartColor.WIDGET_BACKGROUND));
 					cmbMotivoMudanca.setEnabled(false);
-				} else if (cmbUpdateReason.getText().equals("Alterar"))
+				} else if (cmbUpdateReason.getText().equals("Alteração"))
 
 				{
 					cmbMotivoMudanca.setEnabled(true);
@@ -460,61 +455,40 @@ public class AddPrescription extends GenericFormGui implements
 				}
 
 				else {
-					btnDataInicioNoutroServico.setDate(null);
-					btnDataInicioNoutroServico.setText("Seleccione a data");
-					btnDataInicioNoutroServico.setEnabled(false);
 					cmbMotivoMudanca.removeAll();
 					cmbMotivoMudanca.setBackground(ResourceUtils
 							.getColor(iDartColor.WIDGET_BACKGROUND));
 					cmbMotivoMudanca.setEnabled(false);
 					;
-				}
+				}*/
 
 			}
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
 				// TODO Auto-generated method stub
-				if (cmbUpdateReason.getText().equals("Transfer de")) {
-
-					btnDataInicioNoutroServico.setEnabled(true);
+				/*if (cmbUpdateReason.getText().equals("Transferido")) {
 					cmbMotivoMudanca.removeAll();
 					cmbMotivoMudanca.setBackground(ResourceUtils
 							.getColor(iDartColor.WIDGET_BACKGROUND));
 					cmbMotivoMudanca.setEnabled(false);
-				} else if (cmbUpdateReason.getText().equals("Alterar"))
+				} else if (cmbUpdateReason.getText().equals("Alteração"))
 
 				{
 					cmbMotivoMudanca.setEnabled(true);
 					cmbMotivoMudanca.setBackground(ResourceUtils
 							.getColor(iDartColor.WHITE));
 				} else {
-					btnDataInicioNoutroServico.setDate(null);
-					btnDataInicioNoutroServico.setText("Seleccione a data");
-					btnDataInicioNoutroServico.setEnabled(false);
 					cmbMotivoMudanca.removeAll();
 					cmbMotivoMudanca.setBackground(ResourceUtils
 							.getColor(iDartColor.WIDGET_BACKGROUND));
 					cmbMotivoMudanca.setEnabled(false);
-				}
+				}*/
 			}
-		});
+		
+			});
 
-		lblDataInicioNoutroServico = new Label(grpPatientID, SWT.NONE);
-		lblDataInicioNoutroServico.setBounds(new Rectangle(10, 65, 150, 20));
-		lblDataInicioNoutroServico.setFont(ResourceUtils
-				.getFont(iDartFont.VERASANS_8));
-		lblDataInicioNoutroServico.setText("Data de Inicio Noutro Servico:");
-
-		btnDataInicioNoutroServico = new DateButton(grpPatientID,
-				DateButton.NONE, null);
-		btnDataInicioNoutroServico.setBounds(160, 65, 150, 20);
-		btnDataInicioNoutroServico.setFont(ResourceUtils
-				.getFont(iDartFont.VERASANS_8));
-		btnDataInicioNoutroServico.setText("Seleccione a data");
-		btnDataInicioNoutroServico.setEnabled(false);
-
-		lblMotivoMudanca = new Label(grpPatientID, SWT.NONE);
+		/*lblMotivoMudanca = new Label(grpPatientID, SWT.NONE);
 		lblMotivoMudanca.setBounds(new Rectangle(10, 90, 150, 20));
 		lblMotivoMudanca.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		lblMotivoMudanca.setText("Motivo de Mudanca:");
@@ -541,7 +515,7 @@ public class AddPrescription extends GenericFormGui implements
 				cmbMotivoMudanca.setVisibleItemCount(Math.min(
 						cmbMotivoMudanca.getItemCount(), 25));
 			}
-		});
+		});*/
 		// cmbMotivoMudanca.setFocus();
 
 		CommonObjects.populatePrescriptionUpdateReasons(getHSession(),
@@ -780,7 +754,7 @@ public class AddPrescription extends GenericFormGui implements
 		// Linha Terapeutica
 		Label lblLinha = new Label(grpParticulars, SWT.NONE);
 		lblLinha.setBounds(new Rectangle(350, 117, 90, 20));
-		lblLinha.setText("* Linha:");
+		lblLinha.setText(" Linha:");
 		lblLinha.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		cmbLinha = new CCombo(grpParticulars, SWT.BORDER | SWT.READ_ONLY);
@@ -1132,8 +1106,8 @@ public class AddPrescription extends GenericFormGui implements
 	@Override
 	protected boolean fieldsOk() {
 
-		if ((cmbLinha.getText().trim().equals(""))
-				|| (cmbRegime.getText().trim().equals(""))
+		if ( (cmbRegime.getText().trim().equals(""))
+				|| (cmbSector.getText().trim().equals(""))
 				|| (cmbDoctor.getText().trim().equals(""))
 				|| (lblNewPrescriptionId.getText().trim().equals(""))
 				|| (cmbDuration.getText().trim().equals(""))) {
@@ -1144,21 +1118,9 @@ public class AddPrescription extends GenericFormGui implements
 			missing.open();
 			txtPatientId.setFocus();
 			return false;
-		} else
+		} /*else
 
-		if (btnDataInicioNoutroServico.getDate() != null
-				&& btnDataInicioNoutroServico.getDate().after(new Date())) {
-
-			MessageBox dataNoutroServico = new MessageBox(getShell(),
-					SWT.ICON_ERROR | SWT.OK);
-			dataNoutroServico.setText("Data Inicio Noutro Servi�o Inv�lido");
-			dataNoutroServico
-					.setMessage("A data do inicio noutro servi�o n�o pode ser depois da data de hoje.");
-			dataNoutroServico.open();
-			btnDataInicioNoutroServico.setFocus();
-			return false;
-
-		} else if (cmbUpdateReason.getText().equals("Alterar")
+		if (cmbUpdateReason.getText().equals("Alterar")
 				&& cmbMotivoMudanca.getText().length() == 0) {
 
 			MessageBox dataNoutroServico = new MessageBox(getShell(),
@@ -1166,10 +1128,10 @@ public class AddPrescription extends GenericFormGui implements
 			dataNoutroServico.setText("Motivo da Mudan�a");
 			dataNoutroServico.setMessage("Insira o motivo da mudan�a.");
 			dataNoutroServico.open();
-			cmbMotivoMudanca.setFocus();
+			//cmbMotivoMudanca.setFocus();
 
 			return false;
-		}
+		}*/
 
 		else if (lblUpdateReason.isVisible()
 				&& cmbUpdateReason.getText().trim().equals("")) {
@@ -1256,7 +1218,7 @@ public class AddPrescription extends GenericFormGui implements
 		 * e.printStackTrace(); }
 		 */
 
-		cmbUpdateReason.setText("Manter");
+		cmbUpdateReason.setText("Manutenção");
 		String tempAmtPerTime = "";
 		cmbDoctor.setText(""
 				+ AdministrationManager.getDoctor(getHSession(),
@@ -1274,15 +1236,14 @@ public class AddPrescription extends GenericFormGui implements
 			cmbSector.setText("");
 		} else {
 			cmbSector.setText(""
-					+ AdministrationManager.getSector(getHSession(),
-							localPrescription.getSector().getSectorname()).getSectorname());
+					+ AdministrationManager.getSector(getHSession(),localPrescription.getSector().getSectorname()+"").getSectorname()+"");
 		}
 		if (localPrescription.getLinha() == null) {
 			cmbLinha.setText("");
 		} else {
 			cmbLinha.setText(""
 					+ AdministrationManager.getLinha(getHSession(),
-							localPrescription.getLinha().getLinhanome())
+							localPrescription.getLinha().getLinhaid()+"")
 							.getLinhanome());
 		}
 
@@ -1764,14 +1725,7 @@ public class AddPrescription extends GenericFormGui implements
 					}
 					setLocalPrescription();
 
-					if (localPrescription.getLinha().getLinhaid() != localPrescription
-							.getRegimeTerapeutico().getLinhaT().getLinhaid()) {
-						JOptionPane
-								.showMessageDialog(null,
-										"Please choose Regimen that is in the same Line as Line selected");
-						return false;
-					}
-
+					
 					if (!validateCompound()) {
 						JOptionPane
 								.showMessageDialog(null,
@@ -1964,8 +1918,6 @@ public class AddPrescription extends GenericFormGui implements
 		localPrescription.setPrescriptionId(lblNewPrescriptionId.getText());
 		localPrescription.setPatient(thePatient);
 		localPrescription.setReasonForUpdate(cmbUpdateReason.getText());
-		localPrescription.setDatainicionoutroservico(btnDataInicioNoutroServico
-				.getDate());
 
 		// weight
 		if (!txtWeight.getText().equals("")) {
@@ -2026,7 +1978,8 @@ public class AddPrescription extends GenericFormGui implements
 		localPrescription.setSector(AdministrationManager.getSector(
 				getHSession(), cmbSector.getText()));
 
-		localPrescription.setMotivoMudanca(cmbMotivoMudanca.getText());
+		localPrescription.setMotivoMudanca("");
+		//cmbMotivoMudanca.getText()
 
 		localPrescription.setModified('T');
 		localPrescription.setCurrent('T');
@@ -2166,7 +2119,7 @@ public class AddPrescription extends GenericFormGui implements
 
 		try {
 			txtPatientId.setText("");
-			cmbMotivoMudanca.setText("");
+			//cmbMotivoMudanca.setText("");
 			txtName.setText("");
 			txtSurname.setText("");
 			txtClinic.setText("");
@@ -2183,9 +2136,8 @@ public class AddPrescription extends GenericFormGui implements
 			txtAge.setText("");
 			cmbUpdateReason.setText("");
 			cmbUpdateReason.setEnabled(false);
-			cmbMotivoMudanca.setEnabled(false);
+			//cmbMotivoMudanca.setEnabled(false);
 			txtAreaNotes.setText("");
-			btnDataInicioNoutroServico.setEnabled(false);
 			lblHeader.setText("Patient's Prescription");
 
 			btnSave.setText("Update this Prescription");
@@ -2263,7 +2215,7 @@ public class AddPrescription extends GenericFormGui implements
 		cmbRegime.setBackground(theColour);
 		cmbLinha.setBackground(theColour);
 		cmbSector.setBackground(theColour);
-		cmbMotivoMudanca.setBackground(theColour);
+		//cmbMotivoMudanca.setBackground(theColour);
 	}
 
 	/**

@@ -35,7 +35,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT d.name as drug, dsc.amc as amc, dsc.existingstock as existingstock, dsc.orderquantity as orderquantity, dsc.riskstatus as riskstatus
-  FROM drugstockcontrol  dsc join drug d on dsc.drugid=d.id;]]>
+  FROM drugstockcontrol  dsc join drug d on dsc.drugid=d.id where d.name!='NULL';]]>
 	</queryString>
 	<field name="drug" class="java.lang.String"/>
 	<field name="amc" class="java.lang.String"/>

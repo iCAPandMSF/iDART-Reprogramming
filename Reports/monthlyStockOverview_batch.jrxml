@@ -2,9 +2,12 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="monthlyStockOverview_batch" pageWidth="595" pageHeight="842" columnWidth="70" columnSpacing="5" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.scriptlethandling" value="0"/>
 	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<import value="net.sf.jasperreports.engine.*"/>
-	<import value="net.sf.jasperreports.engine.data.*"/>
 	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
 	<parameter name="stockCenterId" class="java.lang.Integer">
 		<parameterDescription><![CDATA[Clinic Identifier]]></parameterDescription>
 		<defaultValueExpression><![CDATA[new Integer(0)]]></defaultValueExpression>
@@ -30,43 +33,43 @@
 		<defaultValueExpression><![CDATA["2007-09-01 00:00:00.000"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select 
+		<![CDATA[select
 
 COALESCE((a.received * $P{packsize} - COALESCE((b.issued*$P{packsize}) + b.pills, 0) - COALESCE(f.adjusted, 0) + COALESCE((h.returned*$P{packsize}) + h.pills, 0)), 0)
 
-as openingpills, 
+as openingpills,
 
-COALESCE(c.received,0) as received, 
+COALESCE(c.received,0) as received,
 
-COALESCE(e.issued,0) as destroyed , COALESCE(e.pill,0) as destroyedpills, 
+COALESCE(e.issued,0) as destroyed , COALESCE(e.pill,0) as destroyedpills,
 
-COALESCE(d.issued,0) as dispensed , COALESCE(d.pill,0) as dispensedpills, 
+COALESCE(d.issued,0) as dispensed , COALESCE(d.pill,0) as dispensedpills,
 
-COALESCE(g.adjusted,0) as adjusted, 
+COALESCE(g.adjusted,0) as adjusted,
 
-COALESCE(i.returned,0) as returned , COALESCE(i.pills,0) as returnedpills 
+COALESCE(i.returned,0) as returned , COALESCE(i.pills,0) as returnedpills
 
 from (
-select sum(s.unitsreceived) as received 
+select sum(s.unitsreceived) as received
 from drug as d, stock as s
 where s.drug = d.id and d.id = $P{id} and s.stockCenter = $P{stockCenterId} and s.datereceived < $P{monthStart}::timestamp
 
-) as a, 
+) as a,
 
 (select round(floor(sum(pd.amount::real)/$P{packsize})::numeric,0) as issued,  MOD(sum(pd.amount),$P{packsize}) as pills
 
 from drug as d, stock as s, packageddrugs as pd, package as p
-where d.id = $P{id} 
-and s.stockCenter = $P{stockCenterId} 
-and s.drug = d.id and pd.stock = s.id 
-and pd.parentpackage = p.id 
+where d.id = $P{id}
+and s.stockCenter = $P{stockCenterId}
+and s.drug = d.id and pd.stock = s.id
+and pd.parentpackage = p.id
 and p.packdate < $P{monthStart}::timestamp
 
-) as b, 
+) as b,
 
 (
 select sum(s.unitsreceived) as received from drug as d, stock as s
-where d.id = $P{id} and s.stockCenter = $P{stockCenterId} and s.drug = d.id 
+where d.id = $P{id} and s.stockCenter = $P{stockCenterId} and s.drug = d.id
 
 and s.datereceived between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
 
@@ -74,7 +77,7 @@ and s.datereceived between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
 
 (select round(floor(sum(pd.amount::real)/$P{packsize})::numeric,0) as issued, MOD(sum(pd.amount),$P{packsize}) as pill
 from drug as d, stock as s, packageddrugs as pd, package as p,prescription as pre
-where d.id = $P{id} and s.stockCenter = $P{stockCenterId} 
+where d.id = $P{id} and s.stockCenter = $P{stockCenterId}
 and s.drug = d.id and pd.stock = s.id and pd.parentpackage = p.id
 and p.prescription = pre.id
 and p.packdate between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
@@ -84,7 +87,7 @@ and p.packdate between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
 
 (select round(floor(sum(pd.amount::real)/$P{packsize})::numeric,0) as issued, MOD(sum(pd.amount),$P{packsize}) as pill
 from drug as d, stock as s, packageddrugs as pd, package as p
-where d.id = $P{id} and s.stockCenter = $P{stockCenterId} 
+where d.id = $P{id} and s.stockCenter = $P{stockCenterId}
 and s.drug = d.id and pd.stock = s.id and pd.parentpackage = p.id
 and p.prescription is null
 and p.packdate between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
@@ -95,20 +98,20 @@ and p.packdate between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
 (select sum(sa.adjustedValue) as adjusted
 
 from drug as d, stock as s, stockAdjustment as sa
-where d.id = $P{id} 
-and s.stockCenter = $P{stockCenterId} 
-and s.drug = d.id 
-and sa.stock = s.id 
+where d.id = $P{id}
+and s.stockCenter = $P{stockCenterId}
+and s.drug = d.id
+and sa.stock = s.id
 and sa.captureDate < $P{monthStart}::timestamp
-) as f, 
+) as f,
 
 (select sum(sa.adjustedValue) as adjusted
 
 from drug as d, stock as s, stockAdjustment as sa
-where d.id = $P{id} 
-and s.stockCenter = $P{stockCenterId} 
-and s.drug = d.id 
-and sa.stock = s.id 
+where d.id = $P{id}
+and s.stockCenter = $P{stockCenterId}
+and s.drug = d.id
+and sa.stock = s.id
 and sa.captureDate between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
 
 
@@ -117,10 +120,10 @@ and sa.captureDate between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
 (select round(floor(sum(pd.amount::real)/$P{packsize})::numeric,0) as returned, MOD(sum(pd.amount),$P{packsize}) as pills
 
 from drug as d, stock as s, packageddrugs as pd, package as p
-where d.id = $P{id} 
-and s.stockCenter = $P{stockCenterId} 
-and s.drug = d.id and pd.stock = s.id 
-and pd.parentpackage = p.id 
+where d.id = $P{id}
+and s.stockCenter = $P{stockCenterId}
+and s.drug = d.id and pd.stock = s.id
+and pd.parentpackage = p.id
 and p.stockReturned = true
 and p.packageReturned = true
 and p.dateReturned < $P{monthStart}::timestamp
@@ -130,10 +133,10 @@ and p.dateReturned < $P{monthStart}::timestamp
 (select round(floor(sum(pd.amount::real)/$P{packsize})::numeric,0) as returned, MOD(sum(pd.amount),$P{packsize}) as pills
 
 from drug as d, stock as s, packageddrugs as pd, package as p
-where d.id = $P{id} 
-and s.stockCenter = $P{stockCenterId} 
-and s.drug = d.id and pd.stock = s.id 
-and pd.parentpackage = p.id 
+where d.id = $P{id}
+and s.stockCenter = $P{stockCenterId}
+and s.drug = d.id and pd.stock = s.id
+and pd.parentpackage = p.id
 and p.stockReturned = true
 and p.packageReturned = true
 and p.dateReturned between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
@@ -151,15 +154,15 @@ and p.dateReturned between $P{monthStart}::timestamp and $P{monthEnd}::timestamp
 	<field name="returnedpills" class="java.lang.Integer"/>
 	<variable name="totalPills" class="java.lang.Long">
 		<variableExpression><![CDATA[new Long($F{openingpills}.longValue()  + ($F{received}.longValue()*$P{packsize}.intValue())
-- ($F{dispensed}.longValue()*$P{packsize}.intValue()) - $F{dispensedpills}.longValue() 
-- ($F{destroyed}.longValue()*$P{packsize}.intValue()) - $F{destroyedpills}.longValue() 
+- ($F{dispensed}.longValue()*$P{packsize}.intValue()) - $F{dispensedpills}.longValue()
+- ($F{destroyed}.longValue()*$P{packsize}.intValue()) - $F{destroyedpills}.longValue()
 - $F{adjusted}.intValue()
 + ($F{returned}.intValue()*$P{packsize}.intValue()) + $F{returnedpills}.intValue()
 )]]></variableExpression>
 	</variable>
 	<variable name="totalString" class="java.lang.String">
-		<variableExpression><![CDATA[(($V{totalPills}.longValue()%$P{packsize}.intValue())==0)? 
-(new Long($V{totalPills}.longValue()/$P{packsize}.intValue())).toString() 
+		<variableExpression><![CDATA[(($V{totalPills}.longValue()%$P{packsize}.intValue())==0)?
+(new Long($V{totalPills}.longValue()/$P{packsize}.intValue())).toString()
 :(new Long($V{totalPills}.longValue()/$P{packsize}.intValue())).toString() + " ("+ (new Long($V{totalPills}.longValue()%$P{packsize}.intValue())).toString() +")"]]></variableExpression>
 	</variable>
 	<background>

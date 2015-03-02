@@ -1190,5 +1190,52 @@ public class SearchManager {
 		redrawTable();
 		return regimens;
 	}
+	
+	public static List<? extends Object> loadSectors(Session sess,
+			Search search) {
+		listTableEntries = new ArrayList<SearchEntry>();
+		comparator = new TableComparator();
+
+		List<Sector> sectors = null;
+		String itemText[];
+		search.getTableColumn1().setText("Sector ID");
+		search.getTableColumn1().addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+				cmdColOneSelected();
+			}
+		});
+		search.getTableColumn2().setText("Sector Name");
+		search.getTableColumn2().addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+				cmdColTwoSelected();
+			}
+		});
+
+		search.getShell().setText("Select a Sector...");
+
+		sectors = AdministrationManager.getSectors(sess);
+
+		Collections.sort(sectors);
+
+		Iterator<Sector> iter = new ArrayList<Sector>(sectors).iterator();
+		TableItem[] t = new TableItem[sectors.size()];
+
+		int i = 0;
+		while (iter.hasNext()) {
+			Sector sector = iter.next();
+			t[i] = new TableItem(search.getTblSearch(), SWT.NONE);
+			itemText = new String[2];
+			itemText[0] = sector.getSectorid()+"";
+			itemText[1] = sector.getSectorname();
+			t[i].setText(itemText);
+			listTableEntries.add(new SearchEntry(itemText[0], itemText[1]));
+			i++;
+		}
+		comparator.setColumn(TableComparator.COL1_NAME);
+		redrawTable();
+		return sectors;
+	}
 
 }

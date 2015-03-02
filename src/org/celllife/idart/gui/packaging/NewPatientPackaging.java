@@ -949,6 +949,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 						try {
 							cmdDispenseDrugsSelected(rdBtnDispenseNow
 									.getSelection());
+							
 						} catch (SQLException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -957,6 +958,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 							e1.printStackTrace();
 						}
 						getLog().info("cmdDispenseDrugsSelected() called");
+						showMessage(MessageDialog.INFORMATION, Messages.getString("addSector.messageupdate"), "Package Created");
 					}
 				});
 		btnDispense.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
@@ -3229,7 +3231,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 			
 		else  if(dataInicioNoutroServico!=null)
 			
-			//Quando é transferido de 
+			//Quando ï¿½ transferido de 
 			conn2.insereT_tarvTransferidoDE(vMedicamentos,patientId, resultdatatarv,dispensedQty,regime,weeksSupply,reasonforupdate,resultdataproximaconsulta,idade,dataNoutroServico,linha);
 			
 		else

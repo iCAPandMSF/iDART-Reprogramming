@@ -69,7 +69,9 @@ public class CommonObjects {
 	public static final int LINE = 12;
 	
 	public static final int REGIME = 13;
-
+	
+	public static final int SECTOR = 14;
+	
 	public static String timesPerDayLanguage1 = "times per day";
 
 	public static String timesPerDayLanguage2 = "ngemini";
