@@ -1169,7 +1169,7 @@ public class AddPrescription extends GenericFormGui implements
 	private void setFormToInitialPrescription() {
 		getShell().redraw();
 
-		cmbUpdateReason.setText("Inicia");
+		cmbUpdateReason.setText("");
 		cmbUpdateReason.setEnabled(true);
 		lblHeader.setText("Add Initial Prescription");
 
