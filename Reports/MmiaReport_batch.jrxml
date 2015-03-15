@@ -3,7 +3,7 @@
 	<property name="ireport.scriptlethandling" value="0"/>
 	<property name="ireport.encoding" value="UTF-8"/>
 	<property name="ireport.zoom" value="3.0"/>
-	<property name="ireport.x" value="688"/>
+	<property name="ireport.x" value="892"/>
 	<property name="ireport.y" value="0"/>
 	<import value="net.sf.jasperreports.engine.*"/>
 	<import value="java.util.*"/>
@@ -208,7 +208,6 @@ drug.id=stock.drug and drug.name!='NULL'
 		<variableExpression><![CDATA[new Long($F{openingpills}.longValue()  + ($F{received}.longValue()*$P{packsize}.intValue())
 - ($F{dispensed}.longValue()*$P{packsize}.intValue()) - $F{dispensedpills}.longValue()
 - ($F{destroyed}.longValue()*$P{packsize}.intValue()) - $F{destroyedpills}.longValue()
-- $F{adjusted}.intValue()
 + ($F{returned}.intValue()*$P{packsize}.intValue()) + $F{returnedpills}.intValue()
 )]]></variableExpression>
 	</variable>
