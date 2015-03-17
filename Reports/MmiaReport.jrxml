@@ -3,8 +3,8 @@
 	<property name="ireport.scriptlethandling" value="0"/>
 	<property name="ireport.encoding" value="UTF-8"/>
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="225"/>
+	<property name="ireport.x" value="320"/>
+	<property name="ireport.y" value="160"/>
 	<import value="net.sf.jasperreports.engine.*"/>
 	<import value="java.util.*"/>
 	<import value="net.sf.jasperreports.engine.data.*"/>
@@ -169,11 +169,11 @@ order by d.drugorder]]>
 					<subreportParameter name="id">
 						<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
 					</subreportParameter>
-					<subreportParameter name="startDate">
-						<subreportParameterExpression><![CDATA[$P{startDate}]]></subreportParameterExpression>
-					</subreportParameter>
 					<subreportParameter name="StockCode">
 						<subreportParameterExpression><![CDATA[$F{stockcode}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="startDate">
+						<subreportParameterExpression><![CDATA[$P{startDate}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportParameter name="monthEnd">
 						<subreportParameterExpression><![CDATA[$P{monthEnd}]]></subreportParameterExpression>
@@ -181,20 +181,20 @@ order by d.drugorder]]>
 					<subreportParameter name="ATC">
 						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
 					</subreportParameter>
-					<subreportParameter name="packsize">
-						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
-					</subreportParameter>
 					<subreportParameter name="stockCenterId">
 						<subreportParameterExpression><![CDATA[$P{stockCenterId}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="packsize">
+						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportParameter name="name">
 						<subreportParameterExpression><![CDATA[$F{name}]]></subreportParameterExpression>
 					</subreportParameter>
-					<subreportParameter name="endDate">
-						<subreportParameterExpression><![CDATA[$P{endDate}]]></subreportParameterExpression>
-					</subreportParameter>
 					<subreportParameter name="dateFormat">
 						<subreportParameterExpression><![CDATA[$P{dateFormat}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="endDate">
+						<subreportParameterExpression><![CDATA[$P{endDate}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportParameter name="monthStart">
 						<subreportParameterExpression><![CDATA[$P{monthStart}]]></subreportParameterExpression>
@@ -255,11 +255,11 @@ order by d.drugorder]]>
 					<subreportParameter name="id">
 						<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
 					</subreportParameter>
-					<subreportParameter name="startDate">
-						<subreportParameterExpression><![CDATA[$P{startDate}]]></subreportParameterExpression>
-					</subreportParameter>
 					<subreportParameter name="StockCode">
 						<subreportParameterExpression><![CDATA[$F{stockcode}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="startDate">
+						<subreportParameterExpression><![CDATA[$P{startDate}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportParameter name="monthEnd">
 						<subreportParameterExpression><![CDATA[$P{monthEnd}]]></subreportParameterExpression>
@@ -267,20 +267,20 @@ order by d.drugorder]]>
 					<subreportParameter name="ATC">
 						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
 					</subreportParameter>
-					<subreportParameter name="packsize">
-						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
-					</subreportParameter>
 					<subreportParameter name="stockCenterId">
 						<subreportParameterExpression><![CDATA[$P{stockCenterId}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="packsize">
+						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportParameter name="name">
 						<subreportParameterExpression><![CDATA[$F{name}]]></subreportParameterExpression>
 					</subreportParameter>
-					<subreportParameter name="endDate">
-						<subreportParameterExpression><![CDATA[$P{endDate}]]></subreportParameterExpression>
-					</subreportParameter>
 					<subreportParameter name="dateFormat">
 						<subreportParameterExpression><![CDATA[$P{dateFormat}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="endDate">
+						<subreportParameterExpression><![CDATA[$P{endDate}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportParameter name="monthStart">
 						<subreportParameterExpression><![CDATA[$P{monthStart}]]></subreportParameterExpression>
@@ -294,11 +294,11 @@ order by d.drugorder]]>
 					<subreportParameter name="id">
 						<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
 					</subreportParameter>
-					<subreportParameter name="startDate">
-						<subreportParameterExpression><![CDATA[$P{startDate}]]></subreportParameterExpression>
-					</subreportParameter>
 					<subreportParameter name="StockCode">
 						<subreportParameterExpression><![CDATA[$F{stockcode}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="startDate">
+						<subreportParameterExpression><![CDATA[$P{startDate}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportParameter name="monthEnd">
 						<subreportParameterExpression><![CDATA[$P{monthEnd}]]></subreportParameterExpression>
@@ -306,20 +306,20 @@ order by d.drugorder]]>
 					<subreportParameter name="ATC">
 						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
 					</subreportParameter>
-					<subreportParameter name="stockCenterId">
-						<subreportParameterExpression><![CDATA[$P{stockCenterId}]]></subreportParameterExpression>
-					</subreportParameter>
 					<subreportParameter name="packsize">
 						<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="stockCenterId">
+						<subreportParameterExpression><![CDATA[$P{stockCenterId}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportParameter name="name">
 						<subreportParameterExpression><![CDATA[$F{name}]]></subreportParameterExpression>
 					</subreportParameter>
-					<subreportParameter name="endDate">
-						<subreportParameterExpression><![CDATA[$P{endDate}]]></subreportParameterExpression>
-					</subreportParameter>
 					<subreportParameter name="dateFormat">
 						<subreportParameterExpression><![CDATA[$P{dateFormat}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="endDate">
+						<subreportParameterExpression><![CDATA[$P{endDate}]]></subreportParameterExpression>
 					</subreportParameter>
 					<subreportParameter name="monthStart">
 						<subreportParameterExpression><![CDATA[$P{monthStart}]]></subreportParameterExpression>
@@ -364,11 +364,11 @@ order by d.drugorder]]>
 					<subreportParameter name="pharmacist2">
 						<subreportParameterExpression><![CDATA[$P{pharmacist2}]]></subreportParameterExpression>
 					</subreportParameter>
-					<subreportParameter name="dateFormat">
-						<subreportParameterExpression><![CDATA[$P{dateFormat}]]></subreportParameterExpression>
-					</subreportParameter>
 					<subreportParameter name="pharmacist1">
 						<subreportParameterExpression><![CDATA[$P{pharmacist1}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="dateFormat">
+						<subreportParameterExpression><![CDATA[$P{dateFormat}]]></subreportParameterExpression>
 					</subreportParameter>
 					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					<returnValue subreportVariable="totaldoentesp" toVariable="totaldoentes" calculation="Sum"/>
@@ -878,11 +878,11 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<subreportParameter name="id">
 					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
 				</subreportParameter>
-				<subreportParameter name="StockCode">
-					<subreportParameterExpression><![CDATA[$F{stockcode}]]></subreportParameterExpression>
-				</subreportParameter>
 				<subreportParameter name="startDate">
 					<subreportParameterExpression><![CDATA[$P{startDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="StockCode">
+					<subreportParameterExpression><![CDATA[$F{stockcode}]]></subreportParameterExpression>
 				</subreportParameter>
 				<subreportParameter name="monthEnd">
 					<subreportParameterExpression><![CDATA[$P{monthEnd}]]></subreportParameterExpression>
@@ -890,20 +890,20 @@ MAPA MENSAL DE INFORMAÇÃO ARV]]></text>
 				<subreportParameter name="ATC">
 					<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
 				</subreportParameter>
-				<subreportParameter name="packsize">
-					<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
-				</subreportParameter>
 				<subreportParameter name="stockCenterId">
 					<subreportParameterExpression><![CDATA[$P{stockCenterId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="packsize">
+					<subreportParameterExpression><![CDATA[$F{packsize}]]></subreportParameterExpression>
 				</subreportParameter>
 				<subreportParameter name="name">
 					<subreportParameterExpression><![CDATA[$F{name}]]></subreportParameterExpression>
 				</subreportParameter>
-				<subreportParameter name="dateFormat">
-					<subreportParameterExpression><![CDATA[$P{dateFormat}]]></subreportParameterExpression>
-				</subreportParameter>
 				<subreportParameter name="endDate">
 					<subreportParameterExpression><![CDATA[$P{endDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dateFormat">
+					<subreportParameterExpression><![CDATA[$P{dateFormat}]]></subreportParameterExpression>
 				</subreportParameter>
 				<subreportParameter name="monthStart">
 					<subreportParameterExpression><![CDATA[$P{monthStart}]]></subreportParameterExpression>

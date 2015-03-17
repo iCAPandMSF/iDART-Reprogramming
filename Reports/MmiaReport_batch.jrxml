@@ -3,7 +3,7 @@
 	<property name="ireport.scriptlethandling" value="0"/>
 	<property name="ireport.encoding" value="UTF-8"/>
 	<property name="ireport.zoom" value="3.0"/>
-	<property name="ireport.x" value="892"/>
+	<property name="ireport.x" value="1171"/>
 	<property name="ireport.y" value="0"/>
 	<import value="net.sf.jasperreports.engine.*"/>
 	<import value="java.util.*"/>
@@ -80,6 +80,8 @@ COALESCE(d.pill,0) as dispensedpills,
 COALESCE(g.adjusted,0) as adjusted,
 
 COALESCE(i.returned,0) as returned , COALESCE(i.pills,0) as returnedpills,
+
+COALESCE(j.fullcontainersremaining,0) as inventory,
 
 drug_expire.mindate
 
@@ -192,7 +194,17 @@ and
 drug.id=stock.drug and drug.name!='NULL'
 
  GROUP BY   drug.id, drug.name
- ) as drug_expire]]>
+ ) as drug_expire,
+(
+SELECT distinct d.id, d.name, s.drug, sl.fullcontainersremaining,sl.loosepillsremaining
+  FROM drug d
+  join stock s on d.id=s.drug
+  join stocklevel sl on s.id=sl.batch
+  join stockadjustment sa on sa.stock=s.id
+  where d.id = $P{id}
+and s.stockCenter = $P{stockCenterId}
+and sa.capturedate between $P{startDate}::timestamp and $P{endDate}::timestamp
+) as j]]>
 	</queryString>
 	<field name="received" class="java.lang.Long"/>
 	<field name="dispensed" class="java.lang.Long"/>
@@ -204,6 +216,7 @@ drug.id=stock.drug and drug.name!='NULL'
 	<field name="returned" class="java.lang.Integer"/>
 	<field name="returnedpills" class="java.lang.Integer"/>
 	<field name="mindate" class="java.lang.String"/>
+	<field name="inventory" class="java.lang.Integer"/>
 	<variable name="totalPills" class="java.lang.Long">
 		<variableExpression><![CDATA[new Long($F{openingpills}.longValue()  + ($F{received}.longValue()*$P{packsize}.intValue())
 - ($F{dispensed}.longValue()*$P{packsize}.intValue()) - $F{dispensedpills}.longValue()
@@ -216,8 +229,8 @@ drug.id=stock.drug and drug.name!='NULL'
 (new Long($V{totalPills}.longValue()/$P{packsize}.intValue())).toString()
 :(new Long($V{totalPills}.longValue()/$P{packsize}.intValue())).toString() + " ("+ (new Long($V{totalPills}.longValue()%$P{packsize}.intValue())).toString() +")"]]></variableExpression>
 	</variable>
-	<variable name="stocktake" class="java.lang.String">
-		<variableExpression><![CDATA[new Long(($V{totalPills}-$F{adjusted})/$P{packsize}).toString()]]></variableExpression>
+	<variable name="adjusted" class="java.lang.String">
+		<variableExpression><![CDATA[(new Long($F{inventory}.intValue()-$V{totalPills}.longValue()/$P{packsize}.intValue())).toString()]]></variableExpression>
 	</variable>
 	<background>
 		<band splitType="Stretch"/>
@@ -372,8 +385,7 @@ drug.id=stock.drug and drug.name!='NULL'
 				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[($F{adjusted}.intValue()%$P{packsize}.intValue())==0?new Integer($F{adjusted}.intValue()/$P{packsize}.intValue()).toString():
-(new Integer($F{adjusted}.intValue()/$P{packsize}.intValue()).toString() + " (" + new Integer($F{adjusted}.intValue()%$P{packsize}.intValue()).toString() + ")")]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{adjusted}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement key="line-29" x="522" y="-1" width="1" height="20"/>
@@ -398,7 +410,8 @@ drug.id=stock.drug and drug.name!='NULL'
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
 					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$V{stocktake}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{inventory}.intValue())==0?new Integer($F{inventory}.intValue()).toString():
+(new Integer($F{inventory}.intValue()).toString())]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="false">
 				<reportElement key="textField-11" x="524" y="2" width="40" height="16"/>
