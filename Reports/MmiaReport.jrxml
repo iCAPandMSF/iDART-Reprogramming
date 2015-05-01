@@ -6,8 +6,8 @@
 	<property name="ireport.x" value="320"/>
 	<property name="ireport.y" value="160"/>
 	<import value="net.sf.jasperreports.engine.*"/>
-	<import value="java.util.*"/>
 	<import value="net.sf.jasperreports.engine.data.*"/>
+	<import value="java.util.*"/>
 	<parameter name="path" class="java.lang.String">
 		<parameterDescription><![CDATA[Path for the report files]]></parameterDescription>
 		<defaultValueExpression><![CDATA["D://development//workspace//Pharmacy//Reports"]]></defaultValueExpression>

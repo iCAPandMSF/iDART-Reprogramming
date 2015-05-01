@@ -2,9 +2,9 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MmiaReport_batch3" pageWidth="265" pageHeight="430" columnWidth="265" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.scriptlethandling" value="0"/>
 	<property name="ireport.encoding" value="UTF-8"/>
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="192"/>
 	<import value="net.sf.jasperreports.engine.*"/>
 	<import value="java.util.*"/>
 	<import value="net.sf.jasperreports.engine.data.*"/>
@@ -51,17 +51,17 @@ sum(case when current_timestamp - pat.dateofbirth > interval '15 years' then 1 e
 sum(case when current_timestamp - pat.dateofbirth <= interval '15 years' then 1 else 0 end) as inichild
 from patient pat join prescription pres on pat.id=pres.patient join package pa on pres.id=pa.prescription
 join sector se on pres.sectorid=se.sectorid
-where pres.reasonforupdate='Novo' or pres.reasonforupdate='Reinício' and se.sectorname <> 'SMI/PTV' and se.sectorname <> 'PPE'
-and pa.pickupdate between $P{startDate}::timestamp and $P{endDate}::timestamp
-) as ini,
+where pa.pickupdate between $P{startDate}::timestamp and $P{endDate}::timestamp
+and pres.reasonforupdate='Novo' or pres.reasonforupdate='Reinício' ) as ini,
 (
 select
 sum(case when current_timestamp - pat.dateofbirth > interval '15 years' then 1 else 0 end) as manadult,
 sum(case when current_timestamp - pat.dateofbirth <= interval '15 years' then 1 else 0 end) as manchild
 from patient pat join prescription pres on pat.id=pres.patient join package pa on pres.id=pa.prescription
 join sector se on pres.sectorid=se.sectorid
-where pres.reasonforupdate='Manutenção' and se.sectorname <> 'SMI/PTV' and se.sectorname <> 'PPE'
-and pa.pickupdate between $P{startDate}::timestamp and $P{endDate}::timestamp
+where pa.pickupdate between $P{startDate}::timestamp and $P{endDate}::timestamp
+and pres.reasonforupdate='Manutenção'
+
 ) as man,
 (
 select
@@ -69,21 +69,19 @@ sum(case when current_timestamp - pat.dateofbirth > interval '15 years' then 1 e
 sum(case when current_timestamp - pat.dateofbirth <= interval '15 years' then 1 else 0 end) as altchild
 from patient pat join prescription pres on pat.id=pres.patient join package pa on pres.id=pa.prescription
 join sector se on pres.sectorid=se.sectorid
-where pres.reasonforupdate='Alteração' and se.sectorname <> 'SMI/PTV' and se.sectorname <> 'PPE'
-and pa.pickupdate between $P{startDate}::timestamp and $P{endDate}::timestamp
-) as alt,
+where pa.pickupdate between $P{startDate}::timestamp and $P{endDate}::timestamp
+and  pres.reasonforupdate='Alteração') as alt,
 (
 select count(pat.dateofbirth) as ptv from patient pat join prescription pres on pat.id=pres.patient join package pa on pres.id=pa.prescription
 join sector se on pres.sectorid=se.sectorid
-where se.sectorname = 'SMI/PTV'
-and pa.pickupdate between $P{startDate}::timestamp and $P{endDate}::timestamp
+where pa.pickupdate between $P{startDate}::timestamp and $P{endDate}::timestamp
+and se.sectorname = 'SMI/PTV'
 ) as ptv,
 (
 select count(pat.dateofbirth) as ppe from patient pat join prescription pres on pat.id=pres.patient join package pa on pres.id=pa.prescription
 join sector se on pres.sectorid=se.sectorid
-where se.sectorname = 'PPE'
-and pa.pickupdate between $P{startDate}::timestamp and $P{endDate}::timestamp
-) as ppe,
+where pa.pickupdate between $P{startDate}::timestamp and $P{endDate}::timestamp
+and se.sectorname = 'PPE') as ppe,
 
 (
 select
@@ -91,8 +89,8 @@ sum(case when current_timestamp - pat.dateofbirth > interval '15 years' then 1 e
 sum(case when current_timestamp - pat.dateofbirth <= interval '15 years' then 1 else 0 end) as transfchild
 from patient pat join prescription pres on pat.id=pres.patient join package pa on pres.id=pa.prescription
 join sector se on pres.sectorid=se.sectorid
-where pres.reasonforupdate='Transferido' and se.sectorname <> 'SMI/PTV' and se.sectorname <> 'PPE'
-and pa.pickupdate between $P{startDate}::timestamp and $P{endDate}::timestamp
+where pa.pickupdate between $P{startDate}::timestamp and $P{endDate}::timestamp
+and pres.reasonforupdate='Transferido'
 ) as transf]]>
 	</queryString>
 	<field name="iniadult" class="java.lang.Integer">
@@ -114,8 +112,6 @@ and pa.pickupdate between $P{startDate}::timestamp and $P{endDate}::timestamp
 	<variable name="totaladult" class="java.lang.Integer">
 		<variableExpression><![CDATA[new Integer(($F{manadult}==null?0:$F{manadult}.intValue())+
 ($F{iniadult}==null?0:$F{iniadult}.intValue())+
-($F{ptv}==null?0:$F{ptv}.intValue())+
-($F{ppe}==null?0:$F{ppe}.intValue())+
 ($F{altadult}==null?0:$F{altadult}.intValue())+
 ($F{transfadult}==null?0:$F{transfadult}.intValue()))]]></variableExpression>
 		<initialValueExpression><![CDATA[]]></initialValueExpression>
@@ -145,8 +141,6 @@ and pa.pickupdate between $P{startDate}::timestamp and $P{endDate}::timestamp
 	<variable name="totaltarv" class="java.lang.Integer">
 		<variableExpression><![CDATA[new Integer(($V{totalini}==null?0:$V{totalini}.intValue())+
 ($V{totalman}==null?0:$V{totalman}.intValue())+
-($F{ptv}==null?0:$F{ptv}.intValue())+
-($F{ppe}==null?0:$F{ppe}.intValue())+
 ($V{totalalt}==null?0:$V{totalalt}.intValue())+
 ($V{totaltransf}==null?0:$V{totaltransf}.intValue()))]]></variableExpression>
 	</variable>

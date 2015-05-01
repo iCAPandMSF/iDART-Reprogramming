@@ -117,7 +117,7 @@ public class DrugStockControlManager {
 					
 			amc = Math.max(firstMonthQty.intValue(), secondMonthQty.intValue());
 			amc = Math.max(amc, thirdMonthQty.intValue());
-			amc =Math.max(amc, CurrentMonthQty.intValue());
+			//amc =Math.max(amc, CurrentMonthQty.intValue());
 			
 			dsc.setAmc(amc);
 
@@ -154,6 +154,16 @@ public class DrugStockControlManager {
 	
 	private static Long quantityDrugDispensed(Session session,int drugId,Date startDate,Date endDate)
 	{
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(endDate);
+		
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.add(Calendar.DAY_OF_MONTH, 1);
+
+		Date endDateFinal = cal.getTime();
+		
 		Long qty = ((Long) session
 				.createQuery(
 						"select sum(pd.amount)/sum(pd.stock.drug.packSize) "

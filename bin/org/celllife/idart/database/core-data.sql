@@ -202,6 +202,15 @@ INSERT INTO simpledomain (id, description, name, value) VALUES (2, '', 'reason_f
 INSERT INTO simpledomain (id, description, name, value) VALUES (3, '', 'reason_for_update', 'Alteração');
 INSERT INTO simpledomain (id, description, name, value) VALUES (4, '', 'reason_for_update', 'Transferido');
 INSERT INTO simpledomain (id, description, name, value) VALUES (5, '', 'reason_for_update', 'Reinício');
+INSERT INTO simpledomain (id, description, name, value) VALUES (30, '', 'prescriptionDuration', '1 week');
+INSERT INTO simpledomain (id, description, name, value) VALUES (31, '', 'prescriptionDuration', '2 weeks');
+INSERT INTO simpledomain (id, description, name, value) VALUES (32, '', 'prescriptionDuration', '1 month');
+INSERT INTO simpledomain (id, description, name, value) VALUES (33, '', 'prescriptionDuration', '2 months');
+INSERT INTO simpledomain (id, description, name, value) VALUES (34, '', 'prescriptionDuration', '3 months');
+INSERT INTO simpledomain (id, description, name, value) VALUES (35, '', 'prescriptionDuration', '4 months');
+INSERT INTO simpledomain (id, description, name, value) VALUES (36, '', 'prescriptionDuration', '5 months');
+INSERT INTO simpledomain (id, description, name, value) VALUES (37, '', 'prescriptionDuration', '6 months');
+INSERT INTO simpledomain (id, description, name, value) VALUES (38, '', 'prescriptionDuration', '7 months');
 
 --Adult
 INSERT INTO regimeterapeutico (regimeid, linhaid, regimeesquema, adult, active) VALUES(1,1,'AZT+3TC+NVP',true ,true );

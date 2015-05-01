@@ -1,750 +1,134 @@
-17-03-2015 21:58:38 [main] ERROR ui.reportParameters.MmiaReport - java.lang.reflect.InvocationTargetException: Error running Report task
-17-03-2015 21:59:56 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 22:09:36 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 22:18:29 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 22:29:35 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 181
-17-03-2015 22:29:35 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 183
-17-03-2015 22:29:35 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 185
-17-03-2015 22:29:35 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 187
-17-03-2015 22:29:35 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 189
-17-03-2015 22:29:42 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 22:29:42 [Report task] ERROR gui.reportParameters.ReportJob - Error running Report task
-model.manager.excel.conversion.exceptions.ReportException: Error getting data source
-	at model.manager.reports.AbstractJasperReport.getDataSource(AbstractJasperReport.java:83)
-	at model.manager.reports.AbstractJasperReport.fillReport(AbstractJasperReport.java:146)
-	at org.celllife.idart.gui.reportParameters.ReportJob.performJob(ReportJob.java:28)
-	at org.celllife.idart.misc.AbstractCancellableJob$1.run(AbstractCancellableJob.java:39)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:137)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:66)
-	at org.postgresql.jdbc2.AbstractJdbc2Connection.<init>(AbstractJdbc2Connection.java:124)
-	at org.postgresql.jdbc3.AbstractJdbc3Connection.<init>(AbstractJdbc3Connection.java:30)
-	at org.postgresql.jdbc3.Jdbc3Connection.<init>(Jdbc3Connection.java:24)
-	at org.postgresql.Driver.makeConnection(Driver.java:386)
-	at org.postgresql.Driver.connect(Driver.java:260)
-	at java.sql.DriverManager.getConnection(DriverManager.java:582)
-	at java.sql.DriverManager.getConnection(DriverManager.java:185)
-	at org.celllife.idart.database.hibernate.util.JDBCUtil.currentSession(JDBCUtil.java:94)
-	at model.manager.reports.AbstractJasperReport.getDataSource(AbstractJasperReport.java:81)
-	... 4 more
-Caused by: java.net.SocketException: Connection reset
-	at java.net.SocketInputStream.read(SocketInputStream.java:168)
-	at org.postgresql.core.VisibleBufferedInputStream.readMore(VisibleBufferedInputStream.java:135)
-	at org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:104)
-	at org.postgresql.core.VisibleBufferedInputStream.read(VisibleBufferedInputStream.java:73)
-	at org.postgresql.core.PGStream.ReceiveChar(PGStream.java:259)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:254)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:95)
-	... 14 more
-17-03-2015 22:29:43 [main] ERROR ui.reportParameters.MmiaReport - java.lang.reflect.InvocationTargetException: Error running Report task
-17-03-2015 22:29:48 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:04:35 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:05:33 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:07:44 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:07:44 [Report task] ERROR ts.engine.fill.JRFillSubreport - Fill 13874478: exception
-net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:143)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.createQueryDatasource(JRFillDataset.java:686)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.initDatasource(JRFillDataset.java:606)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.setParameters(JRBaseFiller.java:1273)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:892)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at end of input
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1608)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1343)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:194)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:451)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:350)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:254)
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:137)
-	... 9 more
-17-03-2015 23:07:44 [Report task] ERROR gui.reportParameters.ReportJob - Error running Report task
-net.sf.jasperreports.engine.JRRuntimeException: net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.prepare(JRFillSubreport.java:710)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.prepareElements(JRFillElementContainer.java:329)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:419)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:378)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2018)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFiller.fillReport(JRFiller.java:58)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:417)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:378)
+30-04-2015 18:47:20 [main] INFO  dart.start.PharmacyApplication - 
+30-04-2015 18:47:20 [main] INFO  dart.start.PharmacyApplication - *********************
+30-04-2015 18:47:20 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
+30-04-2015 18:47:20 [main] INFO  dart.start.PharmacyApplication - *********************
+30-04-2015 18:47:20 [main] INFO  dart.start.PharmacyApplication - 
+30-04-2015 18:47:21 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
+30-04-2015 18:47:21 [main] ERROR dart.start.PharmacyApplication - Unable to load idart.properties file.
+java.lang.IllegalArgumentException: Input file does not exist or is a directory: C:\Users\Tassiofreitasguimara\git\iDART-Reprogramming\idart.properties
+	at org.celllife.idart.misc.PropertiesEncrypter.loadPropertiesFromFile(PropertiesEncrypter.java:136)
+	at org.celllife.idart.commonobjects.iDartProperties.setiDartProperties(iDartProperties.java:139)
+	at org.celllife.idart.start.PharmacyApplication.loadConstants(PharmacyApplication.java:260)
+	at org.celllife.idart.start.PharmacyApplication.main(PharmacyApplication.java:90)
+Caused by: java.io.FileNotFoundException: idart.properties (The system cannot find the file specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:120)
+	at org.celllife.idart.misc.PropertiesEncrypter.loadPropertiesFromFile(PropertiesEncrypter.java:134)
+	... 3 more
+30-04-2015 18:47:21 [main] DEBUG llife.idart.gui.login.LoginErr - Login Form Created
+30-04-2015 18:48:00 [main] INFO  dart.start.PharmacyApplication - 
+30-04-2015 18:48:00 [main] INFO  dart.start.PharmacyApplication - *********************
+30-04-2015 18:48:00 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
+30-04-2015 18:48:00 [main] INFO  dart.start.PharmacyApplication - *********************
+30-04-2015 18:48:00 [main] INFO  dart.start.PharmacyApplication - 
+30-04-2015 18:48:01 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
+30-04-2015 18:48:01 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
+30-04-2015 18:48:01 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
+30-04-2015 18:48:01 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+30-04-2015 18:48:02 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+30-04-2015 18:48:02 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+30-04-2015 18:48:03 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+30-04-2015 18:48:03 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+30-04-2015 18:48:03 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+30-04-2015 18:48:03 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+30-04-2015 18:48:04 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
+30-04-2015 18:48:04 [main] INFO                       liquibase - Successfully released change log lock
+30-04-2015 18:48:04 [main] INFO                       liquibase - Successfully acquired change log lock
+30-04-2015 18:48:05 [main] INFO                       liquibase - Reading from databasechangelog
+30-04-2015 18:48:05 [main] INFO                       liquibase - Reading from databasechangelog
+30-04-2015 18:48:06 [main] INFO                       liquibase - Successfully released change log lock
+30-04-2015 18:48:06 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+30-04-2015 18:48:06 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+30-04-2015 18:48:08 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
+30-04-2015 18:48:09 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
+30-04-2015 18:48:09 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@52eef4null null null null null null
+30-04-2015 18:48:09 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
+30-04-2015 18:48:09 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+30-04-2015 18:48:20 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+30-04-2015 18:48:21 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+30-04-2015 18:48:21 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+30-04-2015 18:48:21 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+30-04-2015 18:50:43 [Report task] INFO  l.manager.reports.PepfarReport - Reports\stockReceiptPerMonth.jasper not found, generating file from Reports\stockReceiptPerMonth.jrxml
+30-04-2015 18:50:43 [Report task] ERROR l.manager.reports.PepfarReport - 
+Time of crash Thu Apr 30 18:50:43 CAT 2015 Reports\stockReceiptPerMonth.jrxml not found! Missing Report File
+30-04-2015 18:50:43 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+30-04-2015 18:50:43 [Report task] ERROR gui.reportParameters.ReportJob - Error running Report task
+java.lang.NullPointerException
+	at java.io.ObjectInputStream$PeekInputStream.read(ObjectInputStream.java:2265)
+	at java.io.ObjectInputStream$PeekInputStream.readFully(ObjectInputStream.java:2278)
+	at java.io.ObjectInputStream$BlockDataInputStream.readShort(ObjectInputStream.java:2749)
+	at java.io.ObjectInputStream.readStreamHeader(ObjectInputStream.java:779)
+	at java.io.ObjectInputStream.<init>(ObjectInputStream.java:279)
+	at net.sf.jasperreports.engine.util.ContextClassLoaderObjectInputStream.<init>(ContextClassLoaderObjectInputStream.java:53)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:193)
+	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:376)
 	at model.manager.reports.AbstractJasperReport.fillReport(AbstractJasperReport.java:160)
 	at org.celllife.idart.gui.reportParameters.ReportJob.performJob(ReportJob.java:28)
 	at org.celllife.idart.misc.AbstractCancellableJob$1.run(AbstractCancellableJob.java:39)
 	at java.lang.Thread.run(Thread.java:662)
-Caused by: net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:143)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.createQueryDatasource(JRFillDataset.java:686)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.initDatasource(JRFillDataset.java:606)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.setParameters(JRBaseFiller.java:1273)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:892)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	... 1 more
-Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at end of input
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1608)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1343)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:194)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:451)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:350)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:254)
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:137)
-	... 9 more
-17-03-2015 23:07:45 [main] ERROR ui.reportParameters.MmiaReport - java.lang.reflect.InvocationTargetException: Error running Report task
-17-03-2015 23:07:48 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:07:48 [Report task] ERROR ts.engine.fill.JRFillSubreport - Fill 29516678: exception
-net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:143)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.createQueryDatasource(JRFillDataset.java:686)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.initDatasource(JRFillDataset.java:606)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.setParameters(JRBaseFiller.java:1273)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:892)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at end of input
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1608)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1343)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:194)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:451)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:350)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:254)
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:137)
-	... 9 more
-17-03-2015 23:07:48 [Report task] ERROR gui.reportParameters.ReportJob - Error running Report task
-net.sf.jasperreports.engine.JRRuntimeException: net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.prepare(JRFillSubreport.java:710)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.prepareElements(JRFillElementContainer.java:329)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:419)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:378)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2018)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFiller.fillReport(JRFiller.java:58)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:417)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:378)
-	at model.manager.reports.AbstractJasperReport.fillReport(AbstractJasperReport.java:160)
-	at org.celllife.idart.gui.reportParameters.ReportJob.performJob(ReportJob.java:28)
-	at org.celllife.idart.misc.AbstractCancellableJob$1.run(AbstractCancellableJob.java:39)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:143)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.createQueryDatasource(JRFillDataset.java:686)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.initDatasource(JRFillDataset.java:606)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.setParameters(JRBaseFiller.java:1273)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:892)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	... 1 more
-Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at end of input
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1608)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1343)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:194)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:451)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:350)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:254)
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:137)
-	... 9 more
-17-03-2015 23:07:49 [main] ERROR ui.reportParameters.MmiaReport - java.lang.reflect.InvocationTargetException: Error running Report task
-17-03-2015 23:08:38 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:08:38 [Report task] ERROR ts.engine.fill.JRFillSubreport - Fill 7323359: exception
-net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getColumnIndex(JRResultSetDataSource.java:355)
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getFieldValue(JRResultSetDataSource.java:112)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.setOldValues(JRFillDataset.java:823)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.next(JRFillDataset.java:787)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.next(JRBaseFiller.java:1474)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:125)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-17-03-2015 23:08:38 [Report task] ERROR gui.reportParameters.ReportJob - Error running Report task
-net.sf.jasperreports.engine.JRRuntimeException: net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.prepare(JRFillSubreport.java:710)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.prepareElements(JRFillElementContainer.java:329)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:419)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:378)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2018)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFiller.fillReport(JRFiller.java:58)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:417)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:378)
-	at model.manager.reports.AbstractJasperReport.fillReport(AbstractJasperReport.java:160)
-	at org.celllife.idart.gui.reportParameters.ReportJob.performJob(ReportJob.java:28)
-	at org.celllife.idart.misc.AbstractCancellableJob$1.run(AbstractCancellableJob.java:39)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getColumnIndex(JRResultSetDataSource.java:355)
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getFieldValue(JRResultSetDataSource.java:112)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.setOldValues(JRFillDataset.java:823)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.next(JRFillDataset.java:787)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.next(JRBaseFiller.java:1474)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:125)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	... 1 more
-17-03-2015 23:08:39 [main] ERROR ui.reportParameters.MmiaReport - java.lang.reflect.InvocationTargetException: Error running Report task
-17-03-2015 23:08:42 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:08:42 [Report task] ERROR ts.engine.fill.JRFillSubreport - Fill 8374432: exception
-net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getColumnIndex(JRResultSetDataSource.java:355)
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getFieldValue(JRResultSetDataSource.java:112)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.setOldValues(JRFillDataset.java:823)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.next(JRFillDataset.java:787)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.next(JRBaseFiller.java:1474)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:125)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-17-03-2015 23:08:42 [Report task] ERROR gui.reportParameters.ReportJob - Error running Report task
-net.sf.jasperreports.engine.JRRuntimeException: net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.prepare(JRFillSubreport.java:710)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.prepareElements(JRFillElementContainer.java:329)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:419)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:378)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2018)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFiller.fillReport(JRFiller.java:58)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:417)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:378)
-	at model.manager.reports.AbstractJasperReport.fillReport(AbstractJasperReport.java:160)
-	at org.celllife.idart.gui.reportParameters.ReportJob.performJob(ReportJob.java:28)
-	at org.celllife.idart.misc.AbstractCancellableJob$1.run(AbstractCancellableJob.java:39)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getColumnIndex(JRResultSetDataSource.java:355)
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getFieldValue(JRResultSetDataSource.java:112)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.setOldValues(JRFillDataset.java:823)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.next(JRFillDataset.java:787)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.next(JRBaseFiller.java:1474)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:125)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	... 1 more
-17-03-2015 23:08:43 [main] ERROR ui.reportParameters.MmiaReport - java.lang.reflect.InvocationTargetException: Error running Report task
-17-03-2015 23:10:01 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:10:02 [Report task] ERROR ts.engine.fill.JRFillSubreport - Fill 585058: exception
-net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getColumnIndex(JRResultSetDataSource.java:355)
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getFieldValue(JRResultSetDataSource.java:112)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.setOldValues(JRFillDataset.java:823)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.next(JRFillDataset.java:787)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.next(JRBaseFiller.java:1474)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:125)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-17-03-2015 23:10:02 [Report task] ERROR gui.reportParameters.ReportJob - Error running Report task
-net.sf.jasperreports.engine.JRRuntimeException: net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.prepare(JRFillSubreport.java:710)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.prepareElements(JRFillElementContainer.java:329)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:419)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:378)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2018)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFiller.fillReport(JRFiller.java:58)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:417)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:378)
-	at model.manager.reports.AbstractJasperReport.fillReport(AbstractJasperReport.java:160)
-	at org.celllife.idart.gui.reportParameters.ReportJob.performJob(ReportJob.java:28)
-	at org.celllife.idart.misc.AbstractCancellableJob$1.run(AbstractCancellableJob.java:39)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getColumnIndex(JRResultSetDataSource.java:355)
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getFieldValue(JRResultSetDataSource.java:112)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.setOldValues(JRFillDataset.java:823)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.next(JRFillDataset.java:787)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.next(JRBaseFiller.java:1474)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:125)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	... 1 more
-17-03-2015 23:10:02 [main] ERROR ui.reportParameters.MmiaReport - java.lang.reflect.InvocationTargetException: Error running Report task
-17-03-2015 23:10:05 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:10:05 [Report task] ERROR ts.engine.fill.JRFillSubreport - Fill 186704: exception
-net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getColumnIndex(JRResultSetDataSource.java:355)
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getFieldValue(JRResultSetDataSource.java:112)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.setOldValues(JRFillDataset.java:823)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.next(JRFillDataset.java:787)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.next(JRBaseFiller.java:1474)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:125)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-17-03-2015 23:10:05 [Report task] ERROR gui.reportParameters.ReportJob - Error running Report task
-net.sf.jasperreports.engine.JRRuntimeException: net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.prepare(JRFillSubreport.java:710)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.prepareElements(JRFillElementContainer.java:329)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:419)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:378)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2018)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFiller.fillReport(JRFiller.java:58)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:417)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:378)
-	at model.manager.reports.AbstractJasperReport.fillReport(AbstractJasperReport.java:160)
-	at org.celllife.idart.gui.reportParameters.ReportJob.performJob(ReportJob.java:28)
-	at org.celllife.idart.misc.AbstractCancellableJob$1.run(AbstractCancellableJob.java:39)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getColumnIndex(JRResultSetDataSource.java:355)
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getFieldValue(JRResultSetDataSource.java:112)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.setOldValues(JRFillDataset.java:823)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.next(JRFillDataset.java:787)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.next(JRBaseFiller.java:1474)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:125)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	... 1 more
-17-03-2015 23:10:06 [main] ERROR ui.reportParameters.MmiaReport - java.lang.reflect.InvocationTargetException: Error running Report task
-17-03-2015 23:13:28 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:13:28 [Report task] ERROR ts.engine.fill.JRFillSubreport - Fill 21324756: exception
-net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getColumnIndex(JRResultSetDataSource.java:355)
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getFieldValue(JRResultSetDataSource.java:112)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.setOldValues(JRFillDataset.java:823)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.next(JRFillDataset.java:787)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.next(JRBaseFiller.java:1474)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:125)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-17-03-2015 23:13:28 [Report task] ERROR gui.reportParameters.ReportJob - Error running Report task
-net.sf.jasperreports.engine.JRRuntimeException: net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.prepare(JRFillSubreport.java:710)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.prepareElements(JRFillElementContainer.java:329)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:419)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:378)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2018)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFiller.fillReport(JRFiller.java:58)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:417)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:378)
-	at model.manager.reports.AbstractJasperReport.fillReport(AbstractJasperReport.java:160)
-	at org.celllife.idart.gui.reportParameters.ReportJob.performJob(ReportJob.java:28)
-	at org.celllife.idart.misc.AbstractCancellableJob$1.run(AbstractCancellableJob.java:39)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getColumnIndex(JRResultSetDataSource.java:355)
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getFieldValue(JRResultSetDataSource.java:112)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.setOldValues(JRFillDataset.java:823)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.next(JRFillDataset.java:787)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.next(JRBaseFiller.java:1474)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:125)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	... 1 more
-17-03-2015 23:13:29 [main] ERROR ui.reportParameters.MmiaReport - java.lang.reflect.InvocationTargetException: Error running Report task
-17-03-2015 23:15:22 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:15:23 [Report task] ERROR ts.engine.fill.JRFillSubreport - Fill 8105452: exception
-net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:143)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.createQueryDatasource(JRFillDataset.java:686)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.initDatasource(JRFillDataset.java:606)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.setParameters(JRBaseFiller.java:1273)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:892)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: org.postgresql.util.PSQLException: ERROR: missing FROM-clause entry for table "j"
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1608)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1343)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:194)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:451)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:350)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:254)
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:137)
-	... 9 more
-17-03-2015 23:15:23 [Report task] ERROR gui.reportParameters.ReportJob - Error running Report task
-net.sf.jasperreports.engine.JRRuntimeException: net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.prepare(JRFillSubreport.java:710)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.prepareElements(JRFillElementContainer.java:329)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:419)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:378)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2018)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFiller.fillReport(JRFiller.java:58)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:417)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:378)
-	at model.manager.reports.AbstractJasperReport.fillReport(AbstractJasperReport.java:160)
-	at org.celllife.idart.gui.reportParameters.ReportJob.performJob(ReportJob.java:28)
-	at org.celllife.idart.misc.AbstractCancellableJob$1.run(AbstractCancellableJob.java:39)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:143)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.createQueryDatasource(JRFillDataset.java:686)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.initDatasource(JRFillDataset.java:606)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.setParameters(JRBaseFiller.java:1273)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:892)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	... 1 more
-Caused by: org.postgresql.util.PSQLException: ERROR: missing FROM-clause entry for table "j"
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1608)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1343)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:194)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:451)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:350)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:254)
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:137)
-	... 9 more
-17-03-2015 23:15:23 [main] ERROR ui.reportParameters.MmiaReport - java.lang.reflect.InvocationTargetException: Error running Report task
-17-03-2015 23:16:28 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:17:43 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:17:43 [Report task] ERROR ts.engine.fill.JRFillSubreport - Fill 19297332: exception
-net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getColumnIndex(JRResultSetDataSource.java:355)
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getFieldValue(JRResultSetDataSource.java:112)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.setOldValues(JRFillDataset.java:823)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.next(JRFillDataset.java:787)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.next(JRBaseFiller.java:1474)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:125)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-17-03-2015 23:17:43 [Report task] ERROR gui.reportParameters.ReportJob - Error running Report task
-net.sf.jasperreports.engine.JRRuntimeException: net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.prepare(JRFillSubreport.java:710)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.prepareElements(JRFillElementContainer.java:329)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:419)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:378)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2018)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFiller.fillReport(JRFiller.java:58)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:417)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:378)
-	at model.manager.reports.AbstractJasperReport.fillReport(AbstractJasperReport.java:160)
-	at org.celllife.idart.gui.reportParameters.ReportJob.performJob(ReportJob.java:28)
-	at org.celllife.idart.misc.AbstractCancellableJob$1.run(AbstractCancellableJob.java:39)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getColumnIndex(JRResultSetDataSource.java:355)
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getFieldValue(JRResultSetDataSource.java:112)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.setOldValues(JRFillDataset.java:823)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.next(JRFillDataset.java:787)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.next(JRBaseFiller.java:1474)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:125)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	... 1 more
-17-03-2015 23:17:44 [main] ERROR ui.reportParameters.MmiaReport - java.lang.reflect.InvocationTargetException: Error running Report task
-17-03-2015 23:17:46 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:17:47 [Report task] ERROR ts.engine.fill.JRFillSubreport - Fill 17710704: exception
-net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getColumnIndex(JRResultSetDataSource.java:355)
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getFieldValue(JRResultSetDataSource.java:112)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.setOldValues(JRFillDataset.java:823)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.next(JRFillDataset.java:787)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.next(JRBaseFiller.java:1474)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:125)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-17-03-2015 23:17:47 [Report task] ERROR gui.reportParameters.ReportJob - Error running Report task
-net.sf.jasperreports.engine.JRRuntimeException: net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.prepare(JRFillSubreport.java:710)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.prepareElements(JRFillElementContainer.java:329)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:419)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:378)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2018)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFiller.fillReport(JRFiller.java:58)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:417)
-	at net.sf.jasperreports.engine.JasperFillManager.fillReport(JasperFillManager.java:378)
-	at model.manager.reports.AbstractJasperReport.fillReport(AbstractJasperReport.java:160)
-	at org.celllife.idart.gui.reportParameters.ReportJob.performJob(ReportJob.java:28)
-	at org.celllife.idart.misc.AbstractCancellableJob$1.run(AbstractCancellableJob.java:39)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: net.sf.jasperreports.engine.JRException: Unknown column name : inventory
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getColumnIndex(JRResultSetDataSource.java:355)
-	at net.sf.jasperreports.engine.JRResultSetDataSource.getFieldValue(JRResultSetDataSource.java:112)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.setOldValues(JRFillDataset.java:823)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.next(JRFillDataset.java:787)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.next(JRBaseFiller.java:1474)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:125)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	... 1 more
-17-03-2015 23:17:47 [main] ERROR ui.reportParameters.MmiaReport - java.lang.reflect.InvocationTargetException: Error running Report task
-17-03-2015 23:18:58 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:20:27 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:29:19 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:44:03 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:46:15 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:46:15 [MmiaReport_batch4 subreport filler] ERROR ts.engine.fill.JRFillSubreport - Fill 28878511: exception
-net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:143)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.createQueryDatasource(JRFillDataset.java:686)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.initDatasource(JRFillDataset.java:606)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.setParameters(JRBaseFiller.java:1273)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:892)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "select"
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1608)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1343)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:194)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:451)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:350)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:254)
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:137)
-	... 9 more
-17-03-2015 23:46:15 [Report task] ERROR ts.engine.fill.JRFillSubreport - Fill 25949987: exception
-net.sf.jasperreports.engine.JRRuntimeException: net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.prepare(JRFillSubreport.java:710)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.prepareElements(JRFillElementContainer.java:329)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:419)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:378)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2018)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:143)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.createQueryDatasource(JRFillDataset.java:686)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.initDatasource(JRFillDataset.java:606)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.setParameters(JRBaseFiller.java:1273)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:892)
-	... 5 more
-Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "select"
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1608)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1343)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:194)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:451)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:350)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:254)
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:137)
-	... 9 more
-17-03-2015 23:46:15 [Report task] ERROR gui.reportParameters.ReportJob - Error running Report task
-net.sf.jasperreports.engine.JRRuntimeException: net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.prepare(JRFillSubreport.java:710)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.prepareElements(JRFillElementContainer.java:329)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:419)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:378)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2018)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:143)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.createQueryDatasource(JRFillDataset.java:686)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.initDatasource(JRFillDataset.java:606)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.setParameters(JRBaseFiller.java:1273)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:892)
-	... 5 more
-Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "select"
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1608)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1343)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:194)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:451)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:350)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:254)
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:137)
-	... 9 more
-17-03-2015 23:46:16 [main] ERROR ui.reportParameters.MmiaReport - java.lang.reflect.InvocationTargetException: Error running Report task
-17-03-2015 23:46:18 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:46:18 [MmiaReport_batch4 subreport filler] ERROR ts.engine.fill.JRFillSubreport - Fill 8242379: exception
-net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:143)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.createQueryDatasource(JRFillDataset.java:686)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.initDatasource(JRFillDataset.java:606)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.setParameters(JRBaseFiller.java:1273)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:892)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "select"
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1608)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1343)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:194)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:451)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:350)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:254)
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:137)
-	... 9 more
-17-03-2015 23:46:18 [Report task] ERROR ts.engine.fill.JRFillSubreport - Fill 7795881: exception
-net.sf.jasperreports.engine.JRRuntimeException: net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.prepare(JRFillSubreport.java:710)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.prepareElements(JRFillElementContainer.java:329)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:419)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:378)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2018)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:143)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.createQueryDatasource(JRFillDataset.java:686)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.initDatasource(JRFillDataset.java:606)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.setParameters(JRBaseFiller.java:1273)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:892)
-	... 5 more
-Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "select"
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1608)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1343)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:194)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:451)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:350)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:254)
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:137)
-	... 9 more
-17-03-2015 23:46:18 [Report task] ERROR gui.reportParameters.ReportJob - Error running Report task
-net.sf.jasperreports.engine.JRRuntimeException: net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.prepare(JRFillSubreport.java:710)
-	at net.sf.jasperreports.engine.fill.JRFillElementContainer.prepareElements(JRFillElementContainer.java:329)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:419)
-	at net.sf.jasperreports.engine.fill.JRFillBand.fill(JRFillBand.java:378)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2018)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
-	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
-	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
-	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
-	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
-	at java.lang.Thread.run(Thread.java:662)
-Caused by: net.sf.jasperreports.engine.JRException: Error executing SQL statement for : MmiaReport_batch
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:143)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.createQueryDatasource(JRFillDataset.java:686)
-	at net.sf.jasperreports.engine.fill.JRFillDataset.initDatasource(JRFillDataset.java:606)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.setParameters(JRBaseFiller.java:1273)
-	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:892)
-	... 5 more
-Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near "select"
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:1608)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1343)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:194)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:451)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:350)
-	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:254)
-	at net.sf.jasperreports.engine.query.JRJdbcQueryExecuter.createDatasource(JRJdbcQueryExecuter.java:137)
-	... 9 more
-17-03-2015 23:46:19 [main] ERROR ui.reportParameters.MmiaReport - java.lang.reflect.InvocationTargetException: Error running Report task
-17-03-2015 23:48:10 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-17-03-2015 23:50:28 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-18-03-2015 00:09:42 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-18-03-2015 00:15:25 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-18-03-2015 00:17:05 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
-18-03-2015 00:18:30 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+30-04-2015 18:50:44 [main] ERROR Parameters.MonthlyStockReceipt - java.lang.reflect.InvocationTargetException: Error running Report task
+30-04-2015 18:54:39 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+30-04-2015 19:23:15 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
+30-04-2015 19:23:27 [main] INFO  i.prescription.AddPrescription - Saved Prescription for Patient: 265
+30-04-2015 19:23:28 [main] INFO  t.gui.composite.PillCountTable - Creating PillCountTable
+01-05-2015 19:15:26 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
+01-05-2015 19:15:26 [main] DEBUG dart.start.PharmacyApplication - Logged out..
+01-05-2015 19:15:26 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+01-05-2015 20:24:48 [main] INFO  dart.start.PharmacyApplication - 
+01-05-2015 20:24:48 [main] INFO  dart.start.PharmacyApplication - *********************
+01-05-2015 20:24:48 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
+01-05-2015 20:24:48 [main] INFO  dart.start.PharmacyApplication - *********************
+01-05-2015 20:24:48 [main] INFO  dart.start.PharmacyApplication - 
+01-05-2015 20:25:00 [main] INFO  dart.start.PharmacyApplication - 
+01-05-2015 20:25:00 [main] INFO  dart.start.PharmacyApplication - *********************
+01-05-2015 20:25:00 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
+01-05-2015 20:25:00 [main] INFO  dart.start.PharmacyApplication - *********************
+01-05-2015 20:25:00 [main] INFO  dart.start.PharmacyApplication - 
+01-05-2015 20:25:01 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
+01-05-2015 20:25:01 [main] WARN  .commonobjects.iDartProperties - Property: localeLanguage is null
+01-05-2015 20:25:01 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
+01-05-2015 20:25:01 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:25:02 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:25:02 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:25:02 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:25:02 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:25:02 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:25:02 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:25:03 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
+01-05-2015 20:25:03 [main] INFO                       liquibase - Successfully released change log lock
+01-05-2015 20:25:03 [main] INFO                       liquibase - Successfully acquired change log lock
+01-05-2015 20:25:04 [main] INFO                       liquibase - Reading from databasechangelog
+01-05-2015 20:25:04 [main] INFO                       liquibase - Reading from databasechangelog
+01-05-2015 20:25:04 [main] INFO                       liquibase - Successfully released change log lock
+01-05-2015 20:25:04 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:25:04 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:25:06 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
+01-05-2015 20:25:06 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
+01-05-2015 20:25:06 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@1cd2197null null null null null null
+01-05-2015 20:25:06 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
+01-05-2015 20:25:06 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+01-05-2015 20:25:11 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+01-05-2015 20:25:11 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+01-05-2015 20:25:11 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+01-05-2015 20:25:11 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+01-05-2015 20:26:03 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:27:58 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:28:14 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:28:31 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:29:05 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:29:27 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:30:13 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:30:47 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:31:04 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:31:19 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:31:30 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:32:21 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:32:35 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+01-05-2015 20:34:37 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
+01-05-2015 20:34:37 [main] DEBUG dart.start.PharmacyApplication - Logged out..
+01-05-2015 20:34:37 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+01-05-2015 20:34:38 [main] INFO  dart.start.PharmacyApplication - 
+01-05-2015 20:34:38 [main] INFO  dart.start.PharmacyApplication - *********************
+01-05-2015 20:34:38 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
+01-05-2015 20:34:39 [main] INFO  dart.start.PharmacyApplication - *********************
+01-05-2015 20:34:39 [main] INFO  dart.start.PharmacyApplication - 
