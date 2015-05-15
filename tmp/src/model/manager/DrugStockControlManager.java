@@ -164,16 +164,15 @@ public class DrugStockControlManager {
 
 		Date endDateFinal = cal.getTime();
 		
-		Double qtyDecimals = ((Double) session
+		Long qty = ((Long) session
 				.createQuery(
-						"select sum(pd.amount)/avg(pd.stock.drug.packSize) "
+						"select sum(pd.amount)/sum(pd.stock.drug.packSize) "
 						+ "from PackagedDrugs pd where pd.stock.drug = :drug "
 						+ "and pd.parentPackage.packDate between :startDate and :endDate "
 						+ "and pd.parentPackage.prescription is not null ")
 						.setInteger("drug", drugId).setDate("startDate", startDate).setDate(
 										"endDate", endDate).uniqueResult());
-		Long qty = qtyDecimals == null ? new Long(0) : qtyDecimals.longValue();
-		return qty;
+		return qty == null ? new Long(0) : qty;
 	}
 	
 	private static Long getExistingStock(Session session,int drugId)
