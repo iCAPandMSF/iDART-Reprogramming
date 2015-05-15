@@ -189,8 +189,8 @@ public class LinkChemcialCompundsToAtcCodes_3_8_7 implements CustomSqlChange {
 			insertChemicalCompoundIfNeeded(con, statements, "Pleconaril", null);
 			getMappingStatement(statements, 54, "Pleconaril");
 
-			insertChemicalCompoundIfNeeded(con, statements, "Enfuvirtide","ENF");
-			getMappingStatement(statements, 55, "Enfuvirtide");
+			//insertChemicalCompoundIfNeeded(con, statements, "Enfuvirtide","ENF");
+			//getMappingStatement(statements, 55, "Enfuvirtide");
 
 			insertChemicalCompoundIfNeeded(con, statements, "Raltegravir", null);
 			getMappingStatement(statements, 56, "Raltegravir");
