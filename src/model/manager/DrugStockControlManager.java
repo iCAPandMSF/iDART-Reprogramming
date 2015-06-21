@@ -110,44 +110,48 @@ public class DrugStockControlManager {
 		
 		for(DrugStockControl dsc : drugStockControls)
 		{
-			firstMonthQty = quantityDrugDispensed(session, dsc.getDrugId(), startFirstMonth, endFirstMonth);
-			secondMonthQty = quantityDrugDispensed(session, dsc.getDrugId(), startSecondMonth, endSecondMonth);
-			thirdMonthQty = quantityDrugDispensed(session, dsc.getDrugId(), startThirdMonth, endThirdMonth);
-			CurrentMonthQty=quantityDrugDispensed(session, dsc.getDrugId(), startCurrentMonth, endCurrentMonth);
-					
-			amc = Math.max(firstMonthQty.intValue(), secondMonthQty.intValue());
-			amc = Math.max(amc, thirdMonthQty.intValue());
-			//amc =Math.max(amc, CurrentMonthQty.intValue());
-			
-			dsc.setAmc(amc);
-
-			existingQuantity = getExistingStock(session,dsc.getDrugId());
-			
-			dsc.setExistingStock(existingQuantity.intValue());
-			
-			orderQuantity = amc*3 - existingQuantity < 0 ? 0 : amc*3 - existingQuantity;
-			
-			dsc.setOrderQuantity(orderQuantity.intValue());
-			
-			riskStatus = "Normal stock";
-			if(existingQuantity <= amc/3)
+			if(dsc.getDrugId()==36744)
 			{
-				riskStatus = "Pending rupture";
-			}
-			else
-			{
-				if(existingQuantity <= amc)
+				firstMonthQty = quantityDrugDispensed(session, dsc.getDrugId(), startFirstMonth, endFirstMonth);
+				secondMonthQty = quantityDrugDispensed(session, dsc.getDrugId(), startSecondMonth, endSecondMonth);
+				thirdMonthQty = quantityDrugDispensed(session, dsc.getDrugId(), startThirdMonth, endThirdMonth);
+				CurrentMonthQty=quantityDrugDispensed(session, dsc.getDrugId(), startCurrentMonth, endCurrentMonth);
+						
+				amc = Math.max(firstMonthQty.intValue(), secondMonthQty.intValue());
+				amc = Math.max(amc, thirdMonthQty.intValue());
+				//amc =Math.max(amc, CurrentMonthQty.intValue());
+				
+				dsc.setAmc(amc);
+	
+				existingQuantity = getExistingStock(session,dsc.getDrugId());
+				
+				dsc.setExistingStock(existingQuantity.intValue());
+				
+				orderQuantity = amc*3 - existingQuantity < 0 ? 0 : amc*3 - existingQuantity;
+				
+				dsc.setOrderQuantity(orderQuantity.intValue());
+				
+				riskStatus = "Normal stock";
+				if(existingQuantity <= amc/3)
 				{
-					riskStatus = "Risk rupture";
+					riskStatus = "Pending rupture";
 				}
-				if(existingQuantity > amc*2)
+				else
 				{
-					riskStatus = "OverStock";
+					if(existingQuantity <= amc)
+					{
+						riskStatus = "Risk rupture";
+					}
+					if(existingQuantity > amc*2)
+					{
+						riskStatus = "OverStock";
+					}
 				}
+				
+				dsc.setRiskStatus(riskStatus);
+				session.save(dsc);
 			}
 			
-			dsc.setRiskStatus(riskStatus);
-			session.save(dsc);
 		}
 		session.flush();
 	}
@@ -171,7 +175,7 @@ public class DrugStockControlManager {
 						+ "and pd.parentPackage.packDate between :startDate and :endDate "
 						+ "and pd.parentPackage.prescription is not null ")
 						.setInteger("drug", drugId).setDate("startDate", startDate).setDate(
-										"endDate", endDate).uniqueResult());
+										"endDate", endDateFinal).uniqueResult());
 		return qty == null ? new Long(0) : qty.longValue();
 	}
 	
