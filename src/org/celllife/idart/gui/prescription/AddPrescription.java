@@ -258,6 +258,13 @@ public class AddPrescription extends GenericFormGui implements
 				txtPatientId.setFocus();
 				txtPatientId.setText("");
 			} else {
+								
+								if(PatientManager.getLastPatientViralLoad(hSession, pat).getHighViralLoad() && !PatientManager.getLastPatientViralLoad(hSession, pat).getRecommendedToCounselor())
+								{
+									JOptionPane.showMessageDialog(null, Messages.getString("patient.viralload.highviralloard.no.recommendation.alert"));
+									return ;
+								}
+								
 				thePatient = pat;
 				checkFirstPrescription();
 				loadPatientDetails();
@@ -1422,7 +1429,12 @@ public class AddPrescription extends GenericFormGui implements
 		}
 
 		try {
-
+						
+						if(PatientManager.getLastPatientViralLoad(hSession, thePatient).getHighViralLoad())
+						{
+							JOptionPane.showMessageDialog(null, Messages.getString("patient.viralload.highviralloard.alert"));
+						}
+						
 			txtPatientId.setText(thePatient.getPatientId());
 			txtName.setText(thePatient.getFirstNames());
 			txtSurname.setText(thePatient.getLastname());
@@ -1584,6 +1596,13 @@ public class AddPrescription extends GenericFormGui implements
 
 		if (identifier != null) {
 			thePatient = identifier.getPatient();
+						
+						if(PatientManager.getLastPatientViralLoad(hSession, thePatient).getHighViralLoad() && !PatientManager.getLastPatientViralLoad(hSession, thePatient).getRecommendedToCounselor())
+						{
+							JOptionPane.showMessageDialog(null, Messages.getString("patient.viralload.highviralloard.no.recommendation.alert"));
+							return ;
+						}
+						
 			txtPatientId.setText(thePatient.getPatientId());
 
 			if (!thePatient.getAccountStatusWithCheck()) {

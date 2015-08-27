@@ -40,6 +40,7 @@ import org.celllife.idart.database.hibernate.AccumulatedDrugs;
 import org.celllife.idart.database.hibernate.Appointment;
 import org.celllife.idart.database.hibernate.AttributeType;
 import org.celllife.idart.database.hibernate.Clinic;
+import org.celllife.idart.database.hibernate.DrugStockControl;
 import org.celllife.idart.database.hibernate.Episode;
 import org.celllife.idart.database.hibernate.IdentifierType;
 import org.celllife.idart.database.hibernate.Logging;
@@ -47,6 +48,7 @@ import org.celllife.idart.database.hibernate.PackagedDrugs;
 import org.celllife.idart.database.hibernate.Packages;
 import org.celllife.idart.database.hibernate.Patient;
 import org.celllife.idart.database.hibernate.PatientAttribute;
+import org.celllife.idart.database.hibernate.PatientViralLoad;
 import org.celllife.idart.database.hibernate.Pregnancy;
 import org.celllife.idart.database.hibernate.Prescription;
 import org.hibernate.HibernateException;
@@ -1114,4 +1116,11 @@ public class PatientManager {
 		
 		return list;
 	}
+		public static PatientViralLoad getLastPatientViralLoad(Session session, Patient patient)
+		{
+			Query query = session.createQuery("SELECT pvl  FROM patientviralload as pvl where pvl.patient.id = :patid order by id desc");
+			query.setInteger("patid", patient.getId());
+			query.setMaxResults(1);
+			return (PatientViralLoad) query.list().get(0);
+		}
 }

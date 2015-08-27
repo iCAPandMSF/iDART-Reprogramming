@@ -175,5 +175,34 @@
 			</column>
 		</createTable>
 	</changeSet>
+	<changeSet author="simon@cell-life.org" id="3.8.17">
+		<comment>add patientviralload table</comment>
+		<createTable tableName="patientviralload">
+			<column name="id" type="int">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="patient_id" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="highviralload" type="boolean">
+				<constraints nullable="false" />
+			</column>
+			<column name="resultdate" type="date">
+				<constraints nullable="true" />
+			</column>
+			<column name="recommendedtocounselor" type="boolean">
+				<constraints nullable="false" />
+			</column>
+			<column name="counselingdate" type="date">
+				<constraints nullable="true" />
+			</column>
+			<column name="belongsgaac" type="boolean">
+				<constraints nullable="false" />
+			</column>
+			<column name="gaacnumber" type="int">
+				<constraints nullable="true" />
+			</column>
+		</createTable>
+	</changeSet>
 </databaseChangeLog>
 

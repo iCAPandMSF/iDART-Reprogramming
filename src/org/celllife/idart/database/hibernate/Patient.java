@@ -26,6 +26,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -125,6 +126,10 @@ public class Patient {
 			org.hibernate.annotations.CascadeType.DELETE_ORPHAN })
 	private Set<PatientIdentifier> patientIdentifiers;
 
+	@OneToMany(mappedBy = "patient")
+	@Cascade( { org.hibernate.annotations.CascadeType.ALL,
+			org.hibernate.annotations.CascadeType.DELETE_ORPHAN })
+		private Set<PatientViralLoad> patientViralLoads;
 
 	public Patient() {
 		super();
@@ -981,6 +986,15 @@ public class Patient {
 		}
 		return null;
 	}
+	public Set<PatientViralLoad> getPatientViralLoads() 
+		{
+			return patientViralLoads;
+		}
+	
+		public void setPatientViralLoads(Set<PatientViralLoad> patientViralLoads) 
+		{
+			this.patientViralLoads = patientViralLoads;
+		}
 	
 	@Override
 	public String toString() {

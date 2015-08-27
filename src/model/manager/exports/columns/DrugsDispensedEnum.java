@@ -35,8 +35,19 @@ public enum DrugsDispensedEnum {
 	
 	arvStartDate("ARV Start Date", Date.class, 17),
 	
-	expectedRunoutDate("Expected runout date", Date.class,17);
+	expectedRunoutDate("Expected runout date", Date.class,17),
+		
+	highViralLoad("High Viral Load ?",Boolean.class, 19),
+		
+	viralLoadDate("Date of Viral Load",Date.class, 17),
+		
+	gaac("GAAC ?",Boolean.class, 15),
+		
+	gaacNumber("GAAC Number",Integer.class, 15),
+		
+	Referred("Referred ?", Boolean.class, 15),
 	
+	ReferredDate("Referred Date", Date.class, 17);
 	
 	private String title;
 

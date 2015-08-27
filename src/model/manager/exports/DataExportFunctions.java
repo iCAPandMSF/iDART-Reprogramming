@@ -26,7 +26,9 @@ import model.nonPersistent.ExportPackageInfo;
 
 import org.apache.log4j.Logger;
 import org.celllife.idart.commonobjects.iDartProperties;
+import org.celllife.idart.database.hibernate.PatientViralLoad;
 import org.celllife.idart.misc.iDARTUtil;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 public class DataExportFunctions {
@@ -65,7 +67,9 @@ public class DataExportFunctions {
 	private List<Integer> patientIdPregnantAtDate;
 	// Map<PatientID, Date>
 	protected Map<Integer, Date> expectedRunoutDates;
-
+	// List<PatientViralLoad>>>
+	private List<PatientViralLoad> patientIdViralLoad;
+	
 	private static final char SEPERATOR_REPLACEMENT = ';';
 
 	private Integer scriptId;
@@ -144,7 +148,11 @@ public class DataExportFunctions {
 			expectedRunoutDates.clear();
 			expectedRunoutDates = null;
 		}
-
+		if (patientIdViralLoad != null) {
+			patientIdViralLoad.clear();
+			patientIdViralLoad = null;
+		}
+					
 		patientCounter = 0;
 		entitySet = null;
 		patientId = null;
@@ -181,6 +189,9 @@ public class DataExportFunctions {
 			}
 			if (expectedRunoutDates != null) {
 				expectedRunoutDates.remove(this.patientId);
+			}
+			if (patientIdViralLoad != null) {
+				patientIdViralLoad.remove(this.patientId);
 			}
 		}
 
@@ -1074,6 +1085,18 @@ public class DataExportFunctions {
 			return o.toString();
 	}
 
+	public PatientViralLoad getLastPatientViralLoad(Session session, Integer patientId)
+		{
+			Query query = session.createQuery("SELECT pvl  FROM patientviralload as pvl where pvl.patient.id = :patid order by id desc");
+			query.setInteger("patid", patientId);
+			query.setMaxResults(1);
+			return (PatientViralLoad) query.list().get(0);
+		}
+		
+		public PatientViralLoad getLastPatientViralLoad(Integer patientId){
+			
+			return getLastPatientViralLoad(sess, patientId);
+		}
 	/**
 	 * replaceSubstr, replaces all instances of oldStr found in str with newStr.
 	 * this method exists already in the String class, but is recreated for

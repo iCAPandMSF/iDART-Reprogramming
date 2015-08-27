@@ -110,8 +110,7 @@ public class DrugStockControlManager {
 		
 		for(DrugStockControl dsc : drugStockControls)
 		{
-			if(dsc.getDrugId()==36744)
-			{
+			
 				firstMonthQty = quantityDrugDispensed(session, dsc.getDrugId(), startFirstMonth, endFirstMonth);
 				secondMonthQty = quantityDrugDispensed(session, dsc.getDrugId(), startSecondMonth, endSecondMonth);
 				thirdMonthQty = quantityDrugDispensed(session, dsc.getDrugId(), startThirdMonth, endThirdMonth);
@@ -150,7 +149,7 @@ public class DrugStockControlManager {
 				
 				dsc.setRiskStatus(riskStatus);
 				session.save(dsc);
-			}
+			
 			
 		}
 		session.flush();
