@@ -3,10 +3,12 @@ package model.manager.exports;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -1090,7 +1092,8 @@ public class DataExportFunctions {
 			Query query = session.createQuery("SELECT pvl  FROM patientviralload as pvl where pvl.patient.id = :patid order by id desc");
 			query.setInteger("patid", patientId);
 			query.setMaxResults(1);
-			return (PatientViralLoad) query.list().get(0);
+			Calendar c = new GregorianCalendar(1900,0,1);
+			return query.list().size()>0 ? (PatientViralLoad) query.list().get(0) : new PatientViralLoad(false, new java.sql.Date(c.getTimeInMillis()), false, new java.sql.Date(c.getTimeInMillis()), false, new Integer(0));
 		}
 		
 		public PatientViralLoad getLastPatientViralLoad(Integer patientId){

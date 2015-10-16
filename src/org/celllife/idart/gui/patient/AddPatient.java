@@ -1309,10 +1309,10 @@ public class AddPatient extends GenericFormGui implements iDARTChangeListener {
 			getHSession().flush();
 			tx.commit();
 
-						if(PatientManager.getLastPatientViralLoad(hSession, localPatient).getHighViralLoad())
-							{
-								JOptionPane.showMessageDialog(null, Messages.getString("patient.viralload.highviralloard.alert"));
-							}
+			if(PatientManager.getLastPatientViralLoad(hSession, localPatient)!=null && PatientManager.getLastPatientViralLoad(hSession, localPatient).getHighViralLoad())
+			{
+				JOptionPane.showMessageDialog(null, Messages.getString("patient.viralload.highviralloard.alert"));
+			}
 						
 			MessageBox m = new MessageBox(getShell(), SWT.OK | SWT.ICON_INFORMATION);
 			m.setText(Messages.getString("patient.save.confirmation.title")); //$NON-NLS-1$

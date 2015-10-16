@@ -24,6 +24,18 @@ public class PatientViralLoad {
 		private Boolean belongsGaac;
 		private Integer gaacNumber;
 		
+		public PatientViralLoad(Boolean highViralLoad, Date resultDate,
+				Boolean recommendedToCounselor, Date counselingDate,
+				Boolean belongsGaac, Integer gaacNumber) {
+			this.highViralLoad = highViralLoad;
+			this.resultDate = resultDate;
+			this.recommendedToCounselor = recommendedToCounselor;
+			this.counselingDate = counselingDate;
+			this.belongsGaac = belongsGaac;
+			this.gaacNumber = gaacNumber;
+		}
+		public PatientViralLoad() {
+		}
 		public Integer getId() {
 			return id;
 		}

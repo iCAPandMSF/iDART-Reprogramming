@@ -259,7 +259,7 @@ public class AddPrescription extends GenericFormGui implements
 				txtPatientId.setText("");
 			} else {
 								
-								if(PatientManager.getLastPatientViralLoad(hSession, pat).getHighViralLoad() && !PatientManager.getLastPatientViralLoad(hSession, pat).getRecommendedToCounselor())
+								if(PatientManager.getLastPatientViralLoad(hSession, pat)!=null && PatientManager.getLastPatientViralLoad(hSession, pat).getHighViralLoad() && !PatientManager.getLastPatientViralLoad(hSession, pat).getRecommendedToCounselor())
 								{
 									JOptionPane.showMessageDialog(null, Messages.getString("patient.viralload.highviralloard.no.recommendation.alert"));
 									return ;
@@ -1430,7 +1430,7 @@ public class AddPrescription extends GenericFormGui implements
 
 		try {
 						
-						if(PatientManager.getLastPatientViralLoad(hSession, thePatient).getHighViralLoad())
+						if(PatientManager.getLastPatientViralLoad(hSession, thePatient)!=null && PatientManager.getLastPatientViralLoad(hSession, thePatient).getHighViralLoad())
 						{
 							JOptionPane.showMessageDialog(null, Messages.getString("patient.viralload.highviralloard.alert"));
 						}

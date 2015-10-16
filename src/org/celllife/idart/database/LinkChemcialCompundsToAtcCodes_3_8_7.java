@@ -165,8 +165,8 @@ public class LinkChemcialCompundsToAtcCodes_3_8_7 implements CustomSqlChange {
 			insertChemicalCompoundIfNeeded(con, statements, "Clevudine", null);
 			getMappingStatement(statements, 37, "Clevudine");
 
-			insertChemicalCompoundIfNeeded(con, statements, "Delavirdine","DLV");
-			getMappingStatement(statements, 39, "Delavirdine");
+			// insertChemicalCompoundIfNeeded(con, statements, "Delavirdine","DLV");
+			// getMappingStatement(statements, 39, "Delavirdine");
 
 			insertChemicalCompoundIfNeeded(con, statements, "Etravirine", null);
 			getMappingStatement(statements, 41, "Etravirine");
@@ -198,8 +198,8 @@ public class LinkChemcialCompundsToAtcCodes_3_8_7 implements CustomSqlChange {
 			insertChemicalCompoundIfNeeded(con, statements, "Maraviroc", null);
 			getMappingStatement(statements, 57, "Maraviroc");
 
-			insertChemicalCompoundIfNeeded(con, statements, "Maribavir", "MBV");
-			getMappingStatement(statements, 58, "Maribavir");
+			// insertChemicalCompoundIfNeeded(con, statements, "Maribavir", "MBV");
+			// getMappingStatement(statements, 58, "Maribavir");
 
 			/*
 			 * combinations

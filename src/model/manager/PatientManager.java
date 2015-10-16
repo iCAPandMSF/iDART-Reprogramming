@@ -1121,6 +1121,6 @@ public class PatientManager {
 			Query query = session.createQuery("SELECT pvl  FROM patientviralload as pvl where pvl.patient.id = :patid order by id desc");
 			query.setInteger("patid", patient.getId());
 			query.setMaxResults(1);
-			return (PatientViralLoad) query.list().get(0);
+			return query.list().size()> 0 ? (PatientViralLoad) query.list().get(0) : null;
 		}
 }
