@@ -1123,4 +1123,17 @@ public class PatientManager {
 			query.setMaxResults(1);
 			return query.list().size()> 0 ? (PatientViralLoad) query.list().get(0) : null;
 		}
+		
+		public static PatientViralLoad getLastPatientViralLoad(Session session, Integer patientId)
+		{
+			Query query = session.createQuery("SELECT pvl  FROM patientviralload as pvl where pvl.patient.id = :patid order by id desc");
+			query.setInteger("patid", patientId);
+			query.setMaxResults(1);
+			return query.list().size()> 0 ? (PatientViralLoad) query.list().get(0) : null;
+		}
+		
+		public static void addPatientViralLoad(Session session, PatientViralLoad patientViralLoad)
+		{
+			session.save(patientViralLoad);
+		}
 }

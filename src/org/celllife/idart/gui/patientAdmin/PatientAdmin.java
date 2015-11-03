@@ -19,11 +19,35 @@
 
 package org.celllife.idart.gui.patientAdmin;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+
+import javax.swing.JOptionPane;
+
+import model.manager.PatientManager;
+import model.manager.importData.PatientViralLoadDataImport;
+
 import org.apache.log4j.Logger;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DateUtil;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.celllife.idart.commonobjects.iDartProperties;
+import org.celllife.idart.database.hibernate.PatientViralLoad;
+import org.celllife.idart.database.hibernate.util.HibernateUtil;
 import org.celllife.idart.gui.patient.AddPatient;
 import org.celllife.idart.gui.patient.MergePatients;
 import org.celllife.idart.gui.patient.ShowPAVAS;
+import org.celllife.idart.gui.patient.tabs.IPatientTab;
 import org.celllife.idart.gui.platform.GenericAdminGui;
 import org.celllife.idart.gui.platform.GenericFormGui;
 import org.celllife.idart.gui.prescription.AddPrescription;
@@ -33,6 +57,7 @@ import org.celllife.idart.gui.utils.iDartFont;
 import org.celllife.idart.gui.utils.iDartImage;
 import org.celllife.idart.messages.Messages;
 import org.celllife.idart.misc.Screens;
+import org.celllife.idart.misc.SafeSaveDialog.FileType;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
@@ -41,8 +66,13 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  */
@@ -58,6 +88,10 @@ public class PatientAdmin extends GenericAdminGui {
 	private Button btnPatientHistoryReport;
 
 	private Button btnMergePatients;
+	
+	private Button btnExportPatientViralLoad;
+
+	private Button btnImportPatientViralLoad;
 
 	private Label lblPicPatientAdd;
 
@@ -70,6 +104,10 @@ public class PatientAdmin extends GenericAdminGui {
 	private Label lblPicMergePatients;
 
 	private Label lblPicPatientVisitsandStats;
+	
+	private Label lblExportPatientViralLoad;
+
+	private Label lblImportPatientViralLoad;
 
 	private Button btnPatientVisitsandStats;
 
@@ -118,16 +156,16 @@ public class PatientAdmin extends GenericAdminGui {
 		compOptions.setLayout(rowLayout);
 
 		GridLayout gl = new GridLayout(2, false);
-		gl.verticalSpacing = 30;
+		gl.verticalSpacing = 15;
 		Composite compOptionsInner = new Composite(compOptions, SWT.NONE);
 		compOptionsInner.setLayout(gl);
 
 		GridData gdPic = new GridData();
-		gdPic.heightHint = 43;
+		gdPic.heightHint = 35;
 		gdPic.widthHint = 50;
 
 		GridData gdBtn = new GridData();
-		gdBtn.heightHint = 40;
+		gdBtn.heightHint = 30;
 		gdBtn.widthHint = 360;
 
 		// lblPicPatientAdd
@@ -307,10 +345,201 @@ public class PatientAdmin extends GenericAdminGui {
 				cmdViewPAVASWidgetSelected2();
 			}
 		});
+		
+		// lblExportPatientViralLoad
+		lblExportPatientViralLoad = new Label(compOptionsInner, SWT.NONE);
+		lblExportPatientViralLoad.setLayoutData(gdPic);
+		lblExportPatientViralLoad
+				.setImage(ResourceUtils.getImage(iDartImage.PATIENTUPDATE));
+		lblExportPatientViralLoad.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseUp(MouseEvent mu) {
+				cmdExportPatientViralLoad();
+			}
+		});
+
+		// btnExportPatientViralLoad
+		btnExportPatientViralLoad = new Button(compOptionsInner, SWT.NONE);
+		btnExportPatientViralLoad.setData(iDartProperties.SWTBOT_KEY,
+				Screens.ADD_PATIENT.getAccessButtonId());
+		btnExportPatientViralLoad.setText(Messages
+				.getString("PatientAdmin.button.exportPatient")); //$NON-NLS-1$
+		btnExportPatientViralLoad.setFont(ResourceUtils.getFont(iDartFont.VERASANS_10));
+		btnExportPatientViralLoad.setToolTipText(Messages
+				.getString("PatientAdmin.button.addNewPatient.tooltip")); //$NON-NLS-1$
+		btnExportPatientViralLoad.setLayoutData(gdBtn);
+		btnExportPatientViralLoad
+				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+					@Override
+					public void widgetSelected(
+							org.eclipse.swt.events.SelectionEvent e) {
+						cmdExportPatientViralLoad();
+					}
+				});
+		
+		// lblImportPatientViralLoad
+		lblImportPatientViralLoad = new Label(compOptionsInner, SWT.NONE);
+		lblImportPatientViralLoad.setLayoutData(gdPic);
+		lblImportPatientViralLoad.setImage(ResourceUtils
+				.getImage(iDartImage.PATIENTNEW));
+		lblImportPatientViralLoad.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseUp(MouseEvent mu) {
+				cmdImportPatientViralLoad();
+			}
+		});
+
+		// btnImportPatientViralLoad
+		btnImportPatientViralLoad = new Button(compOptionsInner, SWT.NONE);
+		btnImportPatientViralLoad.setData(iDartProperties.SWTBOT_KEY,
+				Screens.ADD_PATIENT.getAccessButtonId());
+		btnImportPatientViralLoad.setText(Messages
+				.getString("PatientAdmin.button.importPatient")); //$NON-NLS-1$
+		btnImportPatientViralLoad.setFont(ResourceUtils
+				.getFont(iDartFont.VERASANS_10));
+		btnImportPatientViralLoad.setToolTipText(Messages
+				.getString("PatientAdmin.button.addNewPatient.tooltip")); //$NON-NLS-1$
+		btnImportPatientViralLoad.setLayoutData(gdBtn);
+		btnImportPatientViralLoad
+				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+					@Override
+					public void widgetSelected(
+							org.eclipse.swt.events.SelectionEvent e) {
+						cmdImportPatientViralLoad();
+					}
+				});
 
 		compOptions.layout();
 		compOptionsInner.layout();
 
+	}
+
+	protected void cmdExportPatientViralLoad() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	protected void cmdImportPatientViralLoad() {
+		FileDialog dlg = new FileDialog(getShell(), SWT.SAVE);
+		dlg.setFilterExtensions(FileType.EXCEL.getFilterExtensions());
+		dlg.setFilterNames(FileType.EXCEL.getFilterNames());
+		String fileName = dlg.open();
+		if (fileName == null){
+			return;
+		}
+		importPatientViralLoad(fileName);
+	}
+	
+	private void importPatientViralLoad(String fileName)
+	{
+		ArrayList<PatientViralLoadDataImport> patients = new ArrayList<PatientViralLoadDataImport> ();
+		int rowErrors=0;
+		Session sess=HibernateUtil.getNewSession();
+		try
+        {
+            FileInputStream file = new FileInputStream(new File(fileName));
+ 
+            //Create Workbook instance holding reference to .xlsx file
+            Workbook workbook = WorkbookFactory.create(file);
+ 
+            //Get first/desired sheet from the workbook
+            Sheet sheet = workbook.getSheetAt(0);
+ 
+            //Iterate through each rows one by one
+            Iterator<Row> rowIterator = sheet.iterator();
+            Integer patientId;
+            Boolean highViralLoad;
+        	Date resultDate;
+        	Row row = rowIterator.next();
+        	
+            while (rowIterator.hasNext())
+            {
+            	try{
+	                row = rowIterator.next();
+	                //For each row, iterate through all the columns
+	                Iterator<Cell> cellIterator = row.cellIterator();
+	                
+	                Cell cell = cellIterator.next();
+	                
+	                patientId= new Integer((int) cell.getNumericCellValue());
+	                
+	                cell = cellIterator.next();
+	                cell = cellIterator.next();
+	                cell = cellIterator.next();
+	                cell = cellIterator.next();
+	                cell = cellIterator.next();
+	                
+	                highViralLoad= cell.getStringCellValue().equalsIgnoreCase("Sim") ? true : false; 
+	                
+	                cell = cellIterator.next();
+	                
+	                resultDate = DateUtil.getJavaDate(cell.getNumericCellValue());
+	                patients.add(new PatientViralLoadDataImport(patientId,highViralLoad,resultDate));
+            	}catch(Exception e)
+            	{
+            		e.printStackTrace();
+            		rowErrors++;
+            	}
+            	System.out.println("");
+            }
+            file.close();    
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+		
+		PatientViralLoad latestViralLoad;
+		for(PatientViralLoadDataImport patientDataImport : patients)
+		{
+			try
+			{
+				latestViralLoad = PatientManager.getLastPatientViralLoad(sess, patientDataImport.getId());
+				if(latestViralLoad==null)
+				{
+					latestViralLoad = new PatientViralLoad();
+					latestViralLoad.setHighViralLoad(patientDataImport.getHighViralLoad());
+					latestViralLoad.setBelongsGaac(false);
+					latestViralLoad.setRecommendedToCounselor(false);
+					latestViralLoad.setResultDate(new java.sql.Date(patientDataImport.getResultDate().getTime()));
+					latestViralLoad.setCounselingDate(null);
+					latestViralLoad.setGaacNumber(Integer.parseInt("0"));
+					latestViralLoad.setPatient(PatientManager.getPatient(sess, patientDataImport.getId()));
+				}
+				else
+				{
+					latestViralLoad.setHighViralLoad(patientDataImport.getHighViralLoad());
+					latestViralLoad.setResultDate(new java.sql.Date(patientDataImport.getResultDate().getTime()));
+				}
+				
+				Transaction tx = null;
+
+				try {
+
+					tx = sess.beginTransaction();
+
+					PatientManager.addPatientViralLoad(sess, latestViralLoad);
+
+					sess.flush();
+					tx.commit();
+
+				} catch (HibernateException he) {
+					if (tx != null) {
+						tx.rollback();
+					}
+				}
+					
+			}catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		String message=Messages.getString("PatientAdmin.button.importPatient.error1")+" "+rowErrors+" "
+		+Messages.getString("PatientAdmin.button.importPatient.error2")+
+		patients.size()+Messages.getString("PatientAdmin.button.importPatient.success");
+		JOptionPane.showMessageDialog(null, message);
+		
 	}
 
 	private void cmdAddPatientWidgetSelected() {
