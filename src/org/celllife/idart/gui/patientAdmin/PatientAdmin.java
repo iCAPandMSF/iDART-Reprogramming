@@ -21,6 +21,7 @@ package org.celllife.idart.gui.patientAdmin;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,6 +31,9 @@ import java.util.Iterator;
 import javax.swing.JOptionPane;
 
 import model.manager.PatientManager;
+import model.manager.excel.reports.in.BooleanConverter;
+import model.manager.excel.reports.in.DateConverter;
+import model.manager.excel.reports.out.PatientVLSheet;
 import model.manager.importData.PatientViralLoadDataImport;
 
 import org.apache.log4j.Logger;
@@ -56,6 +60,7 @@ import org.celllife.idart.gui.utils.ResourceUtils;
 import org.celllife.idart.gui.utils.iDartFont;
 import org.celllife.idart.gui.utils.iDartImage;
 import org.celllife.idart.messages.Messages;
+import org.celllife.idart.misc.SafeSaveDialog;
 import org.celllife.idart.misc.Screens;
 import org.celllife.idart.misc.SafeSaveDialog.FileType;
 import org.eclipse.swt.SWT;
@@ -64,6 +69,7 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.program.Program;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.FileDialog;
@@ -415,7 +421,21 @@ public class PatientAdmin extends GenericAdminGui {
 	}
 
 	protected void cmdExportPatientViralLoad() {
-		// TODO Auto-generated method stub
+		SafeSaveDialog dialog = new SafeSaveDialog(getShell(), FileType.EXCEL);
+		String fileName = dialog.open();
+		if (fileName == null){
+			return;
+		}
+		PatientVLSheet sheet = new PatientVLSheet("Sheet1");
+		Session session = HibernateUtil.getNewSession();
+		try {
+			sheet.write(session,fileName,2);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		session.close();
+		Program.launch(fileName);
 		
 	}
 
@@ -469,11 +489,14 @@ public class PatientAdmin extends GenericAdminGui {
 	                cell = cellIterator.next();
 	                cell = cellIterator.next();
 	                
-	                highViralLoad= cell.getStringCellValue().equalsIgnoreCase("Sim") ? true : false; 
+	                highViralLoad= (new BooleanConverter()).convert(cell.getStringCellValue());
+	                		//cell.getStringCellValue().equalsIgnoreCase("Sim") ? true : false; 
 	                
 	                cell = cellIterator.next();
 	                
-	                resultDate = DateUtil.getJavaDate(cell.getNumericCellValue());
+	                resultDate = cell.getDateCellValue();
+	                		//(new DateConverter()).convert(cell.getNumericCellValue());
+	                		//DateUtil.getJavaDate(cell.getNumericCellValue());
 	                patients.add(new PatientViralLoadDataImport(patientId,highViralLoad,resultDate));
             	}catch(Exception e)
             	{

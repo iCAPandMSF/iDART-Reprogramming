@@ -300,6 +300,15 @@ public class PatientManager {
 		return patients;
 	}
 
+	public static List<Patient> getAllPatients(Session session, int c)
+			throws HibernateException {
+		@SuppressWarnings("unchecked")
+		List<Patient> patients = session
+				.createQuery(
+						"select patient from Patient as patient where patient.clinic.id = :clinicId")
+				.setInteger("clinicId", c).list();
+		return patients;
+	}
 	/**
 	 * Method getAllPatientsWithScripts.
 	 * 
