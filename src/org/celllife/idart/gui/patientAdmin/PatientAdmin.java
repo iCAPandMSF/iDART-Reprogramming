@@ -512,27 +512,34 @@ public class PatientAdmin extends GenericAdminGui {
             e.printStackTrace();
         }
 		
-		PatientViralLoad latestViralLoad;
+		PatientViralLoad latestViralLoad, newViralLoad;
 		for(PatientViralLoadDataImport patientDataImport : patients)
 		{
 			try
 			{
 				latestViralLoad = PatientManager.getLastPatientViralLoad(sess, patientDataImport.getId());
+				newViralLoad = new PatientViralLoad();
 				if(latestViralLoad==null)
 				{
-					latestViralLoad = new PatientViralLoad();
-					latestViralLoad.setHighViralLoad(patientDataImport.getHighViralLoad());
-					latestViralLoad.setBelongsGaac(false);
-					latestViralLoad.setRecommendedToCounselor(false);
-					latestViralLoad.setResultDate(new java.sql.Date(patientDataImport.getResultDate().getTime()));
-					latestViralLoad.setCounselingDate(null);
-					latestViralLoad.setGaacNumber(Integer.parseInt("0"));
-					latestViralLoad.setPatient(PatientManager.getPatient(sess, patientDataImport.getId()));
+					newViralLoad = new PatientViralLoad();
+					newViralLoad.setHighViralLoad(patientDataImport.getHighViralLoad());
+					newViralLoad.setBelongsGaac(false);
+					newViralLoad.setRecommendedToCounselor(false);
+					newViralLoad.setResultDate(new java.sql.Date(patientDataImport.getResultDate().getTime()));
+					newViralLoad.setCounselingDate(null);
+					newViralLoad.setGaacNumber(Integer.parseInt("0"));
+					newViralLoad.setPatient(PatientManager.getPatient(sess, patientDataImport.getId()));
 				}
 				else
 				{
-					latestViralLoad.setHighViralLoad(patientDataImport.getHighViralLoad());
-					latestViralLoad.setResultDate(new java.sql.Date(patientDataImport.getResultDate().getTime()));
+					newViralLoad = new PatientViralLoad();
+					newViralLoad.setHighViralLoad(patientDataImport.getHighViralLoad());
+					newViralLoad.setBelongsGaac(latestViralLoad.getBelongsGaac());
+					newViralLoad.setRecommendedToCounselor(latestViralLoad.getRecommendedToCounselor());
+					newViralLoad.setResultDate(new java.sql.Date(patientDataImport.getResultDate().getTime()));
+					newViralLoad.setCounselingDate(latestViralLoad.getCounselingDate());
+					newViralLoad.setGaacNumber(latestViralLoad.getGaacNumber());
+					newViralLoad.setPatient(PatientManager.getPatient(sess, patientDataImport.getId()));
 				}
 				
 				Transaction tx = null;
@@ -541,7 +548,7 @@ public class PatientAdmin extends GenericAdminGui {
 
 					tx = sess.beginTransaction();
 
-					PatientManager.addPatientViralLoad(sess, latestViralLoad);
+					PatientManager.addPatientViralLoad(sess, newViralLoad);
 
 					sess.flush();
 					tx.commit();
