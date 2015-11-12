@@ -16,11 +16,15 @@ public class BooleanConverter implements ImportConverter<Boolean> {
 		trueValues.add("yes");
 		trueValues.add("true");
 		trueValues.add("t");
+		trueValues.add("s");
+		trueValues.add("sim");
 		
 		falseValues.add("n");
 		falseValues.add("no");
 		falseValues.add("false");
 		falseValues.add("f");
+		falseValues.add("nao");
+		falseValues.add("não");
 	}
 	
 	@Override

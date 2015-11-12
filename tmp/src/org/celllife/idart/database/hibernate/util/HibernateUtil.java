@@ -52,6 +52,7 @@ import org.celllife.idart.database.hibernate.PatientAttribute;
 import org.celllife.idart.database.hibernate.PatientIdentifier;
 import org.celllife.idart.database.hibernate.PatientStatTypes;
 import org.celllife.idart.database.hibernate.PatientStatistic;
+import org.celllife.idart.database.hibernate.PatientViralLoad;
 import org.celllife.idart.database.hibernate.PatientVisit;
 import org.celllife.idart.database.hibernate.PatientVisitReason;
 import org.celllife.idart.database.hibernate.PillCount;
@@ -180,6 +181,7 @@ public class HibernateUtil {
 		ac.addAnnotatedClass(LinhaT.class);
 		ac.addAnnotatedClass(RegimeTerapeuticoDrugs.class);
 		ac.addAnnotatedClass(Sector.class);
+		ac.addAnnotatedClass(PatientViralLoad.class);
 		sessionFactory = ac.buildSessionFactory();
 	}
 

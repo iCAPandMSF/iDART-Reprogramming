@@ -13,6 +13,7 @@ import model.manager.PatientManager;
 
 
 
+
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFFont;
@@ -20,6 +21,7 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CreationHelper;
 import org.apache.poi.ss.usermodel.Row;
 import org.celllife.idart.database.hibernate.Patient;
 import org.hibernate.Session;
@@ -62,6 +64,7 @@ public class PatientVLSheet
         HSSFRow rowhead = sheet.createRow(0); 
         HSSFCellStyle styleHeader = workbook.createCellStyle();
         HSSFCellStyle style = workbook.createCellStyle();
+        HSSFCellStyle DateStyle = workbook.createCellStyle();
         HSSFFont fontHeader = workbook.createFont();
         HSSFFont font = workbook.createFont();
         
@@ -69,13 +72,21 @@ public class PatientVLSheet
         styleHeader.setBorderTop(HSSFCellStyle.BORDER_THIN);
         styleHeader.setBorderRight(HSSFCellStyle.BORDER_THIN);
         styleHeader.setBorderLeft(HSSFCellStyle.BORDER_THIN);
-        style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+        styleHeader.setAlignment(HSSFCellStyle.ALIGN_CENTER);
         
         style.setBorderBottom(HSSFCellStyle.BORDER_THIN);
         style.setBorderTop(HSSFCellStyle.BORDER_THIN);
         style.setBorderRight(HSSFCellStyle.BORDER_THIN);
         style.setBorderLeft(HSSFCellStyle.BORDER_THIN);
         style.setAlignment(HSSFCellStyle.ALIGN_LEFT);
+        
+        CreationHelper createHelper=workbook.getCreationHelper();
+        DateStyle.setDataFormat(createHelper.createDataFormat().getFormat("dd/mm/yyyy"));
+        DateStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN);
+        DateStyle.setBorderTop(HSSFCellStyle.BORDER_THIN);
+        DateStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);
+        DateStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);
+        DateStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
         
         fontHeader.setFontName(HSSFFont.FONT_ARIAL);
         fontHeader.setFontHeightInPoints((short)11);
@@ -117,10 +128,14 @@ public class PatientVLSheet
                     cell.setCellValue((String)obj);
                 else if(obj instanceof Integer)
                     cell.setCellValue((Integer)obj);
-                else if (obj instanceof Date)
+                else if (obj instanceof Date){
                 	cell.setCellValue((Date)obj);
+                	cell.setCellStyle(DateStyle);
+                }
+
             }
         }
+        
         
         for (int i=0; i<10; i++){
         	   sheet.autoSizeColumn(i);

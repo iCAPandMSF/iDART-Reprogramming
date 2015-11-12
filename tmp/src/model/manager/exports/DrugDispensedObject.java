@@ -1,5 +1,7 @@
 package model.manager.exports;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -116,7 +118,20 @@ public class DrugDispensedObject extends AbstractExportObject implements Cloneab
 			case arvStartDate:
 				return functions.getPatientAttribute(PatientAttributeInterface.ARV_START_DATE);
 			case expectedRunoutDate:
-				return functions.getPackageDetailForCurrentPackage(PackageDetailsEnum.EXPECTED_RUNOUT_DATE.toString());
+				return functions.getPackageDetailForCurrentPackage(PackageDetailsEnum.EXPECTED_RUNOUT_DATE.toString());				
+			case highViralLoad:				
+				return (functions.getLastPatientViralLoad((Integer)functions.getPatientField("Patient", "id"))).getHighViralLoad()? "yes" : "no";
+			case viralLoadDate:
+				return new Timestamp(((functions.getLastPatientViralLoad((Integer)functions.getPatientField("Patient", "id"))).getResultDate()).getTime());
+			case gaac:
+				return (functions.getLastPatientViralLoad((Integer)functions.getPatientField("Patient", "id"))).getBelongsGaac()? "yes" : "no";
+			case gaacNumber:
+				return (functions.getLastPatientViralLoad((Integer)functions.getPatientField("Patient", "id"))).getGaacNumber();
+			case Referred:
+				return (functions.getLastPatientViralLoad((Integer)functions.getPatientField("Patient", "id"))).getRecommendedToCounselor()? "yes" : "no";
+			case ReferredDate:
+				return new Timestamp(((functions.getLastPatientViralLoad((Integer)functions.getPatientField("Patient", "id"))).getCounselingDate()).getTime());
+								
 			default:
 				return null;
 			}
