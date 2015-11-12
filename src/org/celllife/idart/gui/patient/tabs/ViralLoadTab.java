@@ -59,7 +59,7 @@ public class ViralLoadTab extends GenericTab implements IPatientTab {
 			latestViralLoad.setResultDate(btnTestResultDate.getDate()==null ? null : new java.sql.Date(btnTestResultDate.getDate().getTime()));
 			latestViralLoad.setCounselingDate(btnCounselingDate.getDate()==null ? null : new java.sql.Date(btnCounselingDate.getDate().getTime()));
 			latestViralLoad.setGaacNumber(Integer.parseInt((txtGaacNumber.getText().equals("") ? "0" : txtGaacNumber.getText())));
-			patient.getPatientViralLoads().add(latestViralLoad);
+			patient.getPatientViralLoads().add(latestViralLoad);//se o patient não existe na base de dados há stress 
 		}
 	}
 

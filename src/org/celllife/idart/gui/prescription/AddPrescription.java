@@ -1597,7 +1597,7 @@ public class AddPrescription extends GenericFormGui implements
 		if (identifier != null) {
 			thePatient = identifier.getPatient();
 						
-						if(PatientManager.getLastPatientViralLoad(hSession, thePatient).getHighViralLoad() && !PatientManager.getLastPatientViralLoad(hSession, thePatient).getRecommendedToCounselor())
+						if(!(PatientManager.getLastPatientViralLoad(hSession, thePatient)==null) && PatientManager.getLastPatientViralLoad(hSession, thePatient).getHighViralLoad() && !PatientManager.getLastPatientViralLoad(hSession, thePatient).getRecommendedToCounselor())// adicionar um if especial
 						{
 							JOptionPane.showMessageDialog(null, Messages.getString("patient.viralload.highviralloard.no.recommendation.alert"));
 							return ;
